@@ -8,7 +8,7 @@ describe('Testing CSS style', () => {
         expect(
             css({
                 backgroundColor: '#ecf0f1',
-                layout: LayoutPattern.large,
+                pattern: LayoutPattern.large,
                 opacity: '1',
                 colorPattern: '#eaeaea',
                 fontColor: '#e64a19',

@@ -1,4 +1,4 @@
-import { ConfigOptions } from '../typings/types'
+import { ConfigOptions, LayoutMode, LayoutPattern } from '../typings/types'
 
 export const CONFIG: Readonly<ConfigOptions> = {
     dev: {
@@ -12,6 +12,10 @@ export const CONFIG: Readonly<ConfigOptions> = {
             width: '100%',
             height: '100%',
         },
+        layoutOptions: {
+            mode: LayoutMode.light,
+            pattern: LayoutPattern.large,
+        },
     },
     prod: {
         colorOptions: {
@@ -23,6 +27,10 @@ export const CONFIG: Readonly<ConfigOptions> = {
         imageOptions: {
             width: '100%',
             height: '100%',
+        },
+        layoutOptions: {
+            mode: LayoutMode.light,
+            pattern: LayoutPattern.large,
         },
     },
 }

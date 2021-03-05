@@ -1,4 +1,4 @@
-export enum ModePattern {
+export enum LayoutMode {
     dark = 'dark',
     light = 'light',
 }
@@ -13,30 +13,26 @@ export type LayoutOperator = (fill: string, opacity: string) => string
 
 export type LayoutMapper = { [K in LayoutPattern]: LayoutOperator }
 
-export type WeatherData = {
+export type LayoutData = {
     /**
-     * Quote identifier
+     * Weather data
      */
-    id?: string
+    data: string
     /**
-     * Quote text
+     * Weather link
      */
-    quote: string
-    /**
-     * Quote author
-     */
-    author: string
+    link: string
 }
 
 export interface ParsedRequest {
     /**
      * Layout mode
      */
-    mode?: ModePattern | undefined
+    mode?: LayoutMode | undefined
     /**
-     * Layout category
+     * Layout pattern
      */
-    layout?: LayoutPattern | undefined
+    pattern?: LayoutPattern | undefined
     /**
      * Quote image width
      */
@@ -83,7 +79,7 @@ export interface ColorOptions {
     /**
      * Image background layout
      */
-    readonly layout?: LayoutPattern
+    readonly pattern?: LayoutPattern | undefined
 }
 
 export interface ImageOptions {
@@ -97,12 +93,23 @@ export interface ImageOptions {
     readonly height: string
 }
 
-export enum Profile {
+export interface LayoutOptions {
+    /**
+     * Layout pattern
+     */
+    readonly pattern: LayoutPattern
+    /**
+     * Layout mode
+     */
+    readonly mode: LayoutMode
+}
+
+export enum ConfigProfile {
     dev = 'dev',
     prod = 'prod',
 }
 
-export interface WidgetOptions {
+export interface ProfileOptions {
     /**
      * Color configuration options.
      */
@@ -111,11 +118,15 @@ export interface WidgetOptions {
      * Image configuration options.
      */
     readonly imageOptions: ImageOptions
+    /**
+     * Layout configuration options.
+     */
+    readonly layoutOptions: LayoutOptions
 }
 
 /**
  * Profile configuration options.
  */
 export type ConfigOptions = {
-    readonly [K in Profile]: WidgetOptions
+    readonly [K in ConfigProfile]: ProfileOptions
 }

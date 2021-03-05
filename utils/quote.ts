@@ -1,4 +1,11 @@
-import { ColorOptions, ImageOptions, ModePattern, ParsedRequest, WeatherData } from '../typings/types'
+import {
+    ColorOptions,
+    ImageOptions,
+    LayoutMode,
+    LayoutOptions,
+    ParsedRequest,
+    LayoutData,
+} from '../typings/types'
 import gradient from 'gradient-string'
 import randomColor from 'randomcolor'
 
@@ -7,23 +14,25 @@ import { css } from './getCss'
 import { profile } from './env'
 
 export async function weatherRenderer(parsedRequest: ParsedRequest): Promise<string> {
-    const { mode, width, height, ...rest } = parsedRequest
+    const { pattern, mode, width, height, ...rest } = parsedRequest
 
-    const colorOptions: ColorOptions = mergeProps(profile.colorOptions, rest)
+    const layoutOptions: LayoutOptions = mergeProps(profile.layoutOptions, { pattern, mode })
     const imageOptions: ImageOptions = mergeProps(profile.imageOptions, { width, height })
+    const colorOptions: ColorOptions = mergeProps(profile.colorOptions, rest)
 
     console.log(
         `
         ${gradient(randomColor(), randomColor())(delim)}
         Generating quote with parameters:
         mode=${mode},
-        colorOptions=${toFormatString(colorOptions)}
-        imageOptions=${toFormatString(imageOptions)}
+        layout options=${toFormatString(layoutOptions)}
+        image options=${toFormatString(imageOptions)}
+        color options=${toFormatString(colorOptions)}
         ${gradient(randomColor(), randomColor())(delim)}
         `
     )
 
-    const widget: WeatherData = getLayoutData(mode)
+    const layoutData: LayoutData = getLayoutData(mode)
 
     return `
     <svg
@@ -35,9 +44,9 @@ export async function weatherRenderer(parsedRequest: ParsedRequest): Promise<str
               <div class="quote-wrapper">
                 <div class="quote-wrapper-desc">
                   <div class="line"></div>
-                  <p class="font-monserratRegular">${widget.quote}</p>
+                  <p class="font-monserratRegular">${layoutData.data}</p>
                   <div class="line"></div>
-                  <h3 class="font-monserrat700">${widget.author}</h3>
+                  <h3 class="font-monserrat700">${layoutData.link}</h3>
                 </div>
               </div>
             </div>
@@ -47,8 +56,8 @@ export async function weatherRenderer(parsedRequest: ParsedRequest): Promise<str
   `
 }
 
-const getLayoutData = (mode: string | undefined): WeatherData => {
+const getLayoutData = (mode: string | undefined): LayoutData => {
     const layouts = []
-    const data: WeatherData[] = mode ? layouts[mode] : layouts[randomEnum(ModePattern)]
+    const data: LayoutData[] = mode ? layouts[mode] : layouts[randomEnum(LayoutMode)]
     return randomElement(data)
 }

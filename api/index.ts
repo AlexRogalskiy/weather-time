@@ -2,15 +2,15 @@ import { NowRequest, NowResponse, VercelResponse } from '@vercel/node'
 
 import { weatherRenderer } from '../utils/quote'
 import { toString } from '../utils/commons'
-import { ModePattern, LayoutPattern } from '../typings/types'
+import { LayoutMode, LayoutPattern } from '../typings/types'
 
 export default async function render(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {
         const { mode, layout, width, height, backgroundColor, fontColor, opacity, colorPattern } = req.query
 
         const weather = await weatherRenderer({
-            mode: ModePattern[toString(mode)] as ModePattern,
-            layout: LayoutPattern[toString(layout)],
+            mode: LayoutMode[toString(mode)] as LayoutMode,
+            pattern: LayoutPattern[toString(layout)],
             width: toString(width),
             height: toString(height),
             backgroundColor,

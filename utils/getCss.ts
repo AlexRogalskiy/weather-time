@@ -1,11 +1,11 @@
-import getPattern from './pattern'
+import getLayoutPattern from './pattern'
 import { ColorOptions } from '../typings/types'
 
 import { monserrat700, monserratRegular } from './font'
 
 export const css = (colorOptions: ColorOptions): string => {
-    const { fontColor, backgroundColor, layout, opacity, colorPattern } = colorOptions
-    const backgroundPattern = getPattern(layout, String(opacity), String(colorPattern))
+    const { fontColor, backgroundColor, pattern, opacity, colorPattern } = colorOptions
+    const backgroundPattern = getLayoutPattern(pattern, String(opacity), String(colorPattern))
 
     return `
       @font-face{
