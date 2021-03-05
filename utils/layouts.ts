@@ -1,5 +1,13 @@
-export const small = (fill: string, opacity: string): string => fill + opacity
+import { LayoutMapper, LayoutOperator } from '../typings/types'
 
-export const medium = (fill: string, opacity: string): string => fill + opacity
+const small: LayoutOperator = (fill: string, opacity: string): string => fill + opacity
 
-export const large = (fill: string, opacity: string): string => fill + opacity
+const medium: LayoutOperator = (fill: string, opacity: string): string => fill + opacity
+
+const large: LayoutOperator = (fill: string, opacity: string): string => fill + opacity
+
+export const layouts: LayoutMapper = {
+    small,
+    medium,
+    large,
+}

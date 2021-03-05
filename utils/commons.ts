@@ -1,8 +1,6 @@
 import fetch from 'isomorphic-unfetch'
 import _ from 'lodash'
-import lunr from 'lunr'
 import { tmpdir } from 'os'
-
 import { existsSync, mkdirSync } from 'fs'
 
 export const delimiterBy = (value = '>', num = 80): string => value.repeat(num)
@@ -65,28 +63,6 @@ export const toInt = (str: string, defaultValue?: number): number | undefined =>
     } catch (e) {
         return defaultValue
     }
-}
-
-export const getSearchResultSet = <T>(
-    data: T[],
-    index: lunr.Index,
-    query: lunr.Index.QueryString
-): (T | undefined)[] => {
-    const results = getSearchResults(index, query)
-
-    return results.map(result => {
-        return data.find(item => result.ref === item['id'])
-    })
-}
-
-export const getSearchResults = (index: lunr.Index, query: lunr.Index.QueryString): lunr.Index.Result[] => {
-    // return index.query(q => {
-    //         q.term(index.tokenizer("comment"), {
-    //             wildcard: lunr.Query.wildcard.TRAILING,
-    //             presence: lunr.Query.presence.REQUIRED
-    //         });
-    //     });
-    return index.search(query)
 }
 
 export const randomEnum = <T>(anEnum: T): T[keyof T] => {

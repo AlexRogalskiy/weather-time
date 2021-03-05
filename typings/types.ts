@@ -9,6 +9,10 @@ export enum LayoutPattern {
     large = 'large',
 }
 
+export type LayoutOperator = (fill: string, opacity: string) => string
+
+export type LayoutMapper = { [K in LayoutPattern]: LayoutOperator }
+
 export type WeatherData = {
     /**
      * Quote identifier
@@ -26,9 +30,13 @@ export type WeatherData = {
 
 export interface ParsedRequest {
     /**
-     * Quote category
+     * Layout mode
      */
-    category?: ModePattern | undefined
+    mode?: ModePattern | undefined
+    /**
+     * Layout category
+     */
+    layout?: LayoutPattern | undefined
     /**
      * Quote image width
      */
@@ -37,10 +45,6 @@ export interface ParsedRequest {
      * Quote image height
      */
     height?: string
-    /**
-     * Quote keywords
-     */
-    keywords?: string | string[]
     /**
      * Quote image color pattern
      */
@@ -77,9 +81,9 @@ export interface ColorOptions {
      */
     readonly opacity: string | string[]
     /**
-     * Image background pattern
+     * Image background layout
      */
-    readonly pattern?: string
+    readonly layout?: LayoutPattern
 }
 
 export interface ImageOptions {
@@ -109,9 +113,9 @@ export interface WidgetOptions {
     readonly imageOptions: ImageOptions
 }
 
+/**
+ * Profile configuration options.
+ */
 export type ConfigOptions = {
-    readonly /**
-     * Profile configuration options.
-     */
-    [K in Profile]: WidgetOptions
+    readonly [K in Profile]: WidgetOptions
 }

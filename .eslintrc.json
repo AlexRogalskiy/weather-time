@@ -60,7 +60,7 @@
         "camelcase": "off",
         "no-angle-bracket-type-assertion": "off",
         "spellcheck/spell-checker": [
-            1,
+            "off",
             {
                 "lang": "en_GB",
                 "skipWords": [

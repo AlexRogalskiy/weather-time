@@ -4,8 +4,8 @@ import { ColorOptions } from '../typings/types'
 import { monserrat700, monserratRegular } from './font'
 
 export const css = (colorOptions: ColorOptions): string => {
-    const { fontColor, backgroundColor, pattern, opacity, colorPattern } = colorOptions
-    const backgroundPattern = getPattern(`${pattern ? pattern : ''}`, `${opacity}`, `${colorPattern}`)
+    const { fontColor, backgroundColor, layout, opacity, colorPattern } = colorOptions
+    const backgroundPattern = getPattern(layout, String(opacity), String(colorPattern))
 
     return `
       @font-face{

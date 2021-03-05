@@ -1,16 +1,13 @@
-import { ModePattern, ColorOptions, ImageOptions, ParsedRequest, WeatherData } from '../typings/types'
+import { ColorOptions, ImageOptions, ModePattern, ParsedRequest, WeatherData } from '../typings/types'
 import gradient from 'gradient-string'
 import randomColor from 'randomcolor'
 
-import { delim, getSearchResults, mergeProps, randomElement, randomEnum, toFormatString } from './commons'
+import { delim, mergeProps, randomElement, randomEnum, toFormatString } from './commons'
 import { css } from './getCss'
-import { idx } from './search'
 import { profile } from './env'
 
-import quotes from './quotes'
-
-export async function quoteRenderer(parsedRequest: ParsedRequest): Promise<string> {
-    const { category, keywords, width, height, ...rest } = parsedRequest
+export async function weatherRenderer(parsedRequest: ParsedRequest): Promise<string> {
+    const { mode, width, height, ...rest } = parsedRequest
 
     const colorOptions: ColorOptions = mergeProps(profile.colorOptions, rest)
     const imageOptions: ImageOptions = mergeProps(profile.imageOptions, { width, height })
@@ -19,20 +16,16 @@ export async function quoteRenderer(parsedRequest: ParsedRequest): Promise<strin
         `
         ${gradient(randomColor(), randomColor())(delim)}
         Generating quote with parameters:
-        category=${category},
-        keywords=${keywords},
+        mode=${mode},
         colorOptions=${toFormatString(colorOptions)}
         imageOptions=${toFormatString(imageOptions)}
         ${gradient(randomColor(), randomColor())(delim)}
         `
     )
 
-    const quoteData: WeatherData | null = keywords
-        ? getQuoteByKeywords(keywords)
-        : getQuoteByCategory(category)
+    const widget: WeatherData = getLayoutData(mode)
 
-    return quoteData
-        ? `
+    return `
     <svg
         width="${imageOptions.width}"
         height="${imageOptions.height}"
@@ -42,9 +35,9 @@ export async function quoteRenderer(parsedRequest: ParsedRequest): Promise<strin
               <div class="quote-wrapper">
                 <div class="quote-wrapper-desc">
                   <div class="line"></div>
-                  <p class="font-monserratRegular">${quoteData.quote}</p>
+                  <p class="font-monserratRegular">${widget.quote}</p>
                   <div class="line"></div>
-                  <h3 class="font-monserrat700">${quoteData.author}</h3>
+                  <h3 class="font-monserrat700">${widget.author}</h3>
                 </div>
               </div>
             </div>
@@ -52,23 +45,10 @@ export async function quoteRenderer(parsedRequest: ParsedRequest): Promise<strin
         <style>${css(colorOptions)}</style>
       </svg>
   `
-        : ''
 }
 
-const getQuoteByKeywords = (keywords: string | string[]): WeatherData | null => {
-    const query = typeof keywords === 'string' ? keywords.split(',') : keywords
-    const results = getSearchResults(idx, query.join(' '))
-    const result = randomElement(results)
-
-    if (result) {
-        const data = result.ref.split(profile.indexOptions.delim)
-        return quotes[data[0]][data[1]]
-    }
-
-    return null
-}
-
-const getQuoteByCategory = (category: string | undefined): WeatherData => {
-    const data: WeatherData[] = category ? quotes[category] : quotes[randomEnum(ModePattern)]
+const getLayoutData = (mode: string | undefined): WeatherData => {
+    const layouts = []
+    const data: WeatherData[] = mode ? layouts[mode] : layouts[randomEnum(ModePattern)]
     return randomElement(data)
 }

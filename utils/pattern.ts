@@ -1,19 +1,14 @@
-import * as layout from './layouts'
-import { isBlankString, randomEnum, strToEnum } from './commons'
-import { LayoutPattern } from '../typings/types'
+import { layouts } from './layouts'
+import { randomEnum, strToEnum } from './commons'
+import { LayoutMapper, LayoutOperator, LayoutPattern } from '../typings/types'
 
-type LayoutOperator = (fill: string, opacity: string) => string
+const layoutMapper: LayoutMapper = strToEnum(Object.values(LayoutPattern), v => layouts[v])
 
-type PatternMapper = { [K in LayoutPattern]: LayoutOperator }
+const getPattern = (layout: LayoutPattern | undefined, opacity: string, colorPattern: string): string => {
+    const operator: LayoutOperator =
+        typeof layout === 'undefined' ? layoutMapper[randomEnum(LayoutPattern)] : layoutMapper[layout]
 
-const patternMapping: PatternMapper = strToEnum(Object.values(LayoutPattern), v => layout[v])
-
-const getPattern = (pattern: string, opacity: string, colorPattern: string): string => {
-    const patternFunc: LayoutOperator = isBlankString(pattern)
-        ? patternMapping[randomEnum(LayoutPattern)]
-        : patternMapping[pattern]
-
-    return patternFunc(colorPattern, opacity)
+    return operator(colorPattern, opacity)
 }
 
 export default getPattern

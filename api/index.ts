@@ -1,29 +1,18 @@
 import { NowRequest, NowResponse, VercelResponse } from '@vercel/node'
 
-import { quoteRenderer } from '../utils/quote'
+import { weatherRenderer } from '../utils/quote'
 import { toString } from '../utils/commons'
-import { ModePattern, HeroPattern } from '../typings/types'
+import { ModePattern, LayoutPattern } from '../typings/types'
 
 export default async function render(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {
-        const {
-            category,
-            keywords,
-            pattern,
-            width,
-            height,
-            backgroundColor,
-            fontColor,
-            opacity,
-            colorPattern,
-        } = req.query
+        const { mode, layout, width, height, backgroundColor, fontColor, opacity, colorPattern } = req.query
 
-        const quote = await quoteRenderer({
-            category: ModePattern[toString(category)] as ModePattern,
-            pattern: HeroPattern[toString(pattern)],
+        const weather = await weatherRenderer({
+            mode: ModePattern[toString(mode)] as ModePattern,
+            layout: LayoutPattern[toString(layout)],
             width: toString(width),
             height: toString(height),
-            keywords,
             backgroundColor,
             fontColor,
             opacity,
@@ -36,7 +25,7 @@ export default async function render(req: NowRequest, res: NowResponse): Promise
         res.setHeader('Content-type', 'image/svg+xml')
         res.setHeader('X-Powered-By', 'Vercel')
 
-        return res.send(quote)
+        return res.send(weather)
     } catch (error) {
         return res.send({
             status: 'Error',
