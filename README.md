@@ -17,6 +17,7 @@
 [![Tokei](https://tokei.rs/b1/github/AlexRogalskiy/weather-time?category=lines)](https://github.com/XAMPPRocky/tokei)
 ![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/AlexRogalskiy/weather-time)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
+[![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/weather-time.svg)](https://david-dm.org/AlexRogalskiy/weather-time)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/alexrogalskiy/weather-time/master/LICENSE?token=AH44ZFH7IF2KSEDK7LSIW3C7YOFYC)
 [![Issue](https://img.shields.io/github/issues/alexrogalskiy/weather-time)](https://img.shields.io/github/issues/alexrogalskiy/weather-time)
