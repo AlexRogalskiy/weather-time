@@ -31,7 +31,6 @@ build/*
 packages/
 coverage/
 target/
-images/
 log/
 site/
 dist/

@@ -1,22 +1,21 @@
 import { NowRequest, NowResponse, VercelResponse } from '@vercel/node'
 
-import { weatherRenderer } from '../utils/quote'
-import { toString } from '../utils/commons'
-import { LayoutMode, LayoutPattern } from '../typings/types'
+import { AnimationPattern, FontPattern, LayoutPattern, ThemePattern } from '../typings/enum-types'
+
+import { weatherRenderer } from './utils/weather'
+import { toString } from './utils/commons'
 
 export default async function render(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {
-        const { mode, layout, width, height, backgroundColor, fontColor, opacity, colorPattern } = req.query
+        const { theme, layout, font, animation, width, height } = req.query
 
         const weather = await weatherRenderer({
-            mode: LayoutMode[toString(mode)] as LayoutMode,
-            pattern: LayoutPattern[toString(layout)],
+            theme: ThemePattern[toString(theme)],
+            layout: LayoutPattern[toString(layout)],
+            font: FontPattern[toString(font)],
+            animation: AnimationPattern[toString(animation)],
             width: toString(width),
             height: toString(height),
-            backgroundColor,
-            fontColor,
-            opacity,
-            colorPattern,
         })
 
         res.setHeader('Cache-Control', 'no-cache,max-age=0,no-store,s-maxage=0,proxy-revalidate')
