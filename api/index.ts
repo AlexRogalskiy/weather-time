@@ -9,7 +9,7 @@ export default async function render(req: NowRequest, res: NowResponse): Promise
     try {
         const routePattern = RoutePattern[toString(req.query.operation)]
 
-        console.log(`Processing route operation: ${routePattern}`)
+        console.log(`Processing rendering operation by route: ${routePattern}`)
 
         const route = getRoute(routePattern)
 

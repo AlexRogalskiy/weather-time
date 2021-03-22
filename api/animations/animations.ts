@@ -32,6 +32,10 @@ const animations: Readonly<AnimationRecord> = {
     },
 }
 
+/**
+ * Returns {@link AnimationOptions} by input {@link AnimationPattern} value
+ * @param value initial input {@link AnimationPattern} to fetch by
+ */
 export const getAnimation = (value: Optional<AnimationPattern>): AnimationOptions => {
     return value ? animations[value] : animations[AnimationPattern.default]
 }

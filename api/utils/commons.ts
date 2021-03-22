@@ -10,6 +10,15 @@ export const randomElement = <T>(arr: T[]): T => arr[random(arr.length)]
 
 export const toString = (value: string | string[]): string => (Array.isArray(value) ? value[0] : value)
 
+export const getFunctionArgs = (func: any): string[] => {
+    const args = func.toString().match(/(function\s)?.*?\(([^)]*)\)/)[2]
+
+    return args
+        .split(',')
+        .map(arg => arg.replace(/\/\*.*\*\//, '').trim())
+        .filter(arg => arg)
+}
+
 export const hasPrototypeProperty = (obj: any, name: string): boolean => {
     return !obj.hasOwnProperty(name) && name in obj
 }

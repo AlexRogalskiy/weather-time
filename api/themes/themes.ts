@@ -235,6 +235,10 @@ const themes: Readonly<ThemeRecord> = {
     },
 }
 
+/**
+ * Returns {@link ThemeOptions} by input {@link ThemePattern} value
+ * @param value initial input {@link ThemePattern} to fetch by
+ */
 export const getTheme = (value: Optional<ThemePattern>): ThemeOptions => {
     return value ? themes[value] : themes[ThemePattern.default]
 }

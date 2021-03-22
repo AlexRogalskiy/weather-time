@@ -183,6 +183,18 @@ export class UnsupportedParameterError extends GeneralError {
     }
 }
 
+/**
+ * Error constructor types
+ * @desc Types representing error constructors
+ */
+export type ExtendableErrorConstructor = typeof ExtendableError
+export type GeneralErrorConstructor = typeof GeneralError
+export type TypeErrorConstructor = typeof TypeError
+export type ValidationErrorConstructor = typeof ValidationError
+export type RequestErrorConstructor = typeof RequestError
+export type ResponseErrorConstructor = typeof ResponseError
+export type UnsupportedParameterErrorConstructor = typeof UnsupportedParameterError
+
 export const valueError = (message: string, ...args: any[]): ValueError => {
     return new ValueError(message, args)
 }

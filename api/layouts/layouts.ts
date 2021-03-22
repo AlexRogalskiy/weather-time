@@ -432,6 +432,10 @@ const layouts: Readonly<LayoutRecord> = {
     },
 }
 
+/**
+ * Returns {@link LayoutOptions} by input {@link LayoutPattern} value
+ * @param value initial input {@link LayoutPattern} to fetch by
+ */
 export const getLayout = (value: Optional<LayoutPattern>): LayoutOptions => {
     return value ? layouts[value] : layouts[LayoutPattern.default]
 }

@@ -29,6 +29,10 @@ const fonts: Readonly<FontRecord> = {
     },
 }
 
+/**
+ * Returns {@link FontOptions} by input {@link FontPattern} value
+ * @param value initial input {@link FontPattern} to fetch by
+ */
 export const getFont = (value: Optional<FontPattern>): FontOptions => {
     return value ? fonts[value] : fonts[FontPattern.default]
 }

@@ -18,6 +18,10 @@ const routes: Readonly<RouteRecord> = {
     default: weatherController.weatherController,
 }
 
+/**
+ * Returns {@link RouteFunction} by input {@link RoutePattern} value
+ * @param value initial input {@link RoutePattern} to fetch by
+ */
 export const getRoute = (value: Optional<RoutePattern>): RouteFunction => {
     return value ? routes[value] : routes[RoutePattern.default]
 }
