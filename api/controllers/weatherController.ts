@@ -11,10 +11,10 @@ export const weatherController = async (req: NowRequest, res: NowResponse): Prom
         const { theme, layout, font, animation, query, width, height } = req.query
 
         const svgResponse = await weatherService.weatherRenderer({
-            theme: ThemePattern[toString(theme)],
-            layout: LayoutPattern[toString(layout)],
-            font: FontPattern[toString(font)],
-            animation: AnimationPattern[toString(animation)],
+            themePattern: ThemePattern[toString(theme)],
+            layoutPattern: LayoutPattern[toString(layout)],
+            fontPattern: FontPattern[toString(font)],
+            animationPattern: AnimationPattern[toString(animation)],
             query: toString(query),
             width: toString(width),
             height: toString(height),

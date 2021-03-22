@@ -3,66 +3,43 @@ import randomColor from 'randomcolor'
 
 import { ImageOptions, ParsedRequestData, StyleOptions, WeatherOptions } from '../../typings/domain-types'
 
-import { delim, getDirection, getFormatDate, mergeProps, toFormatString } from '../utils/commons'
+import * as weatherClient from '../clients/weatherClient'
+
+import { delim, mergeProps, toFormatString } from '../utils/commons'
 import { profile } from '../configs/env'
 import { getTheme } from '../themes/themes'
 import { getLayout } from '../layouts/layouts'
 import { getFont } from '../fonts/fonts'
 import { getAnimation } from '../animations/animations'
 import { getSvgTemplate } from '../models/template'
-import { fetchApiCall, getApiUrl } from '../utils/requests'
 
-import { DIRECTION_OPTIONS } from '../constants/constants'
+export async function weatherRenderer(requestData: ParsedRequestData): Promise<string> {
+    const { fontPattern, themePattern, animationPattern, layoutPattern, query, width, height } = requestData
 
-export async function weatherRenderer({
-    font,
-    theme,
-    animation,
-    layout,
-    query,
-    width,
-    height,
-}: ParsedRequestData): Promise<string> {
-    const imageFont = getFont(font)
-    const imageTheme = getTheme(theme)
-    const imageAnimation = getAnimation(animation)
+    const layout = getLayout(layoutPattern)
 
-    const style: StyleOptions = { font: imageFont, theme: imageTheme, animation: imageAnimation }
-    const weather: WeatherOptions = await getWeatherDataByQuery(query)
+    const font = getFont(fontPattern)
+    const theme = getTheme(themePattern)
+    const animation = getAnimation(animationPattern)
+
+    const style: StyleOptions = { font, theme, animation }
     const image: ImageOptions = mergeProps(profile.imageOptions, { width, height })
+
+    const weather: WeatherOptions = await weatherClient.getWeatherDataByQuery(query)
 
     const lineDelim = gradient(randomColor(), randomColor())(delim)
 
     console.log(
         `
         ${lineDelim}
-        Generating view with parameters:
-        style=${toFormatString(style)},
-        image=${toFormatString(image)}
+        Generating image view with parameters:
+        layout=${layout},
+        style options=${toFormatString(style)},
+        image options=${toFormatString(image)},
+        weather options=${toFormatString(weather)}
         ${lineDelim}
         `
     )
 
-    return getSvgTemplate({ layout: getLayout(layout), style, weather, image })
-}
-
-const getWeatherDataByQuery = async (query: string): Promise<WeatherOptions> => {
-    const url = getApiUrl(profile.baseUrl, query, process.env.OPEN_WEATHER_MAP_KEY)
-    const response = await fetchApiCall(url)
-
-    const { locale, shortDateFormat, longDateFormat } = profile.dateFormatOptions
-
-    return {
-        refreshDate: getFormatDate(Date.now(), locale, longDateFormat),
-        temperature: Math.round(response.main.temp),
-        pressure: Math.round(response.main.pressure),
-        humidity: Math.round(response.main.humidity),
-        clouds: Math.round(response.clouds.all),
-        wind: Math.round(response.wind.speed),
-        windDirection: getDirection(response.wind.deg, DIRECTION_OPTIONS),
-        weather: response.weather[0].description,
-        weatherIcon: response.weather[0].icon,
-        sunrise: getFormatDate(response.sys.sunrise, locale, shortDateFormat),
-        sunset: getFormatDate(response.sys.sunset, locale, shortDateFormat),
-    }
+    return await getSvgTemplate({ layout, style, weather, image })
 }

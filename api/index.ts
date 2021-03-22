@@ -13,7 +13,7 @@ export default async function render(req: NowRequest, res: NowResponse): Promise
 
         const route = getRoute(routePattern)
 
-        return route(req, res)
+        return await route(req, res)
     } catch (error) {
         return res.send({
             status: 'Error',

@@ -233,19 +233,19 @@ export type ParsedRequestData = {
     /**
      * Request theme pattern
      */
-    theme?: Optional<ThemePattern>
+    themePattern?: Optional<ThemePattern>
     /**
      * Request layout pattern
      */
-    layout?: Optional<LayoutPattern>
+    layoutPattern?: Optional<LayoutPattern>
     /**
      * Request animation pattern
      */
-    animation?: Optional<AnimationPattern>
+    animationPattern?: Optional<AnimationPattern>
     /**
      * Request font pattern
      */
-    font?: Optional<FontPattern>
+    fontPattern?: Optional<FontPattern>
     /**
      * Request query
      */
