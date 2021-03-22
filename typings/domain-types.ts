@@ -16,24 +16,40 @@ import { AnimationPattern, FontPattern, LayoutPattern, ThemePattern } from './en
 //     large = 'large',
 // }
 
-export interface FontOptions {
+/**
+ * FontOptions
+ * @desc Type representing font options
+ */
+export type FontOptions = {
     readonly fontFamily: string
     readonly fontData: string
 }
 
-export interface AnimationOptions {
+/**
+ * AnimationOptions
+ * @desc Type representing animation options
+ */
+export type AnimationOptions = {
     readonly animation: string
     readonly keyframes: string
 }
 
-export interface ThemeOptions {
+/**
+ * ThemeOptions
+ * @desc Type representing theme options
+ */
+export type ThemeOptions = {
     readonly quoteColor: string
     readonly authorColor: string
     readonly bgColor: string
-    readonly fontColor: string
+    readonly fontColor?: string
 }
 
-export interface StyleOptions {
+/**
+ * StyleOptions
+ * @desc Type representing style options
+ */
+export type StyleOptions = {
     /**
      * Template font options
      */
@@ -48,11 +64,15 @@ export interface StyleOptions {
     readonly animation: AnimationOptions
 }
 
-export interface WeatherOptions {
+/**
+ * WeatherOptions
+ * @desc Type representing weather options
+ */
+export type WeatherOptions = {
     /**
      * Request timestamp
      */
-    readonly refreshDate: Date
+    readonly refreshDate: string
     /**
      * Weather temperature
      */
@@ -95,6 +115,10 @@ export interface WeatherOptions {
     readonly sunset: string
 }
 
+/**
+ * LayoutOptions
+ * @desc Type representing layout options
+ */
 export type LayoutOptions = {
     /**
      * Creates style by input {@link StyleOptions}
@@ -108,7 +132,11 @@ export type LayoutOptions = {
     readonly template: (options: WeatherOptions) => string
 }
 
-export interface ImageOptions {
+/**
+ * ImageOptions
+ * @desc Type representing image options
+ */
+export type ImageOptions = {
     /**
      * Image width
      */
@@ -119,6 +147,10 @@ export interface ImageOptions {
     readonly height: string
 }
 
+/**
+ * TemplateData
+ * @desc Type representing template data
+ */
 export type TemplateData = {
     /**
      * Template layout options
@@ -138,6 +170,10 @@ export type TemplateData = {
     image: ImageOptions
 }
 
+/**
+ * DateFormatOptions
+ * @desc Type representing date format options
+ */
 export type DateFormatOptions = {
     /**
      * Weekday format
@@ -169,6 +205,10 @@ export type DateFormatOptions = {
     readonly timeZone?: string
 }
 
+/**
+ * FormatOptions
+ * @desc Type representing format options
+ */
 export type FormatOptions = {
     /**
      * Locale configuration.
@@ -177,18 +217,18 @@ export type FormatOptions = {
     /**
      * Image configuration options.
      */
-    readonly shortDateFormat: Pick<DateFormatOptions, 'hour' | 'minute' | 'timeZone'>
+    readonly shortDateFormat: Pick<Intl.DateTimeFormatOptions, 'hour' | 'minute' | 'timeZone'>
     /**
      * Layout configuration options.
      */
-    readonly longDateFormat: DateFormatOptions
-    /**
-     * Direction configuration options.
-     */
-    readonly directions: string[]
+    readonly longDateFormat: Intl.DateTimeFormatOptions
 }
 
-export interface ProfileOptions {
+/**
+ * FormatOptions
+ * @desc Type representing profile options
+ */
+export type ProfileOptions = {
     /**
      * Base url.
      */
@@ -201,10 +241,10 @@ export interface ProfileOptions {
      * Image configuration options.
      */
     readonly imageOptions: ImageOptions
-    // /**
-    //  * Layout configuration options.
-    //  */
-    // readonly layoutOptions: LayoutOptions
+    /**
+     * Format configuration options.
+     */
+    readonly formatOptions: FormatOptions
 }
 
 // export interface LayoutOptions {
@@ -233,7 +273,11 @@ export interface ProfileOptions {
 //     link: string
 // }
 
-export interface ParsedRequest {
+/**
+ * ParsedRequest
+ * @desc Type representing parsed request data
+ */
+export type ParsedRequestData = {
     /**
      * Theme pattern
      */
@@ -250,6 +294,10 @@ export interface ParsedRequest {
      * Font pattern
      */
     font?: Optional<FontPattern>
+    /**
+     * Request query
+     */
+    query: string
     /**
      * Quote image width
      */
@@ -276,7 +324,11 @@ export interface ParsedRequest {
     // opacity?: string | string[]
 }
 
-export interface ColorOptions {
+/**
+ * ColorOptions
+ * @desc Type representing color options
+ */
+export type ColorOptions = {
     /**
      * Image color pattern
      */

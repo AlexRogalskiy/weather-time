@@ -1,9 +1,17 @@
 import { Optional } from '../../typings/standard-types'
 import { ThemePattern } from '../../typings/enum-types'
-import { ThemeOptions } from '../../typings/types'
+import { ThemeOptions } from '../../typings/domain-types'
 
+/**
+ * ThemeRecord
+ * @desc Type representing theme config options
+ */
 export type ThemeRecord = Record<ThemePattern, ThemeOptions>
 
+/**
+ * Theme mappings
+ * @desc Type representing supported theme mappings
+ */
 const themes: Readonly<ThemeRecord> = {
     'default': {
         quoteColor: '2f80ed',

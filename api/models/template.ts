@@ -1,4 +1,4 @@
-import { TemplateData } from '../../typings/types'
+import { TemplateData } from '../../typings/domain-types'
 
 export const getSvgTemplate = (template: TemplateData): string => {
     const { layout, style, weather, image } = template

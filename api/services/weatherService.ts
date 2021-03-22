@@ -1,51 +1,62 @@
-// const requestApi = require("../../utils/fetchApi");
-// const url = process.env.SERVICE_URL;
-// const cardTemplate = require("../../utils/generateTemplate");
-// const Template = require("../../models/Template");
-// const getValidUrl = require("../../utils/validateUrl");
-// const quoteFromCategory = require('../../../customQuotes/category.json');
-//
-// const getQuote = async (quoteObj) => {
-//   try {
-//     let { theme, animation, layout, quotesUrl, quoteCategory } = quoteObj;
-//     let apiResponse;
-//     let { customQuotesUrl, isValidUrl } = await getValidUrl(quotesUrl);
-//
-//     if (isValidUrl) {
-//       //url from params is valid, proceed to verfiy the data
-//       apiResponse = await requestApi(customQuotesUrl);
-//
-//       if (apiResponse.length > 0) {
-//         apiResponse = apiResponse[Math.floor(Math.random() * Math.floor(apiResponse.length))];
-//         if (!apiResponse.quote && !apiResponse.author) {
-//           apiResponse = await requestApi(url);
-//         }
-//       } else {
-//         apiResponse = await requestApi(url);
-//       }
-//     }
-//     else if(quoteCategory){
-//       apiResponse = quoteFromCategory[quoteCategory];
-//       apiResponse = apiResponse[Math.floor(Math.random() * apiResponse.length)];
-//     }
-//     else {
-//       apiResponse = await requestApi(url);
-//     }
-//
-//     const template = new Template();
-//     template.setTheme(theme);
-//     template.setData(apiResponse);
-//     template.setAnimation(animation);
-//     template.setLayout(layout);
-//
-//     let svg = cardTemplate.generateTemplate(template);
-//     return svg;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
-//
-// module.exports = {
-//   getQuote,
-// };
-export default {}
+import gradient from 'gradient-string'
+import randomColor from 'randomcolor'
+
+import { ImageOptions, ParsedRequestData, StyleOptions, WeatherOptions } from '../../typings/domain-types'
+
+import { delim, getDirection, getFormatDate, mergeProps, toFormatString } from '../utils/commons'
+import { profile } from '../configs/env'
+import { getTheme } from '../themes/themes'
+import { getLayout } from '../layouts/layouts'
+import { getFont } from '../fonts/fonts'
+import { getAnimation } from '../animations/animations'
+import { getSvgTemplate } from '../models/template'
+import { fetchApiCall, getApiUrl } from '../utils/requests'
+
+import { DIRECTION_OPTIONS } from '../constants/constants'
+
+export async function weatherRenderer(parsedRequest: ParsedRequestData): Promise<string> {
+    const { font, theme, animation, layout, query, width, height } = parsedRequest
+
+    const imageFont = getFont(font)
+    const imageTheme = getTheme(theme)
+    const imageAnimation = getAnimation(animation)
+
+    const style: StyleOptions = { font: imageFont, theme: imageTheme, animation: imageAnimation }
+    const weather: WeatherOptions = await getWeatherDataByQuery(query)
+    const image: ImageOptions = mergeProps(profile.imageOptions, { width, height })
+
+    const lineDelim = gradient(randomColor(), randomColor())(delim)
+
+    console.log(
+        `
+        ${lineDelim}
+        Generating view with parameters:
+        style=${toFormatString(style)},
+        image=${toFormatString(image)}
+        ${lineDelim}
+        `
+    )
+
+    return getSvgTemplate({ layout: getLayout(layout), style, weather, image })
+}
+
+const getWeatherDataByQuery = async (query: string): Promise<WeatherOptions> => {
+    const url = getApiUrl(profile.baseUrl, query, process.env.OPEN_WEATHER_MAP_KEY)
+    const response = await fetchApiCall(url)
+
+    const { locale, shortDateFormat, longDateFormat } = profile.formatOptions
+
+    return {
+        refreshDate: getFormatDate(Date.now(), locale, longDateFormat),
+        temperature: Math.round(response.main.temp),
+        pressure: Math.round(response.main.pressure),
+        humidity: Math.round(response.main.humidity),
+        clouds: Math.round(response.clouds.all),
+        wind: Math.round(response.wind.speed),
+        windDirection: getDirection(response.wind.deg, DIRECTION_OPTIONS),
+        weather: response.weather[0].description,
+        weatherIcon: response.weather[0].icon,
+        sunrise: getFormatDate(response.sys.sunrise, locale, shortDateFormat),
+        sunset: getFormatDate(response.sys.sunset, locale, shortDateFormat),
+    }
+}

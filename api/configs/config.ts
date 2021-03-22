@@ -1,29 +1,13 @@
-import { ConfigProfile } from '../../typings/enum-types'
-import { FormatOptions, ProfileOptions } from '../../typings/types'
+import { Profile } from '../../typings/enum-types'
+import { ProfileOptions } from '../../typings/domain-types'
 
-export type ConfigRecord = Record<ConfigProfile, ProfileOptions>
+import { FORMAT_OPTIONS, IMAGE_OPTIONS } from '../constants/constants'
 
 /**
- * Format configuration options
+ * ConfigRecord
+ * @desc Type representing profile config options
  */
-export const FORMAT_CONFIG: Readonly<FormatOptions> = {
-    locale: 'en-GB',
-    shortDateFormat: {
-        hour: '2-digit',
-        minute: '2-digit',
-        timeZone: 'Europe/Moscow',
-    },
-    longDateFormat: {
-        weekday: 'long',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        timeZoneName: 'short',
-        timeZone: 'Europe/Moscow',
-    },
-    directions: ['north', 'north-west', 'west', 'south-west', 'south', 'south-east', 'east', 'north-east'],
-}
+export type ConfigRecord = Record<Profile, ProfileOptions>
 
 /**
  * Configuration options
@@ -37,10 +21,8 @@ export const CONFIG: Readonly<ConfigRecord> = {
         //     backgroundColor: '#FFFFFF',
         //     opacity: '0.3',
         // },
-        imageOptions: {
-            width: '100%',
-            height: '100%',
-        },
+        imageOptions: IMAGE_OPTIONS,
+        formatOptions: FORMAT_OPTIONS,
         // layoutOptions: {
         //     theme: ThemeMode.light,
         //     layout: LayoutMode.large,
@@ -55,10 +37,8 @@ export const CONFIG: Readonly<ConfigRecord> = {
         //     backgroundColor: '#FFFFFF',
         //     opacity: '0.3',
         // },
-        imageOptions: {
-            width: '100%',
-            height: '100%',
-        },
+        imageOptions: IMAGE_OPTIONS,
+        formatOptions: FORMAT_OPTIONS,
         // layoutOptions: {
         //     theme: ThemeMode.light,
         //     layout: LayoutMode.large,

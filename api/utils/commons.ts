@@ -1,36 +1,25 @@
-import fetch from 'isomorphic-unfetch'
 import _ from 'lodash'
-import { tmpdir } from 'os'
-import { existsSync, mkdirSync } from 'fs'
 
 export const delimiterBy = (value = '>', num = 80): string => value.repeat(num)
 
 export const delim = delimiterBy()
 
-export const tempDir = tmpdir()
-
 export const random = (max: number): number => Math.floor(Math.random() * max)
 
 export const randomElement = <T>(arr: T[]): T => arr[random(arr.length)]
 
-export const ensureDirExists = (dir: string): void => {
-    if (!existsSync(dir)) {
-        mkdirSync(dir, { recursive: true })
-    }
-}
-
-export const toBase64ImageUrl = async (request: RequestInfo): Promise<string> => {
-    const fetchImageUrl = await fetch(request)
-    const responseArrBuffer = await fetchImageUrl.arrayBuffer()
-
-    return `data:${fetchImageUrl.headers.get('Content-Type') || 'image/png'};base64,${Buffer.from(
-        responseArrBuffer
-    ).toString('base64')}`
-}
-
-export const isBlankString = (value: string): boolean => !value || /^\s*$/.test(value)
-
 export const toString = (value: string | string[]): string => (Array.isArray(value) ? value[0] : value)
+
+export const hasPrototypeProperty = (obj: any, name: string): boolean => {
+    return !obj.hasOwnProperty(name) && name in obj
+}
+
+export const hasProperty = (obj: any, prop: PropertyKey): boolean => {
+    const proto = obj.__proto__ || obj.constructor.prototype
+
+    //return (prop in obj) && (!(prop in proto) || proto[prop] !== obj[prop]);
+    return prop in obj || prop in proto || proto[prop] === obj[prop]
+}
 
 export const randomEnum = <T>(value: T): T[keyof T] => {
     const enumValues = (Object.values(value) as unknown) as T[keyof T][]
@@ -78,7 +67,7 @@ export const mergeProps = <T>(...obj: unknown[]): T =>
  * @returns {string} formatted side direction
  */
 export const getDirection = (angle: number, directions: string[]): string => {
-    return directions[Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8]
+    return directions[Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % directions.length]
 }
 
 /**
@@ -93,7 +82,7 @@ export const getFormatDate = (
     locale?: string,
     options?: Intl.DateTimeFormatOptions
 ): string => {
-    return new Date(value * 1000).toLocaleString(locale, options)
+    return new Date(value * 1000).toLocaleDateString(locale, options)
 }
 
 /**

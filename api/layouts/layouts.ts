@@ -1,11 +1,19 @@
 import { Optional } from '../../typings/standard-types'
 import { FontPattern, LayoutPattern } from '../../typings/enum-types'
-import { LayoutOptions, StyleOptions, WeatherOptions } from '../../typings/types'
+import { LayoutOptions, StyleOptions, WeatherOptions } from '../../typings/domain-types'
 
 import { getFont } from '../fonts/fonts'
 
+/**
+ * LayoutRecord
+ * @desc Type representing layout config options
+ */
 export type LayoutRecord = Record<LayoutPattern, LayoutOptions>
 
+/**
+ * Layout mappings
+ * @desc Type representing supported layout mappings
+ */
 const layouts: Readonly<LayoutRecord> = {
     default: {
         style: (options: StyleOptions) => {

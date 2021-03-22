@@ -1,14 +1,26 @@
-export enum ConfigProfile {
+/**
+ * Profile
+ * @desc Enumeration type representing supported profiles
+ */
+export enum Profile {
     dev = 'dev',
     prod = 'prod',
 }
 
+/**
+ * FontPattern
+ * @desc Enumeration type representing supported font patterns
+ */
 export enum FontPattern {
     default = 'default',
     monserrat_700 = 'monserrat-700',
     monserrat_regular = 'monserrat-regular',
 }
 
+/**
+ * LayoutPattern
+ * @desc Enumeration type representing supported layout patterns
+ */
 export enum LayoutPattern {
     default = 'default',
     socrates = 'socrates',
@@ -17,11 +29,19 @@ export enum LayoutPattern {
     zues = 'zues',
 }
 
+/**
+ * AnimationPattern
+ * @desc Enumeration type representing supported animation patterns
+ */
 export enum AnimationPattern {
     default = 'default',
     grow_out_in = 'grow-out-in',
 }
 
+/**
+ * ThemePattern
+ * @desc Enumeration type representing supported theme patterns
+ */
 export enum ThemePattern {
     default = 'default',
     default_repocard = 'default-repocard',
@@ -67,4 +87,12 @@ export enum ThemePattern {
     blueberry = 'blueberry',
     slateorange = 'slateorange',
     kacho_ga = 'kacho-ga',
+}
+
+/**
+ * RoutePattern
+ * @desc Enumeration type representing supported route patterns
+ */
+export enum RoutePattern {
+    default = 'default',
 }

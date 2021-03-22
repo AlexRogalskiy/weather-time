@@ -1,11 +1,19 @@
 import { readFileSync } from 'fs'
 
 import { Optional } from '../../typings/standard-types'
-import { FontOptions } from '../../typings/types'
+import { FontOptions } from '../../typings/domain-types'
 import { FontPattern } from '../../typings/enum-types'
 
+/**
+ * FontRecord
+ * @desc Type representing font config options
+ */
 export type FontRecord = Record<FontPattern, FontOptions>
 
+/**
+ * Font mappings
+ * @desc Type representing supported font mappings
+ */
 const fonts: Readonly<FontRecord> = {
     'default': {
         fontFamily: 'Montserrat',

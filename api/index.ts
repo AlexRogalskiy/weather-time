@@ -1,30 +1,19 @@
 import { NowRequest, NowResponse, VercelResponse } from '@vercel/node'
 
-import { AnimationPattern, FontPattern, LayoutPattern, ThemePattern } from '../typings/enum-types'
+import { RoutePattern } from '../typings/enum-types'
 
-import { weatherRenderer } from './utils/weather'
 import { toString } from './utils/commons'
+import { getRoute } from './routes/routes'
 
 export default async function render(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {
-        const { theme, layout, font, animation, width, height } = req.query
+        const routePattern = RoutePattern[toString(req.query.operation)]
 
-        const weather = await weatherRenderer({
-            theme: ThemePattern[toString(theme)],
-            layout: LayoutPattern[toString(layout)],
-            font: FontPattern[toString(font)],
-            animation: AnimationPattern[toString(animation)],
-            width: toString(width),
-            height: toString(height),
-        })
+        console.log(`Processing route operation: ${routePattern}`)
 
-        res.setHeader('Cache-Control', 'no-cache,max-age=0,no-store,s-maxage=0,proxy-revalidate')
-        res.setHeader('Pragma', 'no-cache')
-        res.setHeader('Expires', '-1')
-        res.setHeader('Content-type', 'image/svg+xml')
-        res.setHeader('X-Powered-By', 'Vercel')
+        const route = getRoute(routePattern)
 
-        return res.send(weather)
+        return route(req, res)
     } catch (error) {
         return res.send({
             status: 'Error',

@@ -1,7 +1,7 @@
 import gradient from 'gradient-string'
 import randomColor from 'randomcolor'
 
-import { ImageOptions, ParsedRequest, StyleOptions, WeatherOptions } from '../../typings/types'
+import { ImageOptions, ParsedRequestData, StyleOptions, WeatherOptions } from '../../typings/domain-types'
 
 import { delim, mergeProps, toFormatString } from './commons'
 import { profile } from '../configs/env'
@@ -9,9 +9,9 @@ import { getTheme } from '../themes/themes'
 import { getLayout } from '../layouts/layouts'
 import { getFont } from '../fonts/fonts'
 import { getAnimation } from '../animations/animations'
-import { getSvgTemplate } from './template'
+import { getSvgTemplate } from '../models/template'
 
-export async function weatherRenderer(parsedRequest: ParsedRequest): Promise<string> {
+export async function weatherRenderer(parsedRequest: ParsedRequestData): Promise<string> {
     const { width, height } = parsedRequest
 
     const font = getFont(parsedRequest.font)

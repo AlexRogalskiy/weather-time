@@ -1,9 +1,17 @@
 import { Optional } from '../../typings/standard-types'
 import { AnimationPattern } from '../../typings/enum-types'
-import { AnimationOptions } from '../../typings/types'
+import { AnimationOptions } from '../../typings/domain-types'
 
+/**
+ * AnimationRecord
+ * @desc Type representing animation config options
+ */
 export type AnimationRecord = Record<AnimationPattern, AnimationOptions>
 
+/**
+ * Animation mappings
+ * @desc Type representing supported animation mappings
+ */
 const animations: Readonly<AnimationRecord> = {
     'default': {
         animation: '',
