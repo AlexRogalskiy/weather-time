@@ -1,27 +1,18 @@
 import { Optional } from './standard-types'
 import { AnimationPattern, FontPattern, LayoutPattern, ThemePattern } from './enum-types'
 
-// export enum ActionMode {
-//     spinning = 'spinning',
-// }
-//
-// export enum ThemeMode {
-//     dark = 'dark',
-//     light = 'light',
-// }
-//
-// export enum LayoutMode {
-//     small = 'small',
-//     medium = 'medium',
-//     large = 'large',
-// }
-
 /**
  * FontOptions
  * @desc Type representing font options
  */
 export type FontOptions = {
+    /**
+     * Font family
+     */
     readonly fontFamily: string
+    /**
+     * Font data
+     */
     readonly fontData: string
 }
 
@@ -30,7 +21,13 @@ export type FontOptions = {
  * @desc Type representing animation options
  */
 export type AnimationOptions = {
+    /**
+     * Animation type
+     */
     readonly animation: string
+    /**
+     * Animation keyframes
+     */
     readonly keyframes: string
 }
 
@@ -39,10 +36,30 @@ export type AnimationOptions = {
  * @desc Type representing theme options
  */
 export type ThemeOptions = {
+    /**
+     * Theme quote text color
+     */
     readonly quoteColor: string
+    /**
+     * Theme author text color
+     */
     readonly authorColor: string
+    /**
+     * Theme background color
+     */
     readonly bgColor: string
+    /**
+     * Theme color pattern
+     */
+    readonly colorPattern: string | string[]
+    /**
+     * Theme text font color
+     */
     readonly fontColor?: string
+    /**
+     * Theme background opacity
+     */
+    readonly opacity?: string
 }
 
 /**
@@ -51,15 +68,15 @@ export type ThemeOptions = {
  */
 export type StyleOptions = {
     /**
-     * Template font options
+     * Style font options
      */
     readonly font: FontOptions
     /**
-     * Template theme options
+     * Style theme options
      */
     readonly theme: ThemeOptions
     /**
-     * Template animation options
+     * Style animation options
      */
     readonly animation: AnimationOptions
 }
@@ -70,7 +87,7 @@ export type StyleOptions = {
  */
 export type WeatherOptions = {
     /**
-     * Request timestamp
+     * Weather refresh timestamp
      */
     readonly refreshDate: string
     /**
@@ -148,6 +165,44 @@ export type ImageOptions = {
 }
 
 /**
+ * DateFormatOptions
+ * @desc Type representing date format options
+ */
+export type DateFormatOptions = {
+    /**
+     * Locale configuration.
+     */
+    readonly locale: string
+    /**
+     * Short date format configuration options.
+     */
+    readonly shortDateFormat: Pick<Intl.DateTimeFormatOptions, 'hour' | 'minute' | 'timeZone'>
+    /**
+     * Long date format configuration options.
+     */
+    readonly longDateFormat: Intl.DateTimeFormatOptions
+}
+
+/**
+ * ProfileOptions
+ * @desc Type representing profile options
+ */
+export type ProfileOptions = {
+    /**
+     * Profile base url.
+     */
+    readonly baseUrl: string
+    /**
+     * Profile image configuration options.
+     */
+    readonly imageOptions: ImageOptions
+    /**
+     * Profile date format configuration options.
+     */
+    readonly dateFormatOptions: DateFormatOptions
+}
+
+/**
  * TemplateData
  * @desc Type representing template data
  */
@@ -171,127 +226,24 @@ export type TemplateData = {
 }
 
 /**
- * DateFormatOptions
- * @desc Type representing date format options
- */
-export type DateFormatOptions = {
-    /**
-     * Weekday format
-     */
-    readonly weekday?: string
-    /**
-     * Month format
-     */
-    readonly month?: string
-    /**
-     * Day format
-     */
-    readonly day?: string
-    /**
-     * Hour format
-     */
-    readonly hour?: string
-    /**
-     * Minute format
-     */
-    readonly minute?: string
-    /**
-     * Timezone name format
-     */
-    readonly timeZoneName?: string
-    /**
-     * Timezone format
-     */
-    readonly timeZone?: string
-}
-
-/**
- * FormatOptions
- * @desc Type representing format options
- */
-export type FormatOptions = {
-    /**
-     * Locale configuration.
-     */
-    readonly locale: string
-    /**
-     * Image configuration options.
-     */
-    readonly shortDateFormat: Pick<Intl.DateTimeFormatOptions, 'hour' | 'minute' | 'timeZone'>
-    /**
-     * Layout configuration options.
-     */
-    readonly longDateFormat: Intl.DateTimeFormatOptions
-}
-
-/**
- * FormatOptions
- * @desc Type representing profile options
- */
-export type ProfileOptions = {
-    /**
-     * Base url.
-     */
-    readonly baseUrl: string
-    // /**
-    //  * Color configuration options.
-    //  */
-    // readonly colorOptions: ColorOptions
-    /**
-     * Image configuration options.
-     */
-    readonly imageOptions: ImageOptions
-    /**
-     * Format configuration options.
-     */
-    readonly formatOptions: FormatOptions
-}
-
-// export interface LayoutOptions {
-//     /**
-//      * Layout mode
-//      */
-//     readonly layout: LayoutMode
-//     /**
-//      * Theme mode
-//      */
-//     readonly theme: ThemeMode
-//     /**
-//      * Action mode
-//      */
-//     readonly action: ActionMode
-// }
-
-// export type LayoutData = {
-//     /**
-//      * Weather data
-//      */
-//     data: string
-//     /**
-//      * Weather link
-//      */
-//     link: string
-// }
-
-/**
  * ParsedRequest
  * @desc Type representing parsed request data
  */
 export type ParsedRequestData = {
     /**
-     * Theme pattern
+     * Request theme pattern
      */
     theme?: Optional<ThemePattern>
     /**
-     * Layout pattern
+     * Request layout pattern
      */
     layout?: Optional<LayoutPattern>
     /**
-     * Animation pattern
+     * Request animation pattern
      */
     animation?: Optional<AnimationPattern>
     /**
-     * Font pattern
+     * Request font pattern
      */
     font?: Optional<FontPattern>
     /**
@@ -299,54 +251,11 @@ export type ParsedRequestData = {
      */
     query: string
     /**
-     * Quote image width
+     * Request image width
      */
     width?: string
     /**
-     * Quote image height
+     * Request image height
      */
     height?: string
-    // /**
-    //  * Quote image color pattern
-    //  */
-    // colorPattern?: string | string[]
-    // /**
-    //  * Quote text font color
-    //  */
-    // fontColor?: string | string[]
-    // /**
-    //  * Quote image background color
-    //  */
-    // backgroundColor?: string | string[]
-    // /**
-    //  * Quote image background opacity
-    //  */
-    // opacity?: string | string[]
-}
-
-/**
- * ColorOptions
- * @desc Type representing color options
- */
-export type ColorOptions = {
-    /**
-     * Image color pattern
-     */
-    readonly colorPattern: string | string[]
-    /**
-     * Image text font color
-     */
-    readonly fontColor: string | string[]
-    /**
-     * Image background color
-     */
-    readonly backgroundColor: string | string[]
-    /**
-     * Image background opacity
-     */
-    readonly opacity: string | string[]
-    // /**
-    //  * Image background layout
-    //  */
-    // readonly pattern?: LayoutMode | undefined
 }

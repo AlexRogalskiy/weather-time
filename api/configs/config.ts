@@ -22,7 +22,7 @@ export const CONFIG: Readonly<ConfigRecord> = {
         //     opacity: '0.3',
         // },
         imageOptions: IMAGE_OPTIONS,
-        formatOptions: FORMAT_OPTIONS,
+        dateFormatOptions: FORMAT_OPTIONS,
         // layoutOptions: {
         //     theme: ThemeMode.light,
         //     layout: LayoutMode.large,
@@ -38,7 +38,7 @@ export const CONFIG: Readonly<ConfigRecord> = {
         //     opacity: '0.3',
         // },
         imageOptions: IMAGE_OPTIONS,
-        formatOptions: FORMAT_OPTIONS,
+        dateFormatOptions: FORMAT_OPTIONS,
         // layoutOptions: {
         //     theme: ThemeMode.light,
         //     layout: LayoutMode.large,

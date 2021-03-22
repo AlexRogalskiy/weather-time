@@ -14,7 +14,7 @@
         "markdown": "markdown-link-check ./README.md ./SECURITY.md",
         "remark": "remark -q -f .",
         "docs": "typedoc",
-        "reinstall": "del-cli ./node_modules ./package-lock.json ./yarn.lock",
+        "reinstall": "del-cli --dot=true ./node_modules ./package-lock.json ./yarn.lock",
         "coverage": "cat ./coverage/lcov.info | coveralls",
         "postreinstall": "yarn setup",
         "postinstall": "husky install",

@@ -44,7 +44,7 @@ const getWeatherDataByQuery = async (query: string): Promise<WeatherOptions> => 
     const url = getApiUrl(profile.baseUrl, query, process.env.OPEN_WEATHER_MAP_KEY)
     const response = await fetchApiCall(url)
 
-    const { locale, shortDateFormat, longDateFormat } = profile.formatOptions
+    const { locale, shortDateFormat, longDateFormat } = profile.dateFormatOptions
 
     return {
         refreshDate: getFormatDate(Date.now(), locale, longDateFormat),

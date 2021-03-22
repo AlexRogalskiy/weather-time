@@ -1,4 +1,4 @@
-import { FormatOptions, ImageOptions } from '../../typings/domain-types'
+import { DateFormatOptions, ImageOptions } from '../../typings/domain-types'
 
 /**
  * Image configuration options
@@ -9,9 +9,9 @@ export const IMAGE_OPTIONS: Readonly<ImageOptions> = {
 }
 
 /**
- * Format configuration options
+ * Date format configuration options
  */
-export const FORMAT_OPTIONS: Readonly<FormatOptions> = {
+export const FORMAT_OPTIONS: Readonly<DateFormatOptions> = {
     locale: 'en-GB',
     shortDateFormat: {
         hour: '2-digit',
