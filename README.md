@@ -46,7 +46,7 @@
 ## _Table of contents_
 
 <!--ts-->
-   * [<em>Weather Time</em>](#styled-weather-time)
+   * [<em>Weather Time</em>](#weather-time)
       * [<em>Table of contents</em>](#table-of-contents)
       * [<em>Description</em>](#description)
       * [<em>How to use</em>](#how-to-use)
@@ -59,6 +59,8 @@
       * [<em>Acknowledgement</em>](#acknowledgement)
       * [<em>Forks</em>](#forks)
       * [<em>Issues</em>](#issues)
+      * [<em>Team Tools</em>](#team-tools)
+      * [<em>OpenGraph Card</em>](#opengraph-card)
       * [<em>Development Support</em>](#development-support)
 <!--te-->
 
