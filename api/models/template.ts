@@ -1,8 +1,6 @@
 import { TemplateData } from '../../typings/domain-types'
 
-export const getSvgTemplate = (template: TemplateData): string => {
-    const { layout, style, weather, image } = template
-
+export const getSvgTemplate = ({ layout, style, weather, image }: TemplateData): string => {
     return `
         <svg width="${image.width}"
              height="${image.height}"

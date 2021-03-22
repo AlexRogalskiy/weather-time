@@ -14,9 +14,15 @@ import { fetchApiCall, getApiUrl } from '../utils/requests'
 
 import { DIRECTION_OPTIONS } from '../constants/constants'
 
-export async function weatherRenderer(parsedRequest: ParsedRequestData): Promise<string> {
-    const { font, theme, animation, layout, query, width, height } = parsedRequest
-
+export async function weatherRenderer({
+    font,
+    theme,
+    animation,
+    layout,
+    query,
+    width,
+    height,
+}: ParsedRequestData): Promise<string> {
     const imageFont = getFont(font)
     const imageTheme = getTheme(theme)
     const imageAnimation = getAnimation(animation)
