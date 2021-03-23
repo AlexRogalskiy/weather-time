@@ -1,6 +1,6 @@
 # *Weather Time*
 
-> Generate SVG [styled weather-time](https://en.wikipedia.org/wiki/Weather)
+> Generate SVG [weather-time](https://en.wikipedia.org/wiki/Weather)
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/AlexRogalskiy/weather-time)
 ![GitHub Release Date](https://img.shields.io/github/release-date/AlexRogalskiy/weather-time)
@@ -36,12 +36,13 @@
 [![NewReleases](https://newreleases.io/badge.svg)](https://newreleases.io/github/AlexRogalskiy/weather-time)
 [![Hits-of-Code](https://hitsofcode.com/github/AlexRogalskiy/weather-time)](https://hitsofcode.com/github/AlexRogalskiy/weather-time/view)
 [![ComVer](https://img.shields.io/badge/ComVer-compliant-brightgreen.svg)][tags]
-![Website](https://img.shields.io/website?url=https://img.shields.io/website?url=https://styled-weather-time.vercel.app/api?backgroundColor=%23FFFFFF\&opacity=0.3\&colorPattern=%23FFE0E9\&fontColor=%230A83DC)
+![Website](https://img.shields.io/website?url=https://img.shields.io/website?url=https://weather-time.vercel.app/api?backgroundColor=%23FFFFFF\&opacity=0.3\&colorPattern=%23FFE0E9\&fontColor=%230A83DC)
 
 [![CI](https://github.com/AlexRogalskiy/weather-time/workflows/test/badge.svg)](https://github.com/AlexRogalskiy/weather-time/workflows/test)
 [![GitHub Super-Linter](https://github.com/AlexRogalskiy/weather-time/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![GitHub JSON-Validator](https://github.com/AlexRogalskiy/weather-time/workflows/Validate%20JSONs/badge.svg)](https://github.com/OrRosenblatt/validate-json-action)
 [![BCH compliance](https://bettercodehub.com/edge/badge/AlexRogalskiy/weather-time?branch=master)](https://bettercodehub.com/)
+[![Chat](https://img.shields.io/badge/chat-discussions-success.svg)](https://github.com/AlexRogalskiy/weather-time/discussions)
 
 ## *Table of contents*
 
@@ -125,7 +126,7 @@ Here is a list of actions supported by Weather Time API:
 This is example of using ***Weather Time***:
 
 ```
-![weather Time](https://styled-weather-time.vercel.app/api?backgroundColor=%23FFFFFF&opacity=0.3&colorPattern=%23FFE0E9&fontColor=%230A83DC)
+![weather Time](https://weather-time.vercel.app/api?backgroundColor=%23FFFFFF&opacity=0.3&colorPattern=%23FFE0E9&fontColor=%230A83DC)
 ```
 
 Result:
