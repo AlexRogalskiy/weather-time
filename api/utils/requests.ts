@@ -15,7 +15,7 @@ const checkStatus = async (response: Response): Promise<Response> => {
     return Promise.reject(error)
 }
 
-export const fetchApiCall = async (url: string, options: RequestInit = {}): Promise<any> => {
+export const fetchAsJson = async (url: string, options: RequestInit = {}): Promise<any> => {
     try {
         const response = await fetch(url, options)
         const data = await checkStatus(response)

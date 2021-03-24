@@ -1,17 +1,18 @@
-import gradient from 'gradient-string'
-import randomColor from 'randomcolor'
+import boxen from 'boxen'
 
 import { ImageOptions, ParsedRequestData, StyleOptions, WeatherOptions } from '../../typings/domain-types'
 
 import * as weatherClient from '../clients/weatherClient'
 
-import { delim, mergeProps, toFormatString } from '../utils/commons'
-import { profile } from '../configs/env'
+import { mergeProps } from '../utils/commons'
+import { serialize } from '../utils/serializers'
 import { getTheme } from '../themes/themes'
 import { getLayout } from '../layouts/layouts'
 import { getFont } from '../fonts/fonts'
 import { getAnimation } from '../animations/animations'
 import { getSvgTemplate } from '../models/template'
+
+import { profile } from '../utils/profiles'
 
 export async function weatherRenderer(requestData: ParsedRequestData): Promise<string> {
     const { fontPattern, themePattern, animationPattern, layoutPattern, query, width, height } = requestData
@@ -27,18 +28,17 @@ export async function weatherRenderer(requestData: ParsedRequestData): Promise<s
 
     const weather: WeatherOptions = await weatherClient.getWeatherDataByQuery(query)
 
-    const lineDelim = gradient(randomColor(), randomColor())(delim)
-
     console.log(
-        `
-        ${lineDelim}
+        boxen(
+            `
         Generating image view with parameters:
         layout=${layout},
-        style options=${toFormatString(style)},
-        image options=${toFormatString(image)},
-        weather options=${toFormatString(weather)}
-        ${lineDelim}
-        `
+        style options=${serialize(style)},
+        image options=${serialize(image)},
+        weather options=${serialize(weather)}
+        `,
+            profile.outputOptions
+        )
     )
 
     return await getSvgTemplate({ layout, style, weather, image })

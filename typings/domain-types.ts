@@ -1,3 +1,5 @@
+import boxen from 'boxen'
+
 import { Optional } from './standard-types'
 import { AnimationPattern, FontPattern, LayoutPattern, ThemePattern } from './enum-types'
 
@@ -51,7 +53,7 @@ export type ThemeOptions = {
     /**
      * Theme color pattern
      */
-    readonly colorPattern: string | string[]
+    readonly colorPattern?: string | string[]
     /**
      * Theme text font color
      */
@@ -200,6 +202,10 @@ export type ProfileOptions = {
      * Profile date format configuration options.
      */
     readonly dateFormatOptions: DateFormatOptions
+    /**
+     * Output options
+     */
+    readonly outputOptions?: boxen.Options
 }
 
 /**
