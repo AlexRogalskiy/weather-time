@@ -10,8 +10,11 @@
         "development": "env-cmd --silent -e dev vercel dev",
         "format": "prettier --single-quote --write **/*.ts",
         "format:check": "prettier --check **/*.ts",
-        "lint": "eslint --cache --fix --quiet --format codeframe --ext js,ts .",
+        "lint": "eslint --cache --fix --quiet --cache-location ./node_modules/.cache/ --format codeframe --ext js,ts .",
         "lint:clean": "rimraf .eslintcache",
+        "pretty": "pretty-quick --staged --pattern '!test/tests/lint/**'",
+        "license": "license-checker --json > licenses.json",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
         "markdown": "markdown-link-check ./README.md ./SECURITY.md",
         "remark": "remark -q -f .",
         "lint:md": "remark-preset-davidtheclark",
@@ -28,11 +31,12 @@
         "test": "env-cmd --silent -e test jest",
         "test:coverage": "env-cmd --silent -e test jest --collectCoverage --detectOpenHandles",
         "test:watch": "env-cmd --silent -e test jest --watch",
+        "test:license": "license-checker --production --summary --unknown --onlyAllow=\"Apache-2.0;BSD;ISC;MIT;GPL-3.0;\"",
         "lint:all": "npm run lint:clean && npm run lint && npm run lint:md",
         "format:all": "npm run format && npm run format:md",
         "check:all": "npm run format:check",
-        "test:all": "npm run test",
-        "all": "npm run format:all && npm run lint:all"
+        "test:all": "npm run test && npm run test:license",
+        "all": "npm run format:all && npm run lint:all && npm run pretty"
     },
     "dependencies": {
         "env-cmd": "^10.1.0",
@@ -61,11 +65,14 @@
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-spellcheck": "0.0.8",
         "gradient-string": "^1.2.0",
+        "conventional-changelog-cli": "^2.0.0",
         "husky": "^5.0.8",
         "jest": "^26.6.3",
         "jest-circus": "^26.6.3",
         "markdown-link-check": "^3.8.6",
+        "license-checker": "^25.0.1",
         "prettier": "^2.1.2",
+        "pretty-quick": "^3.1.0",
         "randomcolor": "^0.5.4",
         "remark-cli": "^9.0.0",
         "remark-lint-code-block-style": "^2.0.1",
@@ -128,7 +135,8 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm test:all"
+            "pre-commit": "npm run test:all",
+            "pre-push": "npm run check:all"
         }
     },
     "bugs": {
