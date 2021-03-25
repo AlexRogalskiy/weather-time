@@ -87,7 +87,7 @@ export type StyleOptions = {
  * WeatherOptions
  * @desc Type representing weather options
  */
-export type WeatherOptions = {
+export type TemplateOptions = {
     /**
      * Weather refresh timestamp
      */
@@ -145,10 +145,10 @@ export type LayoutOptions = {
      */
     readonly style: (options: StyleOptions) => string
     /**
-     * Creates template by input {@link WeatherOptions}
-     * @param options initial input {@link WeatherOptions}
+     * Creates template by input {@link TemplateOptions}
+     * @param options initial input {@link TemplateOptions}
      */
-    readonly template: (options: WeatherOptions) => string
+    readonly template: (options: TemplateOptions) => string
 }
 
 /**
@@ -197,11 +197,11 @@ export type ProfileOptions = {
     /**
      * Profile image configuration options.
      */
-    readonly imageOptions: ImageOptions
+    readonly imageOptions?: ImageOptions
     /**
      * Profile date format configuration options.
      */
-    readonly dateFormatOptions: DateFormatOptions
+    readonly dateFormatOptions?: DateFormatOptions
     /**
      * Output options
      */
@@ -222,17 +222,17 @@ export type TemplateData = {
      */
     style: StyleOptions
     /**
-     * Template weather options
-     */
-    weather: WeatherOptions
-    /**
      * Template image options
      */
     image: ImageOptions
+    /**
+     * Template weather options
+     */
+    weather: TemplateOptions
 }
 
 /**
- * ParsedRequest
+ * ParsedRequestData
  * @desc Type representing parsed request data
  */
 export type ParsedRequestData = {

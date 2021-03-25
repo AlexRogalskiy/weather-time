@@ -147,5 +147,10 @@
         "name": "Alexander Rogalskiy",
         "url": "https://github.com/AlexRogalskiy"
     },
-    "funding": "https://github.com/sponsors/AlexRogalskiy"
+    "funding": "https://github.com/sponsors/AlexRogalskiy",
+    "files": [
+        "data/**",
+        "api/**",
+        "typings/**"
+    ]
 }

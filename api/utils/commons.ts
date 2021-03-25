@@ -8,6 +8,16 @@ export const random = (max: number): number => Math.floor(Math.random() * max)
 
 export const randomElement = <T>(arr: T[]): T => arr[random(arr.length)]
 
+export const randomEnum = <T>(value: T): T[keyof T] => {
+    const enumValues = (Object.values(value) as unknown) as T[keyof T][]
+    const randomIndex = random(enumValues.length)
+    return enumValues[randomIndex]
+}
+
+export const toStringArray = (value: string | string[], delim = ','): string[] => {
+    return _.isArray(value) ? value : value.split(delim)
+}
+
 export const toString = (value: string | string[]): string => (Array.isArray(value) ? value[0] : value)
 
 export const getFunctionArgs = (func: any): string[] => {
@@ -30,19 +40,15 @@ export const hasProperty = (obj: any, prop: PropertyKey): boolean => {
     return prop in obj || prop in proto || proto[prop] === obj[prop]
 }
 
-export const randomEnum = <T>(value: T): T[keyof T] => {
-    const enumValues = (Object.values(value) as unknown) as T[keyof T][]
-    const randomIndex = random(enumValues.length)
-    return enumValues[randomIndex]
-}
-
 export const toFormatString = (obj): string => {
     return `(${objToString(obj)})`
 }
 
-const objToString = (obj): string => {
+const objToString = (obj: any, defaultValue = 'null'): string => {
     let res = ''
     let i = 0
+
+    if (!obj) return defaultValue
 
     const entries = Object.entries(obj)
     for (const [key, value] of entries) {

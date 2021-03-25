@@ -1,6 +1,6 @@
 import { Optional } from '../../typings/standard-types'
 import { FontPattern, LayoutPattern } from '../../typings/enum-types'
-import { LayoutOptions, StyleOptions, WeatherOptions } from '../../typings/domain-types'
+import { LayoutOptions, StyleOptions, TemplateOptions } from '../../typings/domain-types'
 
 import { getFont } from '../fonts/fonts'
 
@@ -86,7 +86,7 @@ const layouts: Readonly<LayoutRecord> = {
                     }
                 `
         },
-        template: (options: WeatherOptions) => {
+        template: (options: TemplateOptions) => {
             return `
                     <div class="container">
                         <h3> ${options.weather} </h3>
@@ -140,7 +140,7 @@ const layouts: Readonly<LayoutRecord> = {
                     }
                 `
         },
-        template: (options: WeatherOptions) => {
+        template: (options: TemplateOptions) => {
             return `
                     <div class="square-brackets-quote">
                         <blockquote>
@@ -247,7 +247,7 @@ const layouts: Readonly<LayoutRecord> = {
                     }
                 `
         },
-        template: (options: WeatherOptions) => {
+        template: (options: TemplateOptions) => {
             return `
                     <div id="ct">
                         <div class="corner" id="left_top"></div>
@@ -312,7 +312,7 @@ const layouts: Readonly<LayoutRecord> = {
                     }
                 `
         },
-        template: (options: WeatherOptions) => {
+        template: (options: TemplateOptions) => {
             return `
                     <div class="quote">
                         <blockquote>
@@ -418,7 +418,7 @@ const layouts: Readonly<LayoutRecord> = {
                     }
                 `
         },
-        template: (options: WeatherOptions) => {
+        template: (options: TemplateOptions) => {
             return `
                     <div class="container">
                         <div class="quote4">

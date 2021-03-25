@@ -1,6 +1,6 @@
 import boxen from 'boxen'
 
-import { ImageOptions, ParsedRequestData, StyleOptions, WeatherOptions } from '../../typings/domain-types'
+import { ImageOptions, ParsedRequestData, StyleOptions, TemplateOptions } from '../../typings/domain-types'
 
 import * as weatherClient from '../clients/weatherClient'
 
@@ -26,7 +26,7 @@ export async function weatherRenderer(requestData: ParsedRequestData): Promise<s
     const style: StyleOptions = { font, theme, animation }
     const image: ImageOptions = mergeProps(profile.imageOptions, { width, height })
 
-    const weather: WeatherOptions = await weatherClient.getWeatherDataByQuery(query)
+    const weather: TemplateOptions = await weatherClient.getWeatherDataByQuery(query)
 
     console.log(
         boxen(

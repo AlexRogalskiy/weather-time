@@ -1,11 +1,11 @@
-import { WeatherOptions } from '../../typings/domain-types'
+import { TemplateOptions } from '../../typings/domain-types'
 
 import { fetchAsJson, getApiUrl } from '../utils/requests'
 import { profile } from '../utils/profiles'
 import { getDirection, getFormatDate } from '../utils/commons'
 import { DIRECTION_OPTIONS } from '../constants/constants'
 
-export async function getWeatherDataByQuery(query: string): Promise<WeatherOptions> {
+export async function getWeatherDataByQuery(query: string): Promise<TemplateOptions> {
     const url = getApiUrl(profile.baseUrl, query, process.env.OPEN_WEATHER_MAP_KEY)
     const response = await fetchAsJson(url)
 

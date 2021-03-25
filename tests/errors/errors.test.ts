@@ -1,11 +1,8 @@
 import { describe } from '@jest/globals'
-
-import { introspect } from '../../api/utils/decorators'
 import { ErrorType, ExtendableError } from '../../api/errors/errors'
 
 export namespace Errors_Test {
     class TestError extends ExtendableError {
-        @introspect()
         testResult(value: number) {
             console.log(`Running decorator on test result: ${value}`)
         }

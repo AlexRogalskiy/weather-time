@@ -6,15 +6,15 @@ import * as weatherService from '../services/weatherService'
 
 import { toString } from '../utils/commons'
 
-export const weatherController = async (req: NowRequest, res: NowResponse): Promise<VercelResponse> => {
+export async function weatherController(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {
-        const { theme, layout, font, animation, query, width, height } = req.query
+        const { theme, layout, animation, font, query, width, height } = req.query
 
         const svgResponse = await weatherService.weatherRenderer({
             themePattern: ThemePattern[toString(theme)],
             layoutPattern: LayoutPattern[toString(layout)],
-            fontPattern: FontPattern[toString(font)],
             animationPattern: AnimationPattern[toString(animation)],
+            fontPattern: FontPattern[toString(font)],
             query: toString(query),
             width: toString(width),
             height: toString(height),
