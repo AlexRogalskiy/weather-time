@@ -14,7 +14,7 @@ import { getSvgTemplate } from '../models/template'
 
 import { profile } from '../utils/profiles'
 
-export async function weatherRenderer(requestData: ParsedRequestData): Promise<string> {
+export async function templateRenderer(requestData: ParsedRequestData): Promise<string> {
     const { fontPattern, themePattern, animationPattern, layoutPattern, query, width, height } = requestData
 
     const layout = getLayout(layoutPattern)

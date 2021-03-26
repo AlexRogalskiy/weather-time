@@ -2,15 +2,15 @@ import { NowRequest, NowResponse, VercelResponse } from '@vercel/node'
 
 import { AnimationPattern, FontPattern, LayoutPattern, ThemePattern } from '../../typings/enum-types'
 
-import * as weatherService from '../services/weatherService'
+import * as weatherService from '../services/templateService'
 
 import { toString } from '../utils/commons'
 
-export async function weatherController(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
+export async function templateController(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {
         const { theme, layout, animation, font, query, width, height } = req.query
 
-        const svgResponse = await weatherService.weatherRenderer({
+        const svgResponse = await weatherService.templateRenderer({
             themePattern: ThemePattern[toString(theme)],
             layoutPattern: LayoutPattern[toString(layout)],
             animationPattern: AnimationPattern[toString(animation)],

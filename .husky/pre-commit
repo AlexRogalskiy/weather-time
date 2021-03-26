@@ -7,6 +7,8 @@ npm run changelog
 
 git add docs/
 git add api/
+git add tests/
+git add typings/
 
 git add CHANGELOG.md
 git add package-lock.json
