@@ -6,8 +6,15 @@ import { errorLogs } from './loggers'
 export const getApiUrl = (baseUrl: string, query: string, appId?: string, units = 'metric'): string =>
     `${baseUrl}?q=${query}&appid=${appId}&units=${units}`
 
+export const isResponseOk = (response: Response): boolean => {
+    const statusCode = response.status
+    const limitStatusCode = response.redirected ? 299 : 399
+
+    return (statusCode >= 200 && statusCode <= limitStatusCode) || statusCode === 304
+}
+
 const checkStatus = async (response: Response): Promise<Response> => {
-    if (response.ok) {
+    if (isResponseOk(response)) {
         return response
     }
 
