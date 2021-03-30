@@ -1,0 +1,24 @@
+ls:
+  .js: snake_case | camelCase | kebab-case
+  .ts: snake_case | camelCase | kebab-case
+  .d.ts: PascalCase | kebab-case
+  .html: regex:[a-z0-9]+
+  .md: kebab-case
+  .spec.ts: kebab-case
+  .generated.ts: kebab-case
+
+ignore:
+  - .cache
+  - .eslintrc.js
+  - .git
+  - .husky
+  - .github
+  - .dependabot
+  - dist
+  - jest.config.ts
+  - node_modules
+  - SECURITY.md
+  - README.md
+  - tests
+  - docs
+  - fonts

@@ -22,6 +22,7 @@
         "format:md": "remark-preset-davidtheclark --format",
         "docs": "typedoc",
         "data": "ls -lh data/",
+        "diff": "git diff --exit-code",
         "reinstall": "del-cli --dot=true ./node_modules ./package-lock.json ./yarn.lock",
         "coverage": "cat ./coverage/lcov.info | coveralls",
         "coverage:open": "opener ./coverage/lcov-report/index.html",
@@ -104,6 +105,10 @@
     "engines": {
         "node": ">= 12.x"
     },
+    "engines-next": {
+        "description": "Versions other than the below are deprecated and a warning will be logged",
+        "node": ">= 12.x"
+    },
     "keywords": [
         "weather",
         "vercel",
@@ -137,6 +142,7 @@
             [
                 "@semantic-release/github",
                 {
+                    "releasedLabels": false,
                     "assets": "dist/*.tgz"
                 }
             ]

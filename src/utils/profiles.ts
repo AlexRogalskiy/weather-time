@@ -20,4 +20,13 @@ const getConfig = (): ProfileOptions => {
     return process.env.AWS_LAMBDA_FUNCTION_VERSION ? CONFIG.prod : getConfigByEnv()
 }
 
+/**
+ * Get environment variable or empty string.
+ * Used for easy mocking.
+ * @param key variable name
+ */
+export const getEnv = (key: string): string => {
+    return process.env[key] ?? ''
+}
+
 export const profile = getConfig()
