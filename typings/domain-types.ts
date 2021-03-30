@@ -15,7 +15,7 @@ export type FontOptions = {
     /**
      * Font data
      */
-    readonly fontData: string
+    readonly fontSrc: string
 }
 
 /**
@@ -39,25 +39,21 @@ export type AnimationOptions = {
  */
 export type ThemeOptions = {
     /**
-     * Theme quote text color
+     * Theme primary text color
      */
-    readonly quoteColor: string
+    readonly primaryColor?: string
     /**
-     * Theme author text color
+     * Theme secondary text color
      */
-    readonly authorColor: string
+    readonly secondaryColor?: string
     /**
      * Theme background color
      */
-    readonly bgColor: string
+    readonly bgColor?: string
     /**
      * Theme color pattern
      */
-    readonly colorPattern?: string | string[]
-    /**
-     * Theme text font color
-     */
-    readonly fontColor?: string
+    readonly colorPattern?: string
     /**
      * Theme background opacity
      */
@@ -84,8 +80,8 @@ export type StyleOptions = {
 }
 
 /**
- * WeatherOptions
- * @desc Type representing weather options
+ * TemplateOptions
+ * @desc Type representing template options
  */
 export type TemplateOptions = {
     /**
@@ -167,6 +163,21 @@ export type ImageOptions = {
 }
 
 /**
+ * QueryOptions
+ * @desc Type representing query options
+ */
+export type QueryOptions = {
+    /**
+     * Query base url
+     */
+    readonly baseUrl: string
+    /**
+     * Query label
+     */
+    readonly query: string
+}
+
+/**
  * DateFormatOptions
  * @desc Type representing date format options
  */
@@ -191,17 +202,25 @@ export type DateFormatOptions = {
  */
 export type ProfileOptions = {
     /**
-     * Profile base url.
+     * Image query options.
      */
-    readonly baseUrl: string
+    readonly queryOptions: QueryOptions
     /**
-     * Profile image configuration options.
+     * Image configuration options.
      */
-    readonly imageOptions?: ImageOptions
+    readonly imageOptions: ImageOptions
     /**
-     * Profile date format configuration options.
+     * Style configuration options.
      */
-    readonly dateFormatOptions?: DateFormatOptions
+    readonly styleOptions?: StyleOptions
+    /**
+     * Layout configuration options.
+     */
+    readonly layoutOptions?: LayoutOptions
+    /**
+     * Date format configuration options.
+     */
+    readonly dateFormatOptions: DateFormatOptions
     /**
      * Output options
      */
@@ -216,19 +235,19 @@ export type TemplateData = {
     /**
      * Template layout options
      */
-    layout: LayoutOptions
+    readonly layout: LayoutOptions
     /**
      * Template style options
      */
-    style: StyleOptions
+    readonly style: StyleOptions
     /**
      * Template image options
      */
-    image: ImageOptions
+    readonly image: ImageOptions
     /**
-     * Template weather options
+     * Template data options
      */
-    weather: TemplateOptions
+    readonly template: TemplateOptions
 }
 
 /**
@@ -237,31 +256,31 @@ export type TemplateData = {
  */
 export type ParsedRequestData = {
     /**
+     * Request image options
+     */
+    readonly imageOptions: Partial<ImageOptions>
+    /**
+     * Request query options
+     */
+    readonly queryOptions: Partial<QueryOptions>
+    /**
+     * Request theme options
+     */
+    readonly themeOptions: Partial<ThemeOptions>
+    /**
      * Request theme pattern
      */
-    themePattern?: Optional<ThemePattern>
+    readonly themePattern?: Optional<ThemePattern>
     /**
      * Request layout pattern
      */
-    layoutPattern?: Optional<LayoutPattern>
+    readonly layoutPattern?: Optional<LayoutPattern>
     /**
      * Request animation pattern
      */
-    animationPattern?: Optional<AnimationPattern>
+    readonly animationPattern?: Optional<AnimationPattern>
     /**
      * Request font pattern
      */
-    fontPattern?: Optional<FontPattern>
-    /**
-     * Request query
-     */
-    query: string
-    /**
-     * Request image width
-     */
-    width?: string
-    /**
-     * Request image height
-     */
-    height?: string
+    readonly fontPattern?: Optional<FontPattern>
 }

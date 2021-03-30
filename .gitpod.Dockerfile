@@ -10,14 +10,14 @@ ARG HOME_DIR="/home/gitpod"
 
 LABEL maintainer="Alexander Rogalskiy <hi@nullables.io>"
 LABEL organization="nullables.io"
-LABEL io.nullables.quotes.build-date=$BUILD_DATE
-LABEL io.nullables.quotes.name="weather-time"
-LABEL io.nullables.quotes.description="Weather time"
-LABEL io.nullables.quotes.url="https://nullables.io/"
-LABEL io.nullables.quotes.vcs-ref=$VCS_REF
-LABEL io.nullables.quotes.vcs-url="https://github.com/AlexRogalskiy/weather-time"
-LABEL io.nullables.quotes.vendor="Nullables.io"
-LABEL io.nullables.quotes.version=$VERSION
+LABEL io.nullables.weather_time.build-date=$BUILD_DATE
+LABEL io.nullables.weather_time.name="weather-time"
+LABEL io.nullables.weather_time.description="Weather time"
+LABEL io.nullables.weather_time.url="https://nullables.io/"
+LABEL io.nullables.weather_time.vcs-ref=$VCS_REF
+LABEL io.nullables.weather_time.vcs-url="https://github.com/AlexRogalskiy/weather-time"
+LABEL io.nullables.weather_time.vendor="Nullables.io"
+LABEL io.nullables.weather_time.version=$VERSION
 
 ENV LC_ALL en_US.UTF-8
 ENV LANG $LC_ALL

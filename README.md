@@ -15,11 +15,11 @@
 ![GitHub Repository branches](https://badgen.net/github/branches/AlexRogalskiy/weather-time)
 ![GitHub Repository dependents](https://badgen.net/github/dependents-repo/AlexRogalskiy/weather-time)
 
-[![DeepScan grade](https://deepscan.io/api/teams/11946/projects/16316/branches/347252/badge/grade.svg)](https://deepscan.io/dashboard#view=project\&tid=11946\&pid=16316\&bid=347252)
+[![DeepScan grade](https://deepscan.io/api/teams/11946/projects/16471/branches/354704/badge/grade.svg)](https://deepscan.io/dashboard#view=project\&tid=11946\&pid=16471\&bid=354704)
 [![Tokei](https://tokei.rs/b1/github/AlexRogalskiy/weather-time?category=lines)](https://github.com/XAMPPRocky/tokei)
 ![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/AlexRogalskiy/weather-time)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
-[![DOI](https://zenodo.org/badge/346359381.svg)](https://zenodo.org/badge/latestdoi/346359381)
+[![DOI](https://zenodo.org/badge/344897154.svg)](https://zenodo.org/badge/latestdoi/344897154)
 [![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/weather-time.svg)](https://david-dm.org/AlexRogalskiy/weather-time)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/alexrogalskiy/weather-time/master/LICENSE?token=AH44ZFH7IF2KSEDK7LSIW3C7YOFYC)
@@ -27,7 +27,7 @@
 [![Forks](https://img.shields.io/github/forks/alexrogalskiy/weather-time)](https://img.shields.io/github/forks/alexrogalskiy/weather-time)
 [![Stars](https://img.shields.io/github/stars/alexrogalskiy/weather-time)](https://img.shields.io/github/stars/alexrogalskiy/weather-time)
 ![code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
-[![Maintainability](https://api.codeclimate.com/v1/badges/f2c72c20c661b601a64d/maintainability)](https://codeclimate.com/github/AlexRogalskiy/weather-time/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ed7702f8cf28917829fa/maintainability)](https://codeclimate.com/github/AlexRogalskiy/weather-time/maintainability)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/AlexRogalskiy/weather-time.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/weather-time/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/AlexRogalskiy/weather-time.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/weather-time/context:javascript)
 
@@ -36,13 +36,13 @@
 [![NewReleases](https://newreleases.io/badge.svg)](https://newreleases.io/github/AlexRogalskiy/weather-time)
 [![Hits-of-Code](https://hitsofcode.com/github/AlexRogalskiy/weather-time)](https://hitsofcode.com/github/AlexRogalskiy/weather-time/view)
 [![ComVer](https://img.shields.io/badge/ComVer-compliant-brightgreen.svg)][tags]
-![Website](https://img.shields.io/website?url=https://img.shields.io/website?url=https://weather-time.vercel.app/api?backgroundColor=%23FFFFFF\&opacity=0.3\&colorPattern=%23FFE0E9\&fontColor=%230A83DC)
+![Website](https://img.shields.io/website?url=https://weather-time.vercel.app/api?layout=churchill)
 
-[![CI](https://github.com/AlexRogalskiy/weather-time/workflows/test/badge.svg)](https://github.com/AlexRogalskiy/weather-time/workflows/test)
+[![codecov](https://codecov.io/gh/AlexRogalskiy/weather-time/branch/master/graph/badge.svg?token=QnpdaQgaoW)](https://codecov.io/gh/AlexRogalskiy/weather-time)
+[![CI](https://github.com/AlexRogalskiy/weather-time/workflows/CI/badge.svg)](https://github.com/AlexRogalskiy/weather-time/actions/workflows/build.yml)
 [![GitHub Super-Linter](https://github.com/AlexRogalskiy/weather-time/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![GitHub JSON-Validator](https://github.com/AlexRogalskiy/weather-time/workflows/Validate%20JSONs/badge.svg)](https://github.com/OrRosenblatt/validate-json-action)
 [![BCH compliance](https://bettercodehub.com/edge/badge/AlexRogalskiy/weather-time?branch=master)](https://bettercodehub.com/)
-[![Chat](https://img.shields.io/badge/chat-discussions-success.svg)](https://github.com/AlexRogalskiy/weather-time/discussions)
 
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/AlexRogalskiy/weather-time)
 [![Chat](https://img.shields.io/badge/chat-discussions-success.svg)](https://github.com/AlexRogalskiy/weather-time/discussions)
@@ -91,47 +91,98 @@ For the tech stack, ***Weather Time*** using Typescript and serverless function 
 It's simple, you can copy paste this markdown content, like this one:
 
 ```
-![weather-time](https://weather-time.vercel.app/api?backgroundColor=[value]&opacity=[value]&colorPattern=[value]&fontColor=[value]&pattern=[pattern]&language=[value]&width=[width]&height=[height]&keywords=[keywords])
+![Weather Time](https://weather-time.vercel.app/api?theme=[value]&layout=[value]&animation=[value]&bgColor=[value]&opacity=[value]&colorPattern=[value]&primaryColor=[value]&secondaryColor=[value]&width=[width]&height=[height])
 ```
 
 There are several options you can use from the list:
 
-|  **Options**           | **Description**                          |   **Type**                     | **Example**   | **Query Params**               |
-| ---------------------- | ---------------------------------------- | ------------------------------ | ------------- | ------------------------------ |
-| **\[Background Color]** | Background color for the proverb image   | <code>Hex color code</code>    | %23ffffff     | `?backgroundColor=[value]` |
-| **\[Opacity Pattern]**  | Background opacity of the pattern        | <code>Float number</code>      | 0 - 1         | `&opacity=[value]`         |
-| **\[Color Pattern]**    | Color pattern for the signage            | <code>Hex color code</code>    | %231abc9c     | `&colorPattern=[value]`    |
-| **\[Font Color]**       | Font color for the proverb text          | <code>Hex color code</code>    | %23000000     | `&fontColor=[value]`       |
-| **\[Pattern]**          | Pattern for the background               | <code>String constant</code>   | plus          | `&pattern=[value]`         |
-| **\[Language]**         | Proverb language                         | <code>String constant</code>   | swedish       | `&language=[value]`        |
-| **\[Width]**            | Proverb image width                      | <code>String</code>            | 100%          | `&width=[value]`           |
-| **\[Height]**           | Proverb image height                     | <code>String</code>            | 100%          | `&height=[value]`          |
-| **\[Keywords]**         | Proverb keywords                         | <code>String/String\[]</code>   | love          | `&keywords=[value]`        |
+| **Options**                   | **Description**                    | **Type**                          | **Example**        | **Query Params**           |
+| ----------------------------- | ---------------------------------- | --------------------------------- | ------------------ | -------------------------- |
+| **\[Theme]**                  | Theme of the image                 | <code>String</code>               | default_repocard   | `?theme=[value]`           |
+| **\[Layout]**                 | Layout of the image                | <code>String</code>               | churchill          | `&layout=[value]`          |
+| **\[Animation]**              | Animation of the image             | <code>String</code>               | grow_out_in        | `&animation=[value]`       |
+| **\[Background Color]**       | Background color of the image      | <code>Hex color code</code>       | ffffff             | `&bgColor=[value]`         |
+| **\[Opacity Pattern]**        | Opacity of the background pattern  | <code>Float number</code>         | 0 - 1              | `&opacity=[value]`         |
+| **\[Color Pattern]**          | Color of the background pattern    | <code>Hex color code</code>       | 1abc9c             | `&colorPattern=[value]`    |
+| **\[Primary Font Color]**     | Primary font color of the text     | <code>Hex color code</code>       | 000000             | `&primaryColor=[value]`    |
+| **\[Secondary Font Color]**   | Secondary font color of the text   | <code>Hex color code</code>       | 000000             | `&secondaryColor=[value]`  |
+| **\[Width]**                  | Image width                        | <code>String</code>               | 100%               | `&width=[value]`           |
+| **\[Height]**                 | Image height                       | <code>String</code>               | 100%               | `&height=[value]`          |
 
-Here is a list of layouts supported by Weather Time API:
-
-| **Name**                          | **Value**                     |
-| --------------------------------- | ----------------------------- |
-| **Afghan**                        | afghan                        |
-
-Here is a list of themes supported by Weather Time API:
+Here is a list of supported image themes:
 
 | **Name**                          | **Value**                     |
 | --------------------------------- | ----------------------------- |
-| **Afghan**                        | afghan                        |
+| **Default**                       | default                       |
+| **Default repocard**              | default_repocard              |
+| **Dark**                          | dark                          |
+| **Radical**                       | radical                       |
+| **Merko**                         | merko                         |
+| **Gruvbox**                       | gruvbox                       |
+| **Tokyo night**                   | tokyonight                    |
+| **One dark**                      | onedark                       |
+| **Cobalt**                        | cobalt                        |
+| **Synth wave**                    | synthwave                     |
+| **High contrast**                 | highcontrast                  |
+| **Dracula**                       | dracula                       |
+| **Prussian**                      | prussian                      |
+| **Monokai**                       | monokai                       |
+| **Vue**                           | vue                           |
+| **Vue dark**                      | vue_dark                      |
+| **Shades of purple**              | shades_of_purple              |
+| **Night owl**                     | nightowl                      |
+| **Buefy**                         | buefy                         |
+| **Blue green**                    | blue_green                    |
+| **Algolia**                       | algolia                       |
+| **Great Gatsby**                  | great_gatsby                  |
+| **Darcula**                       | darcula                       |
+| **Bear**                          | bear                          |
+| **Solarized dark**                | solarized_dark                |
+| **Solarized light**               | solarized_light               |
+| **Chartreuse dark**               | chartreuse_dark               |
+| **Nord**                          | nord                          |
+| **Gotham**                        | gotham                        |
+| **Material pale night**           | material_palenight            |
+| **Gray white**                    | graywhite                     |
+| **Vision friendly dark**          | vision_friendly_dark          |
+| **Ayu mirage**                    | ayu_mirage                    |
+| **Midnight purple**               | midnight_purple               |
+| **Calm**                          | calm                          |
+| **Flag India**                    | flag_india                    |
+| **Omni**                          | omni                          |
+| **React**                         | react                         |
+| **Jolly**                         | jolly                         |
+| **Maroongold**                    | maroongold                    |
+| **Yeblu**                         | yeblu                         |
+| **Blueberry**                     | blueberry                     |
+| **State orange**                  | slateorange                   |
+| **Kacho ga**                      | kacho_ga                      |
+| **Arabesque**                     | arabesque                     |
 
-Here is a list of actions supported by Weather Time API:
+List of supported image layouts:
 
 | **Name**                          | **Value**                     |
 | --------------------------------- | ----------------------------- |
-| **Afghan**                        | afghan                        |
+| **Default**                       | default                       |
+| **Churchill**                     | churchill                     |
+| **Pluto**                         | pluto                         |
+| **Samuel**                        | samuel                        |
+| **Socrates**                      | socrates                      |
+| **Zues**                          | zues                          |
+
+List of supported image animations:
+
+| **Name**                          | **Value**                     |
+| --------------------------------- | ----------------------------- |
+| **Default**                       | default                       |
+| **Grow-out-in**                   | grow_out_in                   |
 
 ## *Example*
 
 This is example of using ***Weather Time***:
 
 ```
-![weather Time](https://weather-time.vercel.app/api?backgroundColor=%23FFFFFF&opacity=0.3&colorPattern=%23FFE0E9&fontColor=%230A83DC)
+![Weather Time](https://weather-time.vercel.app/api?backgroundColor=%23FFFFFF&opacity=0.3&colorPattern=%23FFE0E9&fontColor=%230A83DC)
 ```
 
 Result:

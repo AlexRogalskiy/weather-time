@@ -34,6 +34,10 @@ jobs:
         run: |
           npm run test:all
 
+      - name: Run check all
+        run: |
+          npm run check:all
+
       - name: 🔔 Notify on Slack
         uses: 8398a7/action-slack@v3
         if: failure() && (github.event.ref == 'refs/heads/master')
@@ -53,4 +57,4 @@ jobs:
       - name: Test development server
         run: |
           curl --retry-connrefused --retry 5 http://localhost:3000/
-          curl --fail http://localhost:3000/api?category=&pattern=&backgroundColor=%23FFFFFF&fontColor=%230A83DC&opacity=0.3&colorPattern=%23FFE0E9 > /dev/null
+          curl --fail http://localhost:3000/api?theme=default_repocard&layout=churchill > /dev/null

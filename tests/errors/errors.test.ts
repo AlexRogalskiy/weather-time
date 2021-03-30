@@ -1,5 +1,6 @@
 import { describe } from '@jest/globals'
-import { ErrorType, ExtendableError } from '../../api/errors/errors'
+
+import { ErrorType, ExtendableError } from '../../src/errors/errors'
 
 export namespace Errors_Test {
     class TestError extends ExtendableError {
@@ -59,13 +60,13 @@ export namespace Errors_Test {
 
         it('it should be a valid error stack message', () => {
             const err = new ExtendableError(ErrorType.value_error, 'Value error')
-            expect(err.stack?.substring(0, 28)).toEqual('ExtendableError: Value error')
+            expect(err.stack && err.stack.substring(0, 28)).toEqual('ExtendableError: Value error')
 
             const err2 = new TestError(ErrorType.validation_error, 'Validation error')
-            expect(err2.stack?.substring(0, 27)).toEqual('TestError: Validation error')
+            expect(err2.stack && err2.stack.substring(0, 27)).toEqual('TestError: Validation error')
 
             const err3 = new SubTestError(ErrorType.type_error, 'Type error')
-            expect(err3.stack?.substring(0, 24)).toEqual('SubTestError: Type error')
+            expect(err3.stack && err3.stack.substring(0, 24)).toEqual('SubTestError: Type error')
         })
 
         it('it should be a valid error #toString', () => {
