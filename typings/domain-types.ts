@@ -137,6 +137,23 @@ export type TemplateOptions = {
 export type WeatherOptions = (fill: string, opacity: string) => string
 
 /**
+ * WeatherLayoutOptions
+ * @desc Type representing weather layout options
+ */
+export type WeatherLayoutOptions = {
+    /**
+     * Creates style by input {@link StyleOptions}
+     * @param options initial input {@link StyleOptions}
+     */
+    readonly style: (options: StyleOptions) => string
+    /**
+     * Creates template by input {@link TemplateOptions}
+     * @param options initial input {@link TemplateOptions}
+     */
+    readonly template: () => string
+}
+
+/**
  * LayoutOptions
  * @desc Type representing layout options
  */
