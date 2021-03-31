@@ -6,7 +6,7 @@ import { templateController } from '../controllers/templateController'
 
 /**
  * RouteRecord
- * @desc Type representing route config options
+ * @desc Type representing route configuration options
  */
 export type RouteRecord = Record<RoutePattern, RouteFunction>
 

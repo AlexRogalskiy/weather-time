@@ -6,7 +6,7 @@ import defaultLayout from './defaultLayout'
 
 /**
  * LayoutRecord
- * @desc Type representing layout config options
+ * @desc Type representing layout configuration options
  */
 export type LayoutRecord = Record<LayoutPattern, LayoutOptions>
 

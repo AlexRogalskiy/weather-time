@@ -131,6 +131,12 @@ export type TemplateOptions = {
 }
 
 /**
+ * WeatherOptions
+ * @desc Type representing weather options
+ */
+export type WeatherOptions = (fill: string, opacity: string) => string
+
+/**
  * LayoutOptions
  * @desc Type representing layout options
  */

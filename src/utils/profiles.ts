@@ -25,8 +25,8 @@ const getConfig = (): ProfileOptions => {
  * Used for easy mocking.
  * @param key variable name
  */
-export const getEnv = (key: string): string => {
-    return process.env[key] ?? ''
+export const getEnv = (key: string): Optional<string> => {
+    return process.env[key] ? process.env[key] : ''
 }
 
 export const profile = getConfig()

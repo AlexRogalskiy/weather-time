@@ -4,7 +4,7 @@ import { ThemeOptions } from '../../typings/domain-types'
 
 /**
  * ThemeRecord
- * @desc Type representing theme config options
+ * @desc Type representing theme configuration options
  */
 export type ThemeRecord = Record<ThemePattern, ThemeOptions>
 

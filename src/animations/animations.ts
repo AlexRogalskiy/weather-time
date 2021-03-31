@@ -4,7 +4,7 @@ import { AnimationOptions } from '../../typings/domain-types'
 
 /**
  * AnimationRecord
- * @desc Type representing animation config options
+ * @desc Type representing animation configuration options
  */
 export type AnimationRecord = Record<AnimationPattern, AnimationOptions>
 

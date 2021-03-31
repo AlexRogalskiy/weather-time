@@ -6,7 +6,7 @@ import { FontPattern } from '../../typings/enum-types'
 
 /**
  * FontRecord
- * @desc Type representing font config options
+ * @desc Type representing font configuration options
  */
 export type FontRecord = Record<FontPattern, FontOptions>
 
