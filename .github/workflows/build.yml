@@ -27,6 +27,23 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
+      - name: Init platform
+        shell: bash
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.symlinks true
+          git config --global core.ignorecase false
+          git config --global core.fileMode false
+          git config --global help.autocorrect 1
+
+          git config --global user.email 'github@github.com'
+          git config --global user.name  'Renovate Bot'
+
+          npm config set scripts-prepend-node-path true
+
+          echo "Node $(node --version)"
+          echo "Yarn $(yarn --version)"
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -38,6 +55,11 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
+      # Clear caches on cache miss, otherwise they will grow indefinitely
+      - name: Clear yarn cache
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn cache clean
 
       - name: Install
         run: yarn install
