@@ -137,38 +137,33 @@ export type TemplateOptions = {
 export type WeatherOptions = (fill: string, opacity: string) => string
 
 /**
- * WeatherLayoutOptions
- * @desc Type representing weather layout options
- */
-export type WeatherLayoutOptions = {
-    /**
-     * Creates style by input {@link StyleOptions}
-     * @param options initial input {@link StyleOptions}
-     */
-    readonly style: (options: StyleOptions) => string
-    /**
-     * Creates template by input {@link TemplateOptions}
-     * @param options initial input {@link TemplateOptions}
-     */
-    readonly template: () => string
-}
-
-/**
  * LayoutOptions
  * @desc Type representing layout options
  */
-export type LayoutOptions = {
+export type LayoutOptions<S, T> = {
     /**
      * Creates style by input {@link StyleOptions}
      * @param options initial input {@link StyleOptions}
      */
-    readonly style: (options: StyleOptions) => string
+    readonly style: (options: S) => string
     /**
      * Creates template by input {@link TemplateOptions}
      * @param options initial input {@link TemplateOptions}
      */
-    readonly template: (options: TemplateOptions) => string
+    readonly template: (options: T) => string
 }
+
+/**
+ * TemplateLayoutOptions
+ * @desc Type representing template layout options
+ */
+export type TemplateLayoutOptions = LayoutOptions<StyleOptions, TemplateOptions>
+
+/**
+ * WeatherLayoutOptions
+ * @desc Type representing weather layout options
+ */
+export type WeatherLayoutOptions = LayoutOptions<StyleOptions, TemplateOptions>
 
 /**
  * ImageOptions
@@ -239,7 +234,7 @@ export type ProfileOptions = {
     /**
      * Layout configuration options.
      */
-    readonly layoutOptions?: LayoutOptions
+    readonly layoutOptions?: TemplateLayoutOptions
     /**
      * Date format configuration options.
      */
@@ -254,15 +249,15 @@ export type ProfileOptions = {
  * TemplateData
  * @desc Type representing template data
  */
-export type TemplateData = {
+export type TemplateData<S, T, L extends LayoutOptions<S, T>> = {
     /**
      * Template layout options
      */
-    readonly layout: LayoutOptions
+    readonly layout: L
     /**
      * Template style options
      */
-    readonly style: StyleOptions
+    readonly style: S
     /**
      * Template image options
      */
@@ -270,7 +265,7 @@ export type TemplateData = {
     /**
      * Template data options
      */
-    readonly template: TemplateOptions
+    readonly template: T
 }
 
 /**

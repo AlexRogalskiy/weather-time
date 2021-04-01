@@ -14,7 +14,7 @@ export enum Profile {
  */
 export enum WeatherPattern {
     default = 'default',
-    jigsaw = 'jigsaw',
+    cloudy = 'cloudy',
 }
 
 /**

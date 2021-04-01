@@ -2,9 +2,9 @@ import {
     AnimationOptions,
     FontOptions,
     ImageOptions,
-    LayoutOptions,
     ParsedRequestData,
     QueryOptions,
+    TemplateLayoutOptions,
     TemplateOptions,
     ThemeOptions,
 } from '../../typings/domain-types'
@@ -34,7 +34,7 @@ export async function templateRenderer(requestData: ParsedRequestData): Promise<
     } = requestData
 
     const query = mergeProps<QueryOptions>(profile.queryOptions, queryOptions)
-    const layout = mergeProps<LayoutOptions>(profile.layoutOptions, getLayout(layoutPattern))
+    const layout = mergeProps<TemplateLayoutOptions>(profile.layoutOptions, getLayout(layoutPattern))
     const font = mergeProps<FontOptions>(profile.styleOptions?.font, getFont(fontPattern))
     const theme = mergeProps<ThemeOptions>(profile.styleOptions?.theme, getTheme(themePattern), themeOptions)
     const animation = mergeProps<AnimationOptions>(

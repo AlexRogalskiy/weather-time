@@ -1,9 +1,9 @@
-import { LayoutOptions, StyleOptions, TemplateOptions } from '../../typings/domain-types'
+import { StyleOptions, TemplateLayoutOptions, TemplateOptions } from '../../typings/domain-types'
 import { LayoutPattern } from '../../typings/enum-types'
 
 import { capitalize } from '../utils/commons'
 
-const defaultLayout: Record<LayoutPattern.default, LayoutOptions> = {
+const defaultLayout: Record<LayoutPattern.default, TemplateLayoutOptions> = {
     default: {
         style: (options: StyleOptions) => {
             const {

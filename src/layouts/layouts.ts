@@ -1,6 +1,6 @@
 import { Optional } from '../../typings/standard-types'
 import { LayoutPattern } from '../../typings/enum-types'
-import { LayoutOptions } from '../../typings/domain-types'
+import { TemplateLayoutOptions } from '../../typings/domain-types'
 
 import defaultLayout from './defaultLayout'
 
@@ -8,7 +8,7 @@ import defaultLayout from './defaultLayout'
  * LayoutRecord
  * @desc Type representing layout configuration options
  */
-export type LayoutRecord = Record<LayoutPattern, LayoutOptions>
+export type LayoutRecord = Record<LayoutPattern, TemplateLayoutOptions>
 
 /**
  * Layout mappings
@@ -22,6 +22,6 @@ const layouts: Readonly<LayoutRecord> = {
  * Returns {@link LayoutOptions} by input {@link LayoutPattern} value
  * @param value initial input {@link LayoutPattern} to fetch by
  */
-export const getLayout = (value: Optional<LayoutPattern>): LayoutOptions => {
+export const getLayout = (value: Optional<LayoutPattern>): TemplateLayoutOptions => {
     return value ? layouts[value] : layouts[LayoutPattern.default]
 }
