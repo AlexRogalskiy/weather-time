@@ -15,6 +15,96 @@ export enum Profile {
 export enum WeatherPattern {
     default = 'default',
     cloudy = 'cloudy',
+    rainy = 'rainy',
+    snowy = 'snowy',
+    mist = 'mist',
+    sunny = 'sunny',
+    sunny_rainy = 'sunny-rainy',
+    sunny_cloudy = 'sunny-cloudy',
+    rainy_lightning = 'rainy-lightning',
+}
+
+/**
+ * SpritePattern
+ * @desc Enumeration type representing supported sprite patterns
+ */
+export enum SpritePattern {
+    cloud = 'cloud',
+    cloud_moon = 'cloud moon',
+    cloud_sun = 'cloud sun',
+    cloudy = 'cloudy',
+    fog = 'fog',
+    hail = 'hail',
+    haze = 'haze',
+    light_rain = 'light rain',
+    moon = 'moon',
+    rain = 'rain',
+    shower_moon = 'shower moon',
+    shower_sun = 'shower sun',
+    sleet = 'sleet',
+    snow = 'snow',
+    snowflake = 'snowflake',
+    storm_moon = 'storm moon',
+    storm_sun = 'storm sun',
+    sun = 'sun',
+    thunderstorm = 'thunderstorm',
+    unknown = 'unknown',
+}
+
+/**
+ * WeatherForecastPattern
+ * @desc Enumeration type representing supported weather forecast patterns
+ */
+export enum WeatherForecast {
+    blizzard = 'blizzard',
+    clear = 'clear',
+    cloudy = 'cloudy',
+    fog = 'fog',
+    hail = 'hail',
+    haze = 'haze',
+    light_rain = 'light rain',
+    mist = 'mist',
+    mostly_cloudy = 'mostly cloudy',
+    mostly_sunny = 'mostly sunny',
+    overcast = 'overcast',
+    partly_cloudy = 'partly cloudy',
+    partly_sunny = 'partly sunny',
+    rain = 'rain',
+    scattered_clouds = 'scattered clouds',
+    scattered_thunderstorms = 'scattered thunderstorms',
+    showers = 'showers',
+    sleet = 'sleet',
+    snow = 'snow',
+    sunny = 'sunny',
+    thunderstorm = 'thunderstorm',
+    unknown = 'unknown',
+}
+
+/**
+ * TimeOfDay
+ * @desc Enumeration type representing supported time of day
+ */
+export enum TimeOfDay {
+    day = 'DAY',
+    night = 'NIGHT',
+}
+
+/**
+ * TemperatureUnit
+ * @desc Enumeration type representing supported temperate units
+ */
+export enum TemperatureUnit {
+    celsius = 'c',
+    fahrenheit = 'f',
+}
+
+/**
+ * Mode
+ * @desc Enumeration type representing supported modes
+ */
+export enum Mode {
+    light = 'LIGHT',
+    dark = 'DARK',
 }
 
 /**

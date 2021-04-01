@@ -1,7 +1,7 @@
 import { QueryOptions, TemplateOptions } from '../../typings/domain-types'
 
 import { fetchAsJson, getApiUrl } from '../utils/requests'
-import { getDirection, getFormatDate } from '../utils/commons'
+import { capitalize, getDirection, getFormatDate } from '../utils/commons'
 
 import { profile } from '../utils/profiles'
 
@@ -14,7 +14,8 @@ export async function getWeatherDataByQuery(query: Required<QueryOptions>): Prom
     const { locale, shortDateFormat, longDateFormat } = profile.dateFormatOptions
 
     return {
-        refreshDate: getFormatDate(Date.now(), locale, longDateFormat),
+        location: capitalize(query.query),
+        datetime: getFormatDate(Date.now(), locale, longDateFormat),
         temperature: Math.round(response.main.temp),
         pressure: Math.round(response.main.pressure),
         humidity: Math.round(response.main.humidity),

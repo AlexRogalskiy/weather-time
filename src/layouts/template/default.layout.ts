@@ -1,7 +1,7 @@
-import { StyleOptions, TemplateLayoutOptions, TemplateOptions } from '../../typings/domain-types'
-import { LayoutPattern } from '../../typings/enum-types'
+import { StyleOptions, TemplateLayoutOptions, TemplateOptions } from '../../../typings/domain-types'
+import { LayoutPattern } from '../../../typings/enum-types'
 
-import { capitalize } from '../utils/commons'
+import { capitalize } from '../../utils/commons'
 
 const defaultLayout: Record<LayoutPattern.default, TemplateLayoutOptions> = {
     default: {

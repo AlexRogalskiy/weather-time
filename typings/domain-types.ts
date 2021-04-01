@@ -87,7 +87,11 @@ export type TemplateOptions = {
     /**
      * Weather refresh timestamp
      */
-    readonly refreshDate: string
+    readonly datetime: string
+    /**
+     * Weather location point
+     */
+    readonly location: string
     /**
      * Weather temperature
      */
@@ -131,12 +135,6 @@ export type TemplateOptions = {
 }
 
 /**
- * WeatherOptions
- * @desc Type representing weather options
- */
-export type WeatherOptions = (fill: string, opacity: string) => string
-
-/**
  * LayoutOptions
  * @desc Type representing layout options
  */
@@ -160,10 +158,10 @@ export type LayoutOptions<S, T> = {
 export type TemplateLayoutOptions = LayoutOptions<StyleOptions, TemplateOptions>
 
 /**
- * WeatherLayoutOptions
- * @desc Type representing weather layout options
+ * WeatherTemplateLayoutOptions
+ * @desc Type representing weather template layout options
  */
-export type WeatherLayoutOptions = LayoutOptions<StyleOptions, TemplateOptions>
+export type WeatherTemplateLayoutOptions = LayoutOptions<StyleOptions, TemplateOptions>
 
 /**
  * ImageOptions

@@ -4,7 +4,7 @@ import { AnimationPattern, FontPattern, LayoutPattern, ThemePattern } from '../.
 
 import { toString } from '../utils/commons'
 
-import * as weatherService from '../services/templateService'
+import * as weatherService from '../services/template.service'
 
 export async function templateController(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {

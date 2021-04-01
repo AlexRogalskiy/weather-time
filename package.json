@@ -18,7 +18,7 @@
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
         "markdown": "markdown-link-check ./README.md ./SECURITY.md",
         "remark": "remark -q -f .",
-        "scss": "node-sass --watch src/scss -o css",
+        "scss": "node-sass --watch templates/scss -o css",
         "lint:md": "remark-preset-davidtheclark",
         "format:md": "remark-preset-davidtheclark --format",
         "docs": "typedoc",
