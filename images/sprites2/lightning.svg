@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="text/css"?>
+<?xml-stylesheet href="styles.css" type="text/css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="100" width="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gradDarkGray" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:white; stop-opacity:1"/>
+      <stop offset="70%" style="stop-color:gray; stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:dimgray ;stop-opacity:1"/>
+    </radialGradient>
+    <radialGradient id="gradGray" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:white; stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:darkgray ;stop-opacity:1"/>
+    </radialGradient>
+    <linearGradient id="gradWhite" x1="40%" y1="50%" x2="90%" y2="90%">
+      <stop offset="0%" style="stop-color:white;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:darkgray;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Small Gray Cloud -->
+  <symbol id="grayCloud">
+    <path d="M20,15 Q25,0 45,11 Q60,5 60,20 A30,15 5 1,1 20,15 Z"/>
+  </symbol>
+
+  <!-- Thunder Bolt -->
+  <symbol id="thunderBolt">
+    <path d="M15,0 L1,23 L8,23 L0,40 L15,19 L8,19Z"/>
+  </symbol>
+
+  <!-- White Cloud -->
+  <symbol id="whiteCloud">
+    <path fill="url(#gradWhite)"
+          d="M11,47 Q13,37 21,42 Q31,30 41,38 A28,21 -25 1,1 35,75 Q23,85 19,73 A12,12 0 0,1 11,47Z"/>
+  </symbol>
+
+  <use href="#grayCloud" class="small-cloud" fill="url(#gradGray)"/>
+  <use href="#grayCloud" x="25" y="10" class="reverse-small-cloud" fill="url(#gradDarkGray)"/>
+  <use href="#thunderBolt" x="30" y="61" fill="black" class="lighting animated infinite flash"/>
+  <use href="#whiteCloud" x="7"/>
+  <use href="#thunderBolt" x="45" y="56" fill="yellow" class="lighting animated infinite flash delay-1s"/>
+</svg>

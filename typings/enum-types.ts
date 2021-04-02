@@ -9,6 +9,26 @@ export enum Profile {
 }
 
 /**
+ * IconPattern
+ * @desc Enumeration type representing supported icon patterns
+ */
+export enum IconPattern {
+    default = 'cloudy',
+    cloudy = 'cloudy',
+    rainy = 'rainy',
+    heavy_rainy = 'heavy_rainy',
+    snowy = 'snowy',
+    sunny = 'sunny',
+    sunny_cloudy_snowy = 'sunny-cloudy-snowy',
+    sunny_cloudy_rainy = 'sunny-cloudy-rainy',
+    sunny_partly_cloudy = 'sunny-partly-cloudy',
+    partly_cloudy = 'partly-cloudy',
+    sunny_rainy = 'sunny-rainy',
+    sunny_cloudy = 'sunny-cloudy',
+    rainy_lightning = 'rainy-lightning',
+}
+
+/**
  * WeatherPattern
  * @desc Enumeration type representing supported weather patterns
  */
@@ -180,11 +200,11 @@ export enum FontPattern {
  */
 export enum LayoutPattern {
     default = 'default',
-    // socrates = 'socrates',
-    // churchill = 'churchill',
-    // samuel = 'samuel',
-    // zues = 'zues',
-    // pluto = 'pluto',
+    simple = 'simple',
+    advanced = 'advanced',
+    standard = 'standard',
+    small = 'small',
+    medium = 'medium',
 }
 
 /**

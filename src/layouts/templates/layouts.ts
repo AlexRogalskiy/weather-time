@@ -3,6 +3,11 @@ import { LayoutPattern } from '../../../typings/enum-types'
 import { TemplateLayoutOptions } from '../../../typings/domain-types'
 
 import defaultLayout from './default.layout'
+import simpleLayout from './simple.layout'
+import advancedLayout from './advanced.layout'
+import standardLayout from './standard.layout'
+import smallLayout from './small.layout'
+import mediumLayout from './medium.layout'
 
 /**
  * TemplateLayoutRecord
@@ -16,6 +21,11 @@ export type TemplateLayoutRecord = Record<LayoutPattern, TemplateLayoutOptions>
  */
 const layouts: Readonly<TemplateLayoutRecord> = {
     ...defaultLayout,
+    ...simpleLayout,
+    ...advancedLayout,
+    ...standardLayout,
+    ...smallLayout,
+    ...mediumLayout,
 }
 
 /**

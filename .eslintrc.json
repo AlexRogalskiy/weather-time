@@ -219,7 +219,8 @@
         "@typescript-eslint/no-empty-function": "warn",
         "@typescript-eslint/no-this-alias": "warn",
         "@typescript-eslint/ban-types": "warn",
-        "@typescript-eslint/quotes": "off"
+        "@typescript-eslint/quotes": "off",
+        "@typescript-eslint/ban-ts-ignore": "off"
     },
     "env": {
         "node": true,

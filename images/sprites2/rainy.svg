@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="styles.css" type="text/css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="100" width="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gradDarkGray" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:white; stop-opacity:1"/>
+      <stop offset="70%" style="stop-color:gray; stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:dimgray ;stop-opacity:1"/>
+    </radialGradient>
+    <linearGradient id="gradWhite" x1="40%" y1="50%" x2="90%" y2="90%">
+      <stop offset="0%" style="stop-color:white;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:darkgray;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Small Gray Cloud -->
+  <symbol id="grayCloud">
+    <path d="M20,15 Q25,0 45,11 Q60,5 60,20 A30,15 5 1,1 20,15 Z"/>
+  </symbol>
+
+  <!-- Rain Drop -->
+  <symbol id="rainDrop">
+    <path fill="lightblue" d="M10 0 Q10,0 14,7 A5,5 0 1,1 6,7 Q10,0 10,0Z"/>
+  </symbol>
+
+  <!-- White Cloud -->
+  <symbol id="whiteCloud">
+    <path fill="url(#gradWhite)"
+          d="M11,47 Q13,37 21,42 Q31,30 41,38 A28,21 -25 1,1 35,75 Q23,85 19,73 A12,12 0 0,1 11,47Z"/>
+  </symbol>
+
+  <use href="#grayCloud" x="25" y="10" class="reverse-small-cloud" fill="url(#gradDarkGray)"/>
+  <use id="drop4" href="#rainDrop" x="15" y="65"/>
+  <use id="drop1" href="#rainDrop" x="25" y="65"/>
+  <use id="drop2" href="#rainDrop" x="37" y="65"/>
+  <use id="drop3" href="#rainDrop" x="50" y="65"/>
+  <use href="#whiteCloud" x="5" y="-7"/>
+</svg>

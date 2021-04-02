@@ -2,45 +2,45 @@ import { Optional } from '../../typings/standard-types'
 import { SpritePattern, TimeOfDay, WeatherForecast } from '../../typings/enum-types'
 
 // @ts-ignore
-import sun from '../../images/sun.svg'
+import sun from '../../images/sprites/sun.svg'
 // @ts-ignore
-import moon from '../../images/moon.svg'
+import moon from '../../images/sprites/moon.svg'
 // @ts-ignore
-import snowflake from '../../images/snowflake.svg'
+import snowflake from '../../images/sprites/snowflake.svg'
 // @ts-ignore
-import cloudy from '../../images/cloudy.svg'
+import cloudy from '../../images/sprites/cloudy.svg'
 // @ts-ignore
-import fog from '../../images/fog.svg'
+import fog from '../../images/sprites/fog.svg'
 // @ts-ignore
-import hail from '../../images/hail.svg'
+import hail from '../../images/sprites/hail.svg'
 // @ts-ignore
-import haze from '../../images/haze.svg'
+import haze from '../../images/sprites/haze.svg'
 // @ts-ignore
-import lightRain from '../../images/light_rain.svg'
+import lightRain from '../../images/sprites/light_rain.svg'
 // @ts-ignore
-import cloud from '../../images/cloud.svg'
+import cloud from '../../images/sprites/cloud.svg'
 // @ts-ignore
-import cloudSun from '../../images/cloud_sun.svg'
+import cloudSun from '../../images/sprites/cloud_sun.svg'
 // @ts-ignore
-import cloudMoon from '../../images/cloud_moon.svg'
+import cloudMoon from '../../images/sprites/cloud_moon.svg'
 // @ts-ignore
-import rain from '../../images/rain.svg'
+import rain from '../../images/sprites/rain.svg'
 // @ts-ignore
-import stormSun from '../../images/storm_sun.svg'
+import stormSun from '../../images/sprites/storm_sun.svg'
 // @ts-ignore
-import stormMoon from '../../images/storm_moon.svg'
+import stormMoon from '../../images/sprites/storm_moon.svg'
 // @ts-ignore
-import showerSun from '../../images/shower_sun.svg'
+import showerSun from '../../images/sprites/shower_sun.svg'
 // @ts-ignore
-import showerMoon from '../../images/shower_moon.svg'
+import showerMoon from '../../images/sprites/shower_moon.svg'
 // @ts-ignore
-import sleet from '../../images/sleet.svg'
+import sleet from '../../images/sprites/sleet.svg'
 // @ts-ignore
-import snow from '../../images/snow.svg'
+import snow from '../../images/sprites/snow.svg'
 // @ts-ignore
-import thunderstorm from '../../images/thunderstorm.svg'
+import thunderstorm from '../../images/sprites/thunderstorm.svg'
 // @ts-ignore
-import unknown from '../../images/unknown.svg'
+import unknown from '../../images/sprites/unknown.svg'
 
 /**
  * PatternOperator

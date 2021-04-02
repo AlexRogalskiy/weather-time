@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="styles.css" type="text/css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="100" width="100" class="icon wind" viewBox="0 0 100 100" id="wind" xmlns="http://www.w3.org/2000/svg">
+  <path id="wind1" class="wind-strike" d="M 8,37 L 35,37"/>
+  <path id="wind2" class="wind-strike" d="M 2,45 L 45,45 C65,45 64,25 52,25 C47,24 42,30 44,35"/>
+  <path id="wind3" class="wind-strike" d="M 20,55 L 75,55 C90,53 90,35 80,32 C70,28 60,42 70,48 C80,50 80,40 78,41"/>
+  <path id="wind4" class="wind-strike" d="M 12,65 L 65,65 C85,68 75,87 65,83 C60,81 60,78 61,76"/>
+  <path id="wind5" class="wind-strike" d="M 5,75 L 48,75"/>
+</svg>

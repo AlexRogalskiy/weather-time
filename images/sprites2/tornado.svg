@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="styles.css" type="text/css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="100" width="100" class="icon" viewBox="0 0 100 100" id="tornado" xmlns="http://www.w3.org/2000/svg">
+  <path d="M26,17.5 A25,6.8 -3 1,1 68,15.5 A22,5.25 -3 1,0 26,17.5z" fill="darkblue"/>
+  <path d="M29,18.5 A19.5,4.5 -3 1,1 65,17 A17,3.5 -3 1,0 29,18.5z" fill="lightblue"/>
+  <path d="M35,20 A15,2.25 -3 1,1 60,19 A13,1.5 -3 1,0 35,20z" fill="lightblue"/>
+  <path d="M22,11 A35,12 -3 1,0 70,7 A28,9 -3 1,1 22,11z" fill="darkblue"/>
+  <path d="M25,23 A34,11.70 -4 1,0 75,18 A29,7.75 -4 1,1 25,23" fill="blue"/>
+  <path d="M38,33 A30,11 -5 1,0 70,31 A24,7.5 -5 1,1 38,33" fill="darkblue"/>
+  <path d="M38,45 A27,10.5 -3 1,0 73,42 A22.5,7.75 -3 1,1 38,45" fill="lightblue"/>
+  <path d="M35,56 A23,9.15 -1 1,0 75,56 A20.25,8 -1 1,1 35,56" fill="blue"/>
+  <path d="M33,62 A20,8.75 0 1,0 69,66 A18,7.75 0 1,1 33,62" fill="darkblue"/>
+  <path d="M31,68 A17,7.75 -1 1,0 60,73 A15,7.125 -1 1,1 31,68" fill="blue"/>
+  <path d="M28,74.5 Q25,86 50,98 C45,85 61,84 57,77 A8,3.85 2 1,1 28,74.5" fill="darkblue"/>
+</svg>
