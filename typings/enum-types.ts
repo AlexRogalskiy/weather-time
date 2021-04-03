@@ -8,42 +8,7 @@ export enum Profile {
     test = 'test',
 }
 
-/**
- * IconPattern
- * @desc Enumeration type representing supported icon patterns
- */
-export enum IconPattern {
-    default = 'cloudy',
-    cloudy = 'cloudy',
-    rainy = 'rainy',
-    heavy_rainy = 'heavy_rainy',
-    snowy = 'snowy',
-    sunny = 'sunny',
-    sunny_cloudy_snowy = 'sunny-cloudy-snowy',
-    sunny_cloudy_rainy = 'sunny-cloudy-rainy',
-    sunny_partly_cloudy = 'sunny-partly-cloudy',
-    partly_cloudy = 'partly-cloudy',
-    sunny_rainy = 'sunny-rainy',
-    sunny_cloudy = 'sunny-cloudy',
-    rainy_lightning = 'rainy-lightning',
-}
-
-/**
- * WeatherPattern
- * @desc Enumeration type representing supported weather patterns
- */
-export enum WeatherPattern {
-    default = 'default',
-    cloudy = 'cloudy',
-    rainy = 'rainy',
-    snowy = 'snowy',
-    mist = 'mist',
-    sunny = 'sunny',
-    sunny_rainy = 'sunny-rainy',
-    sunny_cloudy = 'sunny-cloudy',
-    rainy_lightning = 'rainy-lightning',
-}
-
+//--------------------------------------------------------------------------------------------------
 /**
  * SpritePattern
  * @desc Enumeration type representing supported sprite patterns
@@ -68,38 +33,39 @@ export enum SpritePattern {
     storm_sun = 'storm sun',
     sun = 'sun',
     thunderstorm = 'thunderstorm',
-    unknown = 'unknown',
+    default = 'default',
 }
 
+//--------------------------------------------------------------------------------------------------
 /**
- * WeatherForecastPattern
- * @desc Enumeration type representing supported weather forecast patterns
+ * WeatherPattern
+ * @desc Enumeration type representing supported weather patterns
  */
-export enum WeatherForecast {
-    blizzard = 'blizzard',
+export enum WeatherPattern {
     clear = 'clear',
-    cloudy = 'cloudy',
-    fog = 'fog',
     hail = 'hail',
     haze = 'haze',
-    light_rain = 'light rain',
-    mist = 'mist',
-    mostly_cloudy = 'mostly cloudy',
-    mostly_sunny = 'mostly sunny',
-    overcast = 'overcast',
-    partly_cloudy = 'partly cloudy',
-    partly_sunny = 'partly sunny',
-    rain = 'rain',
-    scattered_clouds = 'scattered clouds',
-    scattered_thunderstorms = 'scattered thunderstorms',
-    showers = 'showers',
+    misty = 'misty',
     sleet = 'sleet',
-    snow = 'snow',
     sunny = 'sunny',
     thunderstorm = 'thunderstorm',
-    unknown = 'unknown',
+    cloudy = 'cloudy',
+    partly_cloudy = 'partly cloudy',
+    mostly_cloudy = 'mostly cloudy',
+    snowy = 'snowy',
+    light_snowy = 'light snowy',
+    heavy_snowy = 'heavy snowy',
+    partly_snowy = 'partly snowy',
+    mostly_snowy = 'mostly snowy',
+    rainy = 'rainy',
+    light_rainy = 'light rainy',
+    heavy_rainy = 'heavy rainy',
+    partly_rainy = 'partly rainy',
+    mostly_rainy = 'mostly rainy',
+    default = 'default',
 }
 
+//--------------------------------------------------------------------------------------------------
 /**
  * TimeOfDay
  * @desc Enumeration type representing supported time of day
@@ -109,6 +75,7 @@ export enum TimeOfDay {
     night = 'NIGHT',
 }
 
+//--------------------------------------------------------------------------------------------------
 /**
  * TemperatureUnit
  * @desc Enumeration type representing supported temperate units
@@ -118,6 +85,7 @@ export enum TemperatureUnit {
     fahrenheit = 'f',
 }
 
+//--------------------------------------------------------------------------------------------------
 /**
  * Mode
  * @desc Enumeration type representing supported modes
@@ -127,6 +95,7 @@ export enum Mode {
     dark = 'DARK',
 }
 
+//--------------------------------------------------------------------------------------------------
 /**
  * FontPattern
  * @desc Enumeration type representing supported font patterns
@@ -194,6 +163,7 @@ export enum FontPattern {
     yesteryear = 'yesteryear',
 }
 
+//--------------------------------------------------------------------------------------------------
 /**
  * LayoutPattern
  * @desc Enumeration type representing supported layout patterns
@@ -208,6 +178,7 @@ export enum LayoutPattern {
     light = 'light',
 }
 
+//--------------------------------------------------------------------------------------------------
 /**
  * AnimationPattern
  * @desc Enumeration type representing supported animation patterns
@@ -217,6 +188,7 @@ export enum AnimationPattern {
     grow_out_in = 'grow-out-in',
 }
 
+//--------------------------------------------------------------------------------------------------
 /**
  * ThemePattern
  * @desc Enumeration type representing supported theme patterns
@@ -269,6 +241,7 @@ export enum ThemePattern {
     arabesque = 'arabesque',
 }
 
+//--------------------------------------------------------------------------------------------------
 /**
  * RoutePattern
  * @desc Enumeration type representing supported route patterns
@@ -276,3 +249,4 @@ export enum ThemePattern {
 export enum RoutePattern {
     default = 'default',
 }
+//--------------------------------------------------------------------------------------------------

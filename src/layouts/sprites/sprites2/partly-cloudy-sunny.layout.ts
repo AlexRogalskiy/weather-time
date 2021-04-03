@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { IconPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
-const sunnyCloudyRainyLayout: Record<IconPattern.sunny_cloudy_rainy, WeatherTemplateLayoutOptions> = {
-    [IconPattern.sunny_cloudy_rainy]: {
+const partlyCloudySunnyLayout: Record<WeatherPattern.partly_cloudy, WeatherTemplateLayoutOptions> = {
+    [WeatherPattern.partly_cloudy]: {
         style: () => {
             return `
                         html {
@@ -51,7 +51,6 @@ const sunnyCloudyRainyLayout: Record<IconPattern.sunny_cloudy_rainy, WeatherTemp
                             font-size: 1em; /* control icon size here */
                         }
 
-                        /* CLOUD4 */
                         .cloud4 {
                             position: absolute;
                             z-index: 1;
@@ -102,7 +101,6 @@ const sunnyCloudyRainyLayout: Record<IconPattern.sunny_cloudy_rainy, WeatherTemp
                             background: #898989;
                         }
 
-                        /* FIN CLOUD4 */
                         .sun {
                             position: absolute;
                             top: 50%;
@@ -149,37 +147,6 @@ const sunnyCloudyRainyLayout: Record<IconPattern.sunny_cloudy_rainy, WeatherTemp
                             transform: rotate(120deg);
                         }
 
-                        /* RAIN3 */
-                        .rain3 {
-                            position: absolute;
-                            z-index: 2;
-                            top: 50%;
-                            left: 50%;
-                            width: 3.75em;
-                            height: 3.75em;
-                            margin: 0.375em 0 0 -2em;
-                            background: rgba(255, 255, 255, 0.0);
-                        }
-
-                        .rain3:after {
-                            content: '';
-                            position: absolute;
-                            z-index: 2;
-                            top: 50%;
-                            left: 50%;
-                            width: 1.125em;
-                            height: 1.125em;
-                            margin: -1em 0 0 -0.25em;
-                            background: #0547A5;
-                            border-radius: 100% 0 60% 50% / 60% 0 100% 50%;
-                            box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.9),
-                            -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.9),
-                            -1.375em -0.125em 0 rgba(255, 255, 255, 0.9);
-
-                            transform: rotate(-28deg);
-                            animation: rain3 3s linear infinite;
-                        }
-
                         /* Animations */
                         @keyframes spin {
                             100% {
@@ -199,46 +166,19 @@ const sunnyCloudyRainyLayout: Record<IconPattern.sunny_cloudy_rainy, WeatherTemp
                                 transform: scale(0.5) translate(170%, 0em);
                             }
                         }
-
-                        @keyframes rain3 {
-                            0% {
-                                background: #0547A5;
-                                box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.2),
-                                -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.2),
-                                -1.375em -0.125em 0 #0547A5;
-                            }
-                            25% {
-                                box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.2),
-                                -0.875em 1.125em 0 -0.125em #0547A5,
-                                -1.375em -0.125em 0 rgba(255, 255, 255, 0.2);
-                            }
-                            50% {
-                                background: rgba(255, 255, 255, 0.3);
-                                box-shadow: 0.625em 0.875em 0 -0.125em #0547A5,
-                                -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.2),
-                                -1.375em -0.125em 0 rgba(255, 255, 255, 0.2);
-                            }
-                            100% {
-                                box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.2),
-                                -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.2),
-                                -1.375em -0.125em 0 #0547A5;
-                            }
-                        }
                 `
         },
         template: () => {
             return `
-                        <div class="icon averses possibles">
+                        <div class="icon cloudy go sunny">
                             <div class="sun">
                                 <div class="rays"></div>
                             </div>
-                            <div class="cloud4">
-                                <div class="rain3"></div>
-                            </div>
+                            <div class="cloud4"></div>
                         </div>
                 `
         },
     },
 }
 
-export default sunnyCloudyRainyLayout
+export default partlyCloudySunnyLayout

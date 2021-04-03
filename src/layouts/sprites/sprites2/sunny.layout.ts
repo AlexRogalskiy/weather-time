@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { IconPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
-const sunnyLayout: Record<IconPattern.sunny, WeatherTemplateLayoutOptions> = {
-    [IconPattern.sunny]: {
+const sunnyLayout: Record<WeatherPattern.sunny, WeatherTemplateLayoutOptions> = {
+    [WeatherPattern.sunny]: {
         style: () => {
             return `
                         html {

@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { WeatherPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
-const mistLayout: Record<WeatherPattern.mist, WeatherTemplateLayoutOptions> = {
-    mist: {
+const mistyLayout: Record<WeatherPattern.misty, WeatherTemplateLayoutOptions> = {
+    [WeatherPattern.misty]: {
         style: () => {
             return `
                         // color palette: https://coolors.co/212f45-fdac49-fcd422-fffafa
@@ -107,4 +107,4 @@ const mistLayout: Record<WeatherPattern.mist, WeatherTemplateLayoutOptions> = {
     },
 }
 
-export default mistLayout
+export default mistyLayout

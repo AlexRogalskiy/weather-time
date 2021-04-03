@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { WeatherPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
 const defaultLayout: Record<WeatherPattern.default, WeatherTemplateLayoutOptions> = {
-    default: {
+    [WeatherPattern.default]: {
         style: () => {
             return `
                         // color palette: https://coolors.co/212f45-fdac49-fcd422-fffafa

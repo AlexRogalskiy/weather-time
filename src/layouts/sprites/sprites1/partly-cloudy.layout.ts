@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { WeatherPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
-const sunnyLayout: Record<WeatherPattern.sunny, WeatherTemplateLayoutOptions> = {
-    sunny: {
+const partlyCloudyLayout: Record<WeatherPattern.partly_cloudy, WeatherTemplateLayoutOptions> = {
+    [WeatherPattern.partly_cloudy]: {
         style: () => {
             return `
                         // color palette: https://coolors.co/212f45-fdac49-fcd422-fffafa
@@ -11,10 +11,7 @@ const sunnyLayout: Record<WeatherPattern.sunny, WeatherTemplateLayoutOptions> = 
                         $orange: #fdac49;
                         $yellow: #fcd422;
                         $white: #fffafa;
-                        $gray: #a3a3a3;
-
-                        $triangleUp: polygon(50% 0%, 0% 100%, 100% 100%);
-                        $triangleDown: polygon(50% 100%, 0 0, 100% 0);
+                        $gray: #f1f4f8;
 
                         *,
                         *:before,
@@ -42,10 +39,10 @@ const sunnyLayout: Record<WeatherPattern.sunny, WeatherTemplateLayoutOptions> = 
 
                         .sun {
                             position: absolute;
-                            width: 70%;
-                            height: 70%;
-                            top: 15%;
-                            left: 15%;
+                            width: 42%;
+                            height: 42%;
+                            top: 25%;
+                            right: 15%;
                             background: radial-gradient($orange, $yellow);
                             border-radius: 50%;
                             animation: spinSun 20s linear infinite;
@@ -67,14 +64,13 @@ const sunnyLayout: Record<WeatherPattern.sunny, WeatherTemplateLayoutOptions> = 
                                 height: 140%;
                                 top: -20%;
                                 left: 42.5%;
-                                outline: 1px solid $background;
 
                                 &:before {
                                     content: "";
                                     position: absolute;
                                     width: 100%;
                                     height: 13%;
-                                    clip-path: $triangleUp;
+                                    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
                                 }
 
                                 &:after {
@@ -83,7 +79,7 @@ const sunnyLayout: Record<WeatherPattern.sunny, WeatherTemplateLayoutOptions> = 
                                     bottom: 0;
                                     width: 100%;
                                     height: 13%;
-                                    clip-path: $triangleDown;
+                                    clip-path: polygon(50% 100%, 0 0, 100% 0);
                                 }
                             }
 
@@ -155,6 +151,39 @@ const sunnyLayout: Record<WeatherPattern.sunny, WeatherTemplateLayoutOptions> = 
                                 }
                             }
                         }
+
+                        .cloud {
+                            position: absolute;
+                            width: 40%;
+                            height: 40%;
+                            top: 40%;
+                            left: 25%;
+                            background: $white;
+                            border-radius: 44% 56% 49% 51% / 71% 63% 37% 29%;
+
+                            @mixin sharedCloudSides {
+                                content: "";
+                                position: absolute;
+                                width: 85%;
+                                height: 85%;
+                                top: 10%;
+                                left: -50%;
+                                right: -50%;
+                                background: inherit;
+                            }
+
+                            &:before {
+                                @include sharedCloudSides;
+                                right: unset;
+                                border-radius: 52% 48% 58% 42% / 43% 61% 39% 57%;
+                            }
+
+                            &:after {
+                                @include sharedCloudSides;
+                                left: unset;
+                                border-radius: 52% 48% 49% 51% / 43% 61% 39% 57%;
+                            }
+                        }
                 `
         },
         template: () => {
@@ -171,6 +200,7 @@ const sunnyLayout: Record<WeatherPattern.sunny, WeatherTemplateLayoutOptions> = 
                                     <div class="beam"></div>
                                     <div class="beam"></div>
                                 </div>
+                                <div class="cloud"></div>
                             </div>
                         </div>
                 `
@@ -178,4 +208,4 @@ const sunnyLayout: Record<WeatherPattern.sunny, WeatherTemplateLayoutOptions> = 
     },
 }
 
-export default sunnyLayout
+export default partlyCloudyLayout

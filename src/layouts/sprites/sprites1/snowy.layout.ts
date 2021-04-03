@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { WeatherPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
-const rainyLightningLayout: Record<WeatherPattern.rainy_lightning, WeatherTemplateLayoutOptions> = {
-    'rainy-lightning': {
+const snowyLayout: Record<WeatherPattern.snowy, WeatherTemplateLayoutOptions> = {
+    [WeatherPattern.snowy]: {
         style: () => {
             return `
                         // color palette: https://coolors.co/212f45-fdac49-fcd422-fffafa
@@ -34,15 +34,15 @@ const rainyLightningLayout: Record<WeatherPattern.rainy_lightning, WeatherTempla
                             .canvas {
                                 position: relative;
                                 padding-top: 100%;
-                                overflow: hidden;
                             }
                         }
 
-                        .cloud {
+                        .clouds {
                             $cloudBorderRadiusLeft: 52% 48% 58% 42% / 43% 61% 39% 57%;
                             $cloudBorderRadiusMiddle: 44% 56% 49% 51% / 71% 63% 37% 29%;
                             $cloudBorderRadiusRight: 52% 48% 49% 51% / 43% 61% 39% 57%;
                             $cloudColorChange1: cloudColorChange 3s linear infinite;
+                            $cloudColorChange2: cloudColorChange 3s 1s linear infinite;
 
                             @keyframes cloudColorChange {
                                 0%,
@@ -55,46 +55,26 @@ const rainyLightningLayout: Record<WeatherPattern.rainy_lightning, WeatherTempla
                             }
 
                             position: absolute;
-                            width: 40%;
-                            height: 40%;
-                            top: 27.5%;
-                            left: 30%;
-                            background: $white;
-                            border-radius: $cloudBorderRadiusMiddle;
-                            animation: $cloudColorChange1;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
 
-                            @mixin sharedCloudSides {
-                                content: "";
+                            .cloud {
                                 position: absolute;
-                                width: 85%;
-                                height: 85%;
-                                top: 10%;
-                                left: -50%;
-                                right: -50%;
-                                background: inherit;
-                            }
+                                background: $white;
+                                border-radius: $cloudBorderRadiusMiddle;
 
-                            &:before {
-                                @include sharedCloudSides;
-                                right: unset;
-                                border-radius: $cloudBorderRadiusLeft;
-                            }
-
-                            &:after {
-                                @include sharedCloudSides;
-                                left: unset;
-                                border-radius: $cloudBorderRadiusRight;
-                            }
-
-                            .cloud-copy {
-                                position: absolute;
-                                width: 100%;
-                                height: 100%;
-                                top: 0;
-                                left: 0;
-                                background: inherit;
-                                border-radius: inherit;
-                                z-index: 2;
+                                @mixin sharedCloudSides {
+                                    content: "";
+                                    position: absolute;
+                                    width: 85%;
+                                    height: 85%;
+                                    top: 10%;
+                                    left: -50%;
+                                    right: -50%;
+                                    background: inherit;
+                                }
 
                                 &:before {
                                     @include sharedCloudSides;
@@ -107,6 +87,45 @@ const rainyLightningLayout: Record<WeatherPattern.rainy_lightning, WeatherTempla
                                     left: unset;
                                     border-radius: $cloudBorderRadiusRight;
                                 }
+
+                                .cloud-copy {
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 100%;
+                                    top: 0;
+                                    left: 0;
+                                    background: inherit;
+                                    border-radius: inherit;
+                                    z-index: 2;
+
+                                    &:before {
+                                        @include sharedCloudSides;
+                                        right: unset;
+                                        border-radius: $cloudBorderRadiusLeft;
+                                    }
+
+                                    &:after {
+                                        @include sharedCloudSides;
+                                        left: unset;
+                                        border-radius: $cloudBorderRadiusRight;
+                                    }
+                                }
+                            }
+
+                            .cloud:nth-of-type(1) {
+                                width: 20%;
+                                height: 20%;
+                                top: 10%;
+                                left: 20%;
+                                animation: $cloudColorChange1;
+                            }
+
+                            .cloud:nth-of-type(2) {
+                                width: 30%;
+                                height: 30%;
+                                top: 45%;
+                                right: 20%;
+                                animation: $cloudColorChange2;
                             }
 
                             .rain {
@@ -132,19 +151,6 @@ const rainyLightningLayout: Record<WeatherPattern.rainy_lightning, WeatherTempla
                                 $secondRain: rainDropFall 4s 1s linear infinite;
                                 $thirdRain: rainDropFall 4s 2s linear infinite;
                                 $fourthRain: rainDropFall 4s 3s linear infinite;
-
-                                @keyframes rainDropFall {
-                                    15% {
-                                        opacity: 1;
-                                    }
-                                    75% {
-                                        opacity: 0;
-                                    }
-                                    100% {
-                                        top: 120%;
-                                        opacity: 0;
-                                    }
-                                }
 
                                 .drop:nth-of-type(1) {
                                     @include sharedDrop;
@@ -206,59 +212,16 @@ const rainyLightningLayout: Record<WeatherPattern.rainy_lightning, WeatherTempla
                                     right: 10%;
                                 }
 
-                                .lightning {
-                                    $lightningFlash: lightningFlash 2s linear infinite;
-
-                                    @keyframes lightningFlash {
-                                        0%,
-                                        39% {
-                                            opacity: 0;
-                                        }
-                                        40%,
-                                        60% {
-                                            opacity: 1;
-                                        }
-                                        61%,
-                                        100% {
-                                            opacity: 0;
-                                        }
+                                @keyframes rainDropFall {
+                                    15% {
+                                        opacity: 1;
                                     }
-
-                                    position: absolute;
-                                    width: 100%;
-                                    height: 100%;
-                                    top: 0;
-                                    left: 0;
-                                    animation: $lightningFlash;
-
-                                    @mixin sharedBolt {
-                                        content: "";
-                                        position: absolute;
-                                        width: 10%;
-                                        height: 50%;
-                                        left: 47%;
-                                        top: 5%;
-                                        right: 47%;
-                                        bottom: 5%;
-                                        transform: rotate(20deg);
-                                        background: $yellow;
+                                    75% {
+                                        opacity: 0;
                                     }
-
-                                    $triangleUp: polygon(50% 0%, 0% 100%, 100% 100%);
-                                    $triangleDown: polygon(50% 100%, 0 0, 100% 0);
-
-                                    &:before {
-                                        @include sharedBolt;
-                                        bottom: unset;
-                                        right: unset;
-                                        clip-path: $triangleUp;
-                                    }
-
-                                    &:after {
-                                        @include sharedBolt;
-                                        top: unset;
-                                        left: unset;
-                                        clip-path: $triangleDown;
+                                    100% {
+                                        top: 120%;
+                                        opacity: 0;
                                     }
                                 }
                             }
@@ -269,20 +232,36 @@ const rainyLightningLayout: Record<WeatherPattern.rainy_lightning, WeatherTempla
             return `
                         <div class="container">
                             <div class="canvas">
-                                <div class="cloud">
-                                    <div class="cloud-copy"></div>
-                                    <div class="rain">
-                                        <div class="drop"></div>
-                                        <div class="drop"></div>
-                                        <div class="drop"></div>
-                                        <div class="drop"></div>
-                                        <div class="drop"></div>
-                                        <div class="drop"></div>
-                                        <div class="drop"></div>
-                                        <div class="drop"></div>
-                                        <div class="drop"></div>
-                                        <div class="drop"></div>
-                                        <div class="lightning"></div>
+                                <div class="clouds">
+                                    <div class="cloud">
+                                        <div class="cloud-copy"></div>
+                                        <div class="rain">
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                        </div>
+                                    </div>
+                                    <div class="cloud">
+                                        <div class="cloud-copy"></div>
+                                        <div class="rain">
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                            <div class="drop"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -292,4 +271,4 @@ const rainyLightningLayout: Record<WeatherPattern.rainy_lightning, WeatherTempla
     },
 }
 
-export default rainyLightningLayout
+export default snowyLayout

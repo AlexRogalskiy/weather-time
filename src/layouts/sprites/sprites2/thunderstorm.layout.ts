@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { IconPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
-const rainyLightningLayout: Record<IconPattern.rainy_lightning, WeatherTemplateLayoutOptions> = {
-    [IconPattern.rainy_lightning]: {
+const thunderstormLayout: Record<WeatherPattern.thunderstorm, WeatherTemplateLayoutOptions> = {
+    [WeatherPattern.thunderstorm]: {
         style: () => {
             return `
                         html {
@@ -235,4 +235,4 @@ const rainyLightningLayout: Record<IconPattern.rainy_lightning, WeatherTemplateL
     },
 }
 
-export default rainyLightningLayout
+export default thunderstormLayout

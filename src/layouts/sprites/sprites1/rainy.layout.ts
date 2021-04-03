@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { WeatherPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
-const snowyLayout: Record<WeatherPattern.snowy, WeatherTemplateLayoutOptions> = {
-    snowy: {
+const rainyLayout: Record<WeatherPattern.rainy, WeatherTemplateLayoutOptions> = {
+    [WeatherPattern.rainy]: {
         style: () => {
             return `
                         // color palette: https://coolors.co/212f45-fdac49-fcd422-fffafa
@@ -271,4 +271,4 @@ const snowyLayout: Record<WeatherPattern.snowy, WeatherTemplateLayoutOptions> = 
     },
 }
 
-export default snowyLayout
+export default rainyLayout

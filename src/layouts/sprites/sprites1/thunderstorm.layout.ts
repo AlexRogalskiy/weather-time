@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { WeatherPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
-const sunnyRainyLayout: Record<WeatherPattern.sunny_rainy, WeatherTemplateLayoutOptions> = {
-    'sunny-rainy': {
+const thunderstormLayout: Record<WeatherPattern.thunderstorm, WeatherTemplateLayoutOptions> = {
+    [WeatherPattern.thunderstorm]: {
         style: () => {
             return `
                         // color palette: https://coolors.co/212f45-fdac49-fcd422-fffafa
@@ -11,7 +11,7 @@ const sunnyRainyLayout: Record<WeatherPattern.sunny_rainy, WeatherTemplateLayout
                         $orange: #fdac49;
                         $yellow: #fcd422;
                         $white: #fffafa;
-                        $grey: #f1f4f8;
+                        $gray: #a3a3a3;
 
                         *,
                         *:before,
@@ -38,129 +38,30 @@ const sunnyRainyLayout: Record<WeatherPattern.sunny_rainy, WeatherTemplateLayout
                             }
                         }
 
-                        .sun {
-                            position: absolute;
-                            width: 42%;
-                            height: 42%;
-                            top: 10%;
-                            right: 15%;
-                            background: radial-gradient($orange, $yellow);
-                            border-radius: 50%;
-                            animation: spinSun 20s linear infinite;
-
-                            &:after {
-                                content: "";
-                                position: absolute;
-                                width: 100%;
-                                height: 100%;
-                                top: 0%;
-                                left: 0%;
-                                background: inherit;
-                                border-radius: 50%;
-                            }
-
-                            @mixin sharedBeam {
-                                position: absolute;
-                                width: 15%;
-                                height: 140%;
-                                top: -20%;
-                                left: 42.5%;
-
-                                &:before {
-                                    content: "";
-                                    position: absolute;
-                                    width: 100%;
-                                    height: 13%;
-                                    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-                                }
-
-                                &:after {
-                                    content: "";
-                                    position: absolute;
-                                    bottom: 0;
-                                    width: 100%;
-                                    height: 13%;
-                                    clip-path: polygon(50% 100%, 0 0, 100% 0);
-                                }
-                            }
-
-                            .beam:nth-child(even) {
-                                &:before {
-                                    background: $orange;
-                                }
-
-                                &:after {
-                                    background: $orange;
-                                }
-                            }
-
-                            .beam:nth-child(odd) {
-                                &:before {
-                                    background: $yellow;
-                                }
-
-                                &:after {
-                                    background: $yellow;
-                                }
-                            }
-
-                            .beam:nth-of-type(1) {
-                                @include sharedBeam;
-                            }
-
-                            .beam:nth-of-type(2) {
-                                @include sharedBeam;
-                                transform: rotate(22.5deg);
-                            }
-
-                            .beam:nth-of-type(3) {
-                                @include sharedBeam;
-                                transform: rotate(45deg);
-                            }
-
-                            .beam:nth-of-type(4) {
-                                @include sharedBeam;
-                                transform: rotate(67.5deg);
-                            }
-
-                            .beam:nth-of-type(5) {
-                                @include sharedBeam;
-                                transform: rotate(90deg);
-                            }
-
-                            .beam:nth-of-type(6) {
-                                @include sharedBeam;
-                                transform: rotate(112.5deg);
-                            }
-
-                            .beam:nth-of-type(7) {
-                                @include sharedBeam;
-                                transform: rotate(135deg);
-                            }
-
-                            .beam:nth-of-type(8) {
-                                @include sharedBeam;
-                                transform: rotate(157.5deg);
-                            }
-
-                            @keyframes spinSun {
-                                0% {
-                                    transform: rotate(0deg);
-                                }
-                                100% {
-                                    transform: rotate(360deg);
-                                }
-                            }
-                        }
-
                         .cloud {
+                            $cloudBorderRadiusLeft: 52% 48% 58% 42% / 43% 61% 39% 57%;
+                            $cloudBorderRadiusMiddle: 44% 56% 49% 51% / 71% 63% 37% 29%;
+                            $cloudBorderRadiusRight: 52% 48% 49% 51% / 43% 61% 39% 57%;
+                            $cloudColorChange1: cloudColorChange 3s linear infinite;
+
+                            @keyframes cloudColorChange {
+                                0%,
+                                100% {
+                                    background: $white;
+                                }
+                                50% {
+                                    background: $gray;
+                                }
+                            }
+
                             position: absolute;
                             width: 40%;
                             height: 40%;
                             top: 27.5%;
-                            left: 25%;
+                            left: 30%;
                             background: $white;
-                            border-radius: 44% 56% 49% 51% / 71% 63% 37% 29%;
+                            border-radius: $cloudBorderRadiusMiddle;
+                            animation: $cloudColorChange1;
 
                             @mixin sharedCloudSides {
                                 content: "";
@@ -173,19 +74,16 @@ const sunnyRainyLayout: Record<WeatherPattern.sunny_rainy, WeatherTemplateLayout
                                 background: inherit;
                             }
 
-                            $cloudLeftBorderRadius: 52% 48% 58% 42% / 43% 61% 39% 57%;
-                            $cloudRightBorderRadius: 52% 48% 49% 51% / 43% 61% 39% 57%;
-
                             &:before {
                                 @include sharedCloudSides;
                                 right: unset;
-                                border-radius: $cloudLeftBorderRadius;
+                                border-radius: $cloudBorderRadiusLeft;
                             }
 
                             &:after {
                                 @include sharedCloudSides;
                                 left: unset;
-                                border-radius: $cloudRightBorderRadius;
+                                border-radius: $cloudBorderRadiusRight;
                             }
 
                             .cloud-copy {
@@ -201,13 +99,13 @@ const sunnyRainyLayout: Record<WeatherPattern.sunny_rainy, WeatherTemplateLayout
                                 &:before {
                                     @include sharedCloudSides;
                                     right: unset;
-                                    border-radius: $cloudLeftBorderRadius;
+                                    border-radius: $cloudBorderRadiusLeft;
                                 }
 
                                 &:after {
                                     @include sharedCloudSides;
                                     left: unset;
-                                    border-radius: $cloudRightBorderRadius;
+                                    border-radius: $cloudBorderRadiusRight;
                                 }
                             }
 
@@ -234,6 +132,19 @@ const sunnyRainyLayout: Record<WeatherPattern.sunny_rainy, WeatherTemplateLayout
                                 $secondRain: rainDropFall 4s 1s linear infinite;
                                 $thirdRain: rainDropFall 4s 2s linear infinite;
                                 $fourthRain: rainDropFall 4s 3s linear infinite;
+
+                                @keyframes rainDropFall {
+                                    15% {
+                                        opacity: 1;
+                                    }
+                                    75% {
+                                        opacity: 0;
+                                    }
+                                    100% {
+                                        top: 120%;
+                                        opacity: 0;
+                                    }
+                                }
 
                                 .drop:nth-of-type(1) {
                                     @include sharedDrop;
@@ -295,16 +206,59 @@ const sunnyRainyLayout: Record<WeatherPattern.sunny_rainy, WeatherTemplateLayout
                                     right: 10%;
                                 }
 
-                                @keyframes rainDropFall {
-                                    15% {
-                                        opacity: 1;
+                                .lightning {
+                                    $lightningFlash: lightningFlash 2s linear infinite;
+
+                                    @keyframes lightningFlash {
+                                        0%,
+                                        39% {
+                                            opacity: 0;
+                                        }
+                                        40%,
+                                        60% {
+                                            opacity: 1;
+                                        }
+                                        61%,
+                                        100% {
+                                            opacity: 0;
+                                        }
                                     }
-                                    75% {
-                                        opacity: 0;
+
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 100%;
+                                    top: 0;
+                                    left: 0;
+                                    animation: $lightningFlash;
+
+                                    @mixin sharedBolt {
+                                        content: "";
+                                        position: absolute;
+                                        width: 10%;
+                                        height: 50%;
+                                        left: 47%;
+                                        top: 5%;
+                                        right: 47%;
+                                        bottom: 5%;
+                                        transform: rotate(20deg);
+                                        background: $yellow;
                                     }
-                                    100% {
-                                        top: 120%;
-                                        opacity: 0;
+
+                                    $triangleUp: polygon(50% 0%, 0% 100%, 100% 100%);
+                                    $triangleDown: polygon(50% 100%, 0 0, 100% 0);
+
+                                    &:before {
+                                        @include sharedBolt;
+                                        bottom: unset;
+                                        right: unset;
+                                        clip-path: $triangleUp;
+                                    }
+
+                                    &:after {
+                                        @include sharedBolt;
+                                        top: unset;
+                                        left: unset;
+                                        clip-path: $triangleDown;
                                     }
                                 }
                             }
@@ -315,16 +269,6 @@ const sunnyRainyLayout: Record<WeatherPattern.sunny_rainy, WeatherTemplateLayout
             return `
                         <div class="container">
                             <div class="canvas">
-                                <div class="sun">
-                                    <div class="beam"></div>
-                                    <div class="beam"></div>
-                                    <div class="beam"></div>
-                                    <div class="beam"></div>
-                                    <div class="beam"></div>
-                                    <div class="beam"></div>
-                                    <div class="beam"></div>
-                                    <div class="beam"></div>
-                                </div>
                                 <div class="cloud">
                                     <div class="cloud-copy"></div>
                                     <div class="rain">
@@ -338,6 +282,7 @@ const sunnyRainyLayout: Record<WeatherPattern.sunny_rainy, WeatherTemplateLayout
                                         <div class="drop"></div>
                                         <div class="drop"></div>
                                         <div class="drop"></div>
+                                        <div class="lightning"></div>
                                     </div>
                                 </div>
                             </div>
@@ -347,4 +292,4 @@ const sunnyRainyLayout: Record<WeatherPattern.sunny_rainy, WeatherTemplateLayout
     },
 }
 
-export default sunnyRainyLayout
+export default thunderstormLayout

@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { IconPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
-const snowyLayout: Record<IconPattern.snowy, WeatherTemplateLayoutOptions> = {
-    [IconPattern.snowy]: {
+const partlyCloudyLayout: Record<WeatherPattern.partly_cloudy, WeatherTemplateLayoutOptions> = {
+    [WeatherPattern.partly_cloudy]: {
         style: () => {
             return `
                         html {
@@ -114,51 +114,55 @@ const snowyLayout: Record<IconPattern.snowy, WeatherTemplateLayoutOptions> = {
                             background: #fff;
                         }
 
-                        .rain,
-                        .lightning,
-                        .snow {
-                            position: absolute;
-                            z-index: 2;
-                            top: 50%;
-                            left: 50%;
-                            width: 3.75em;
-                            height: 3.75em;
-                            margin: 0.375em 0 0 -2em;
-                            background: currentColor;
-                        }
-
-                        .flake:before,
-                        .flake:after {
-                            content: '\\2744';
+                        /* FIN CLOUD4 */
+                        .sun {
                             position: absolute;
                             top: 50%;
                             left: 50%;
-                            margin: -1.025em 0 0 -1.0125em;
-                            color: #ffffff;
-                            list-height: 1em;
-                            opacity: 0.9;
-                            animation: spin 8s linear infinite reverse;
+                            width: 2.5em;
+                            height: 2.5em;
+                            margin: -1.25em;
+                            background: #FFC900;
+                            border-radius: 50%;
+                            box-shadow: 0 0 0 0.375em;
+                            animation: spin 12s infinite linear;
                         }
 
-                        .flake:after {
-                            margin: 0.125em 0 0 -1em;
-                            font-size: 1.5em;
-                            opacity: 0.9;
-                            animation: spin 14s linear infinite;
+                        .rays {
+                            position: absolute;
+                            top: -2em;
+                            left: 50%;
+                            display: block;
+                            width: 0.375em;
+                            height: 1.125em;
+                            margin-left: -0.1875em;
+                            background: #FFA600;
+                            border-radius: 0.25em;
+                            box-shadow: 0 5.375em #FFA600;
                         }
 
-                        .flake:nth-child(2):before {
-                            margin: -0.5em 0 0 0.25em;
-                            font-size: 1.25em;
-                            opacity: 0.9;
-                            animation: spin 10s linear infinite;
+                        .rays:before,
+                        .rays:after {
+                            content: '';
+                            position: absolute;
+                            top: 0em;
+                            left: 0em;
+                            display: block;
+                            width: 0.375em;
+                            height: 1.125em;
+                            transform: rotate(60deg);
+                            transform-origin: 50% 3.25em;
+                            background: #FFA600;
+                            border-radius: 0.25em;
+                            box-shadow: 0 5.375em #FFA600;
                         }
 
-                        .flake:nth-child(2):after {
-                            margin: 0.375em 0 0 0.125em;
-                            font-size: 2em;
-                            opacity: 0.9;
-                            animation: spin 16s linear infinite reverse;
+                        .rays:before {
+                            transform: rotate(120deg);
+                        }
+
+                        .cloud + .sun {
+                            margin: -2em 1em;
                         }
 
                         /* Animations */
@@ -184,11 +188,11 @@ const snowyLayout: Record<IconPattern.snowy, WeatherTemplateLayoutOptions> = {
         },
         template: () => {
             return `
-                        <div class="icon flurries">
+                        <div class="icon partly cloudy">
                             <div class="cloud"></div>
-                            <div class="snow">
-                                <div class="flake"></div>
-                                <div class="flake"></div>
+                            <div class="cloud"></div>
+                            <div class="sun">
+                                <div class="rays"></div>
                             </div>
                         </div>
                 `
@@ -196,4 +200,4 @@ const snowyLayout: Record<IconPattern.snowy, WeatherTemplateLayoutOptions> = {
     },
 }
 
-export default snowyLayout
+export default partlyCloudyLayout

@@ -1,7 +1,15 @@
 import boxen from 'boxen'
 
 import { Optional } from './standard-types'
-import { AnimationPattern, FontPattern, LayoutPattern, ThemePattern } from './enum-types'
+import {
+    AnimationPattern,
+    FontPattern,
+    LayoutPattern,
+    SpritePattern,
+    ThemePattern,
+    TimeOfDay,
+    WeatherPattern,
+} from './enum-types'
 
 /**
  * FontOptions
@@ -17,7 +25,7 @@ export type FontOptions = {
      */
     readonly fontSrc: string
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * AnimationOptions
  * @desc Type representing animation options
@@ -32,7 +40,7 @@ export type AnimationOptions = {
      */
     readonly keyframes: string
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * ThemeOptions
  * @desc Type representing theme options
@@ -59,7 +67,7 @@ export type ThemeOptions = {
      */
     readonly opacity?: string
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * StyleOptions
  * @desc Type representing style options
@@ -78,7 +86,7 @@ export type StyleOptions = {
      */
     readonly animation: AnimationOptions
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * TemplateOptions
  * @desc Type representing template options
@@ -133,7 +141,7 @@ export type TemplateOptions = {
      */
     readonly sunset: string
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * LayoutOptions
  * @desc Type representing layout options
@@ -162,7 +170,7 @@ export type TemplateLayoutOptions = LayoutOptions<StyleOptions, TemplateOptions>
  * @desc Type representing weather template layout options
  */
 export type WeatherTemplateLayoutOptions = LayoutOptions<StyleOptions, TemplateOptions>
-
+//--------------------------------------------------------------------------------------------------
 /**
  * ImageOptions
  * @desc Type representing image options
@@ -177,7 +185,7 @@ export type ImageOptions = {
      */
     readonly height: string
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * QueryOptions
  * @desc Type representing query options
@@ -192,7 +200,7 @@ export type QueryOptions = {
      */
     readonly query: string
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * DateFormatOptions
  * @desc Type representing date format options
@@ -211,7 +219,7 @@ export type DateFormatOptions = {
      */
     readonly longDateFormat: Intl.DateTimeFormatOptions
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * ProfileOptions
  * @desc Type representing profile options
@@ -242,7 +250,7 @@ export type ProfileOptions = {
      */
     readonly outputOptions?: boxen.Options
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * TemplateData
  * @desc Type representing template data
@@ -265,7 +273,7 @@ export type TemplateData<S, T, L extends LayoutOptions<S, T>> = {
      */
     readonly template: T
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * ParsedRequestData
  * @desc Type representing parsed request data
@@ -300,3 +308,45 @@ export type ParsedRequestData = {
      */
     readonly fontPattern?: Optional<FontPattern>
 }
+//--------------------------------------------------------------------------------------------------
+/**
+ * WeatherPatternLayout
+ * @desc Type representing weather pattern layouts
+ */
+export type WeatherPatternLayout = Record<WeatherPattern, WeatherTemplateLayoutOptions>
+//--------------------------------------------------------------------------------------------------
+/**
+ * WeatherOperator
+ * @desc Type representing weather operator
+ */
+export type WeatherOperator = (timeOfDay?: TimeOfDay) => SpritePattern
+
+/**
+ * WeatherPatternOperator
+ * @desc Type representing weather pattern operators
+ */
+export type WeatherPatternOperator = Record<WeatherPattern, WeatherOperator>
+//--------------------------------------------------------------------------------------------------
+/**
+ * SpriteOptions
+ * @desc Type representing sprite options
+ */
+export type SpriteOptions = {
+    width?: string
+    height?: string
+    fill?: string
+    opacity?: string
+}
+
+/**
+ * SpriteOperator
+ * @desc Type representing sprite operator
+ */
+export type SpriteOperator = (options?: SpriteOptions) => string
+
+/**
+ * SpritePatternOperator
+ * @desc Type representing sprite pattern operators
+ */
+export type SpritePatternOperator = Record<SpritePattern, SpriteOperator>
+//--------------------------------------------------------------------------------------------------

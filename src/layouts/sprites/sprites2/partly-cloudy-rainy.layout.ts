@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { IconPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
-const partlyCloudyLayout: Record<IconPattern.partly_cloudy, WeatherTemplateLayoutOptions> = {
-    [IconPattern.partly_cloudy]: {
+const partlyCloudyRainyLayout: Record<WeatherPattern.partly_rainy, WeatherTemplateLayoutOptions> = {
+    [WeatherPattern.partly_rainy]: {
         style: () => {
             return `
                         html {
@@ -51,24 +51,25 @@ const partlyCloudyLayout: Record<IconPattern.partly_cloudy, WeatherTemplateLayou
                             font-size: 1em; /* control icon size here */
                         }
 
-                        .cloud {
+                        /* CLOUD4 */
+                        .cloud4 {
                             position: absolute;
                             z-index: 1;
-                            top: 50%;
+                            top: 60%;
                             left: 50%;
                             width: 3.6875em;
                             height: 3.6875em;
                             margin: -1.84375em;
-                            background: currentColor;
+                            background: #898989;
                             border-radius: 50%;
                             box-shadow: -2.1875em 0.6875em 0 -0.6875em,
                             2.0625em 0.9375em 0 -0.9375em,
-                            0 0 0 0.375em #fff,
-                            -2.1875em 0.6875em 0 -0.3125em #fff,
-                            2.0625em 0.9375em 0 -0.5625em #fff;
+                            0 0 0 0.375em #898989,
+                            -2.1875em 0.6875em 0 -0.3125em #898989,
+                            2.0625em 0.9375em 0 -0.5625em #898989;
                         }
 
-                        .cloud:after {
+                        .cloud4:after {
                             content: '';
                             position: absolute;
                             bottom: 0;
@@ -76,42 +77,29 @@ const partlyCloudyLayout: Record<IconPattern.partly_cloudy, WeatherTemplateLayou
                             display: block;
                             width: 4.5625em;
                             height: 1em;
-                            background: currentColor;
-                            box-shadow: 0 0.4375em 0 -0.0625em #fff;
+                            background: #898989;
+                            box-shadow: 0 0.4375em 0 -0.0625em #898989;
                         }
 
-                        .cloud:nth-child(2) {
+                        .cloud4:nth-child(2) {
                             z-index: 0;
-                            background: #fff;
-                            box-shadow: -2.1875em 0.6875em 0 -0.6875em #fff,
-                            2.0625em 0.9375em 0 -0.9375em #fff,
-                            0 0 0 0.375em #fff,
-                            -2.1875em 0.6875em 0 -0.3125em #fff,
-                            2.0625em 0.9375em 0 -0.5625em #fff;
-                            opacity: 0.1;
-                            transform: scale(0.5) translate(6em, -3em);
-                            animation: cloud 5s linear infinite;
+                            background: #898989;
+                            box-shadow: -2.1875em 0.6875em 0 -0.6875em #898989,
+                            2.0625em 0.9375em 0 -0.9375em #898989,
+                            0 0 0 0.375em #898989,
+                            -2.1875em 0.6875em 0 -0.3125em #898989,
+                            2.0625em 0.9375em 0 -0.5625em #898989;
+                            opacity: 0;
+                            transform: scale(0.) translate(6em, -3em);
+                            animation: cloud4 7s linear infinite;
                         }
 
-                        .cloud:nth-child(3) {
-                            z-index: 0;
-                            background: #fff;
-                            box-shadow: -2.1875em 0.6875em 0 -0.6875em #fff,
-                            2.0625em 0.9375em 0 -0.9375em #fff,
-                            0 0 0 0.375em #fff,
-                            -2.1875em 0.6875em 0 -0.3125em #fff,
-                            2.0625em 0.9375em 0 -0.5625em #fff;
-                            opacity: 0.1;
-                            transform: scale(0.5) translate(16em, -3em);
-                            animation: cloud 5s linear infinite;
+                        .cloud4:nth-child(2):after {
+                            background: #898989;
                         }
 
-                        .cloud:nth-child(2):after {
-                            background: #fff;
-                        }
-
-                        .cloud:nth-child(2):after {
-                            background: #fff;
+                        .cloud4:nth-child(2):after {
+                            background: #898989;
                         }
 
                         /* FIN CLOUD4 */
@@ -161,8 +149,35 @@ const partlyCloudyLayout: Record<IconPattern.partly_cloudy, WeatherTemplateLayou
                             transform: rotate(120deg);
                         }
 
-                        .cloud + .sun {
-                            margin: -2em 1em;
+                        /* RAIN3 */
+                        .rain3 {
+                            position: absolute;
+                            z-index: 2;
+                            top: 50%;
+                            left: 50%;
+                            width: 3.75em;
+                            height: 3.75em;
+                            margin: 0.375em 0 0 -2em;
+                            background: rgba(255, 255, 255, 0.0);
+                        }
+
+                        .rain3:after {
+                            content: '';
+                            position: absolute;
+                            z-index: 2;
+                            top: 50%;
+                            left: 50%;
+                            width: 1.125em;
+                            height: 1.125em;
+                            margin: -1em 0 0 -0.25em;
+                            background: #0547A5;
+                            border-radius: 100% 0 60% 50% / 60% 0 100% 50%;
+                            box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.9),
+                            -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.9),
+                            -1.375em -0.125em 0 rgba(255, 255, 255, 0.9);
+
+                            transform: rotate(-28deg);
+                            animation: rain3 3s linear infinite;
                         }
 
                         /* Animations */
@@ -172,27 +187,53 @@ const partlyCloudyLayout: Record<IconPattern.partly_cloudy, WeatherTemplateLayou
                             }
                         }
 
-                        @keyframes cloud {
+                        @keyframes cloud4 {
                             0% {
-                                opacity: 0;
+                                opacity: 1;
                             }
                             50% {
                                 opacity: 0.8;
                             }
                             100% {
-                                opacity: 0;
-                                transform: scale(0.5) translate(-200%, -3em);
+                                opacity: 0.6;
+                                transform: scale(0.5) translate(170%, 0em);
+                            }
+                        }
+
+                        @keyframes rain3 {
+                            0% {
+                                background: #0547A5;
+                                box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -1.375em -0.125em 0 #0547A5;
+                            }
+                            25% {
+                                box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -0.875em 1.125em 0 -0.125em #0547A5,
+                                -1.375em -0.125em 0 rgba(255, 255, 255, 0.2);
+                            }
+                            50% {
+                                background: rgba(255, 255, 255, 0.3);
+                                box-shadow: 0.625em 0.875em 0 -0.125em #0547A5,
+                                -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -1.375em -0.125em 0 rgba(255, 255, 255, 0.2);
+                            }
+                            100% {
+                                box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -1.375em -0.125em 0 #0547A5;
                             }
                         }
                 `
         },
         template: () => {
             return `
-                        <div class="icon partly cloudy">
-                            <div class="cloud"></div>
-                            <div class="cloud"></div>
+                        <div class="icon averses possibles">
                             <div class="sun">
                                 <div class="rays"></div>
+                            </div>
+                            <div class="cloud4">
+                                <div class="rain3"></div>
                             </div>
                         </div>
                 `
@@ -200,4 +241,4 @@ const partlyCloudyLayout: Record<IconPattern.partly_cloudy, WeatherTemplateLayou
     },
 }
 
-export default partlyCloudyLayout
+export default partlyCloudyRainyLayout

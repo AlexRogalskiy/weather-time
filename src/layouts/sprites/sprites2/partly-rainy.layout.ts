@@ -1,8 +1,8 @@
-import { WeatherTemplateLayoutOptions } from '../../../typings/domain-types'
-import { IconPattern } from '../../../typings/enum-types'
+import { WeatherTemplateLayoutOptions } from '../../../../typings/domain-types'
+import { WeatherPattern } from '../../../../typings/enum-types'
 
-const sunnyCloudyLayout: Record<IconPattern.sunny_cloudy, WeatherTemplateLayoutOptions> = {
-    [IconPattern.sunny_cloudy]: {
+const partlyRainyLayout: Record<WeatherPattern.partly_rainy, WeatherTemplateLayoutOptions> = {
+    [WeatherPattern.partly_rainy]: {
         style: () => {
             return `
                         html {
@@ -51,11 +51,10 @@ const sunnyCloudyLayout: Record<IconPattern.sunny_cloudy, WeatherTemplateLayoutO
                             font-size: 1em; /* control icon size here */
                         }
 
-                        /* CLOUD3 */
-                        .cloud3 {
+                        .cloud {
                             position: absolute;
                             z-index: 1;
-                            top: 60%;
+                            top: 50%;
                             left: 50%;
                             width: 3.6875em;
                             height: 3.6875em;
@@ -69,7 +68,7 @@ const sunnyCloudyLayout: Record<IconPattern.sunny_cloudy, WeatherTemplateLayoutO
                             2.0625em 0.9375em 0 -0.5625em #fff;
                         }
 
-                        .cloud3:after {
+                        .cloud:after {
                             content: '';
                             position: absolute;
                             bottom: 0;
@@ -81,7 +80,7 @@ const sunnyCloudyLayout: Record<IconPattern.sunny_cloudy, WeatherTemplateLayoutO
                             box-shadow: 0 0.4375em 0 -0.0625em #fff;
                         }
 
-                        .cloud3:nth-child(2) {
+                        .cloud:nth-child(2) {
                             z-index: 0;
                             background: #fff;
                             box-shadow: -2.1875em 0.6875em 0 -0.6875em #fff,
@@ -89,16 +88,32 @@ const sunnyCloudyLayout: Record<IconPattern.sunny_cloudy, WeatherTemplateLayoutO
                             0 0 0 0.375em #fff,
                             -2.1875em 0.6875em 0 -0.3125em #fff,
                             2.0625em 0.9375em 0 -0.5625em #fff;
-                            opacity: 1.0;
-                            transform: scale(0.5) translate(5em, -3em);
-                            animation: cloud 9s linear infinite;
+                            opacity: 0.1;
+                            transform: scale(0.5) translate(6em, -3em);
+                            animation: cloud 5s linear infinite;
                         }
 
-                        .cloud3:nth-child(2):after {
+                        .cloud:nth-child(3) {
+                            z-index: 0;
+                            background: #fff;
+                            box-shadow: -2.1875em 0.6875em 0 -0.6875em #fff,
+                            2.0625em 0.9375em 0 -0.9375em #fff,
+                            0 0 0 0.375em #fff,
+                            -2.1875em 0.6875em 0 -0.3125em #fff,
+                            2.0625em 0.9375em 0 -0.5625em #fff;
+                            opacity: 0.1;
+                            transform: scale(0.5) translate(16em, -3em);
+                            animation: cloud 5s linear infinite;
+                        }
+
+                        .cloud:nth-child(2):after {
                             background: #fff;
                         }
 
-                        /* FIN CLOUD4 */
+                        .cloud:nth-child(2):after {
+                            background: #fff;
+                        }
+
                         .sun {
                             position: absolute;
                             top: 50%;
@@ -145,6 +160,41 @@ const sunnyCloudyLayout: Record<IconPattern.sunny_cloudy, WeatherTemplateLayoutO
                             transform: rotate(120deg);
                         }
 
+                        .cloud + .sun {
+                            margin: -2em 1em;
+                        }
+
+                        .rain,
+                        .lightning,
+                        .snow {
+                            position: absolute;
+                            z-index: 2;
+                            top: 50%;
+                            left: 50%;
+                            width: 3.75em;
+                            height: 3.75em;
+                            margin: 0.375em 0 0 -2em;
+                            background: currentColor;
+                        }
+
+                        .rain:after {
+                            content: '';
+                            position: absolute;
+                            z-index: 2;
+                            top: 50%;
+                            left: 50%;
+                            width: 1.125em;
+                            height: 1.125em;
+                            margin: -1em 0 0 -0.25em;
+                            background: #00FFFF;
+                            border-radius: 100% 0 60% 50% / 60% 0 100% 50%;
+                            box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.2),
+                            -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.2),
+                            -1.375em -0.125em 0 rgba(255, 255, 255, 0.2);
+                            transform: rotate(-28deg);
+                            animation: rain 3s linear infinite;
+                        }
+
                         /* Animations */
                         @keyframes spin {
                             100% {
@@ -164,19 +214,45 @@ const sunnyCloudyLayout: Record<IconPattern.sunny_cloudy, WeatherTemplateLayoutO
                                 transform: scale(0.5) translate(-200%, -3em);
                             }
                         }
+
+                        @keyframes rain {
+                            0% {
+                                background: #0cf;
+                                box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -1.375em -0.125em 0 #0cf;
+                            }
+                            25% {
+                                box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -0.875em 1.125em 0 -0.125em #0cf,
+                                -1.375em -0.125em 0 rgba(255, 255, 255, 0.2);
+                            }
+                            50% {
+                                background: rgba(255, 255, 255, 0.3);
+                                box-shadow: 0.625em 0.875em 0 -0.125em #0cf,
+                                -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -1.375em -0.125em 0 rgba(255, 255, 255, 0.2);
+                            }
+                            100% {
+                                box-shadow: 0.625em 0.875em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -0.875em 1.125em 0 -0.125em rgba(255, 255, 255, 0.2),
+                                -1.375em -0.125em 0 #0cf;
+                            }
+                        }
                 `
         },
         template: () => {
             return `
-                        <div class="icon sunny">
-                            <div class="sun">
-                                <div class="rays"></div>
-                            </div>
-                            <div class="cloud3"></div>
+                        <div class="icon sun-shower">
+                          <div class="cloud"></div>
+                          <div class="sun">
+                            <div class="rays"></div>
+                          </div>
+                          <div class="rain"></div>
                         </div>
                 `
         },
     },
 }
 
-export default sunnyCloudyLayout
+export default partlyRainyLayout
