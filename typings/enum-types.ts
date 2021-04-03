@@ -48,6 +48,7 @@ export enum WeatherPattern {
     misty = 'misty',
     sleet = 'sleet',
     sunny = 'sunny',
+    tornado = 'tornado',
     thunderstorm = 'thunderstorm',
     cloudy = 'cloudy',
     partly_cloudy = 'partly cloudy',
@@ -171,6 +172,7 @@ export enum FontPattern {
 export enum LayoutPattern {
     default = 'default',
     simple = 'simple',
+    dark = 'dark',
     advanced = 'advanced',
     standard = 'standard',
     small = 'small',

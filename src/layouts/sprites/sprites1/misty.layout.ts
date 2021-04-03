@@ -7,12 +7,6 @@ const mistyLayout: Record<WeatherPattern.misty, WeatherTemplateLayoutOptions> = 
             return `
                         // color palette: https://coolors.co/212f45-fdac49-fcd422-fffafa
 
-                        $background: #212f45;
-                        $orange: #fdac49;
-                        $yellow: #fcd422;
-                        $white: #fffafa;
-                        $gray: #a3a3a3;
-
                         *,
                         *:before,
                         *:after {
@@ -24,18 +18,18 @@ const mistyLayout: Record<WeatherPattern.misty, WeatherTemplateLayoutOptions> = 
                             height: 100vh;
                             display: grid;
                             place-items: center;
-                            background: $background;
+                            background: #212f45;
                         }
 
                         .container {
                             width: 100%;
                             max-width: 40%;
+                        }
 
-                            .canvas {
-                                position: relative;
-                                padding-top: 100%;
-                                overflow: hidden;
-                            }
+                        .container .canvas {
+                            position: relative;
+                            padding-top: 100%;
+                            overflow: hidden;
                         }
 
                         .mist {
@@ -44,48 +38,56 @@ const mistyLayout: Record<WeatherPattern.misty, WeatherTemplateLayoutOptions> = 
                             height: 100%;
                             top: 0;
                             left: 0;
+                        }
 
-                            @mixin sharedMistLine {
-                                position: absolute;
-                                height: 7%;
-                                background: $white;
-                                border-radius: 10rem;
-                            }
+                        .mist .mist-line:nth-of-type(1) {
+                            position: absolute;
+                            height: 7%;
+                            background: #fffafa;
+                            border-radius: 10rem;
+                            width: 40%;
+                            top: 16%;
+                            right: 25%;
+                        }
 
-                            .mist-line:nth-of-type(1) {
-                                @include sharedMistLine;
-                                width: 40%;
-                                top: 16%;
-                                right: 25%;
-                            }
+                        .mist .mist-line:nth-of-type(2) {
+                            position: absolute;
+                            height: 7%;
+                            background: #fffafa;
+                            border-radius: 10rem;
+                            width: 40%;
+                            top: 31%;
+                            left: 20%;
+                        }
 
-                            .mist-line:nth-of-type(2) {
-                                @include sharedMistLine;
-                                width: 40%;
-                                top: 31%;
-                                left: 20%;
-                            }
+                        .mist .mist-line:nth-of-type(3) {
+                            position: absolute;
+                            height: 7%;
+                            background: #fffafa;
+                            border-radius: 10rem;
+                            width: 50%;
+                            top: 46%;
+                            left: 25%;
+                        }
 
-                            .mist-line:nth-of-type(3) {
-                                @include sharedMistLine;
-                                width: 50%;
-                                top: 46%;
-                                left: 25%;
-                            }
+                        .mist .mist-line:nth-of-type(4) {
+                            position: absolute;
+                            height: 7%;
+                            background: #fffafa;
+                            border-radius: 10rem;
+                            width: 40%;
+                            top: 61%;
+                            right: 20%;
+                        }
 
-                            .mist-line:nth-of-type(4) {
-                                @include sharedMistLine;
-                                width: 40%;
-                                top: 61%;
-                                right: 20%;
-                            }
-
-                            .mist-line:nth-of-type(5) {
-                                @include sharedMistLine;
-                                width: 50%;
-                                top: 76%;
-                                left: 25%;
-                            }
+                        .mist .mist-line:nth-of-type(5) {
+                            position: absolute;
+                            height: 7%;
+                            background: #fffafa;
+                            border-radius: 10rem;
+                            width: 50%;
+                            top: 76%;
+                            left: 25%;
                         }
                 `
         },

@@ -10,6 +10,8 @@ const weatherPatterns: Readonly<WeatherPatternOperator> = {
     [WeatherPattern.clear]: timeOfDay =>
         timeOfDay === TimeOfDay.day ? SpritePattern.sun : SpritePattern.moon,
     [WeatherPattern.hail]: () => SpritePattern.hail,
+    [WeatherPattern.tornado]: timeOfDay =>
+        timeOfDay === TimeOfDay.day ? SpritePattern.storm_sun : SpritePattern.storm_moon,
     [WeatherPattern.haze]: () => SpritePattern.haze,
     [WeatherPattern.misty]: timeOfDay =>
         timeOfDay === TimeOfDay.day ? SpritePattern.fog : SpritePattern.haze,

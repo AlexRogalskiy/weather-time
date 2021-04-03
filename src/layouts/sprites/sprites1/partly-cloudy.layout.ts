@@ -7,12 +7,6 @@ const partlyCloudyLayout: Record<WeatherPattern.partly_cloudy, WeatherTemplateLa
             return `
                         // color palette: https://coolors.co/212f45-fdac49-fcd422-fffafa
 
-                        $background: #212f45;
-                        $orange: #fdac49;
-                        $yellow: #fcd422;
-                        $white: #fffafa;
-                        $gray: #f1f4f8;
-
                         *,
                         *:before,
                         *:after {
@@ -24,17 +18,17 @@ const partlyCloudyLayout: Record<WeatherPattern.partly_cloudy, WeatherTemplateLa
                             height: 100vh;
                             display: grid;
                             place-items: center;
-                            background: $background;
+                            background: #212f45;
                         }
 
                         .container {
                             width: 100%;
                             max-width: 40%;
+                        }
 
-                            .canvas {
-                                position: relative;
-                                padding-top: 100%;
-                            }
+                        .container .canvas {
+                            position: relative;
+                            padding-top: 100%;
                         }
 
                         .sun {
@@ -43,112 +37,251 @@ const partlyCloudyLayout: Record<WeatherPattern.partly_cloudy, WeatherTemplateLa
                             height: 42%;
                             top: 25%;
                             right: 15%;
-                            background: radial-gradient($orange, $yellow);
+                            background: radial-gradient(#fdac49, #fcd422);
                             border-radius: 50%;
                             animation: spinSun 20s linear infinite;
+                        }
 
-                            &:after {
-                                content: "";
-                                position: absolute;
-                                width: 100%;
-                                height: 100%;
-                                top: 0%;
-                                left: 0%;
-                                background: inherit;
-                                border-radius: 50%;
+                        .sun:after {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            top: 0%;
+                            left: 0%;
+                            background: inherit;
+                            border-radius: 50%;
+                        }
+
+                        .sun .beam:nth-child(even):before {
+                            background: #fdac49;
+                        }
+
+                        .sun .beam:nth-child(even):after {
+                            background: #fdac49;
+                        }
+
+                        .sun .beam:nth-child(odd):before {
+                            background: #fcd422;
+                        }
+
+                        .sun .beam:nth-child(odd):after {
+                            background: #fcd422;
+                        }
+
+                        .sun .beam:nth-of-type(1) {
+                            position: absolute;
+                            width: 15%;
+                            height: 140%;
+                            top: -20%;
+                            left: 42.5%;
+                        }
+
+                        .sun .beam:nth-of-type(1):before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                        }
+
+                        .sun .beam:nth-of-type(1):after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 100%, 0 0, 100% 0);
+                        }
+
+                        .sun .beam:nth-of-type(2) {
+                            position: absolute;
+                            width: 15%;
+                            height: 140%;
+                            top: -20%;
+                            left: 42.5%;
+                            transform: rotate(22.5deg);
+                        }
+
+                        .sun .beam:nth-of-type(2):before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                        }
+
+                        .sun .beam:nth-of-type(2):after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 100%, 0 0, 100% 0);
+                        }
+
+                        .sun .beam:nth-of-type(3) {
+                            position: absolute;
+                            width: 15%;
+                            height: 140%;
+                            top: -20%;
+                            left: 42.5%;
+                            transform: rotate(45deg);
+                        }
+
+                        .sun .beam:nth-of-type(3):before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                        }
+
+                        .sun .beam:nth-of-type(3):after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 100%, 0 0, 100% 0);
+                        }
+
+                        .sun .beam:nth-of-type(4) {
+                            position: absolute;
+                            width: 15%;
+                            height: 140%;
+                            top: -20%;
+                            left: 42.5%;
+                            transform: rotate(67.5deg);
+                        }
+
+                        .sun .beam:nth-of-type(4):before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                        }
+
+                        .sun .beam:nth-of-type(4):after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 100%, 0 0, 100% 0);
+                        }
+
+                        .sun .beam:nth-of-type(5) {
+                            position: absolute;
+                            width: 15%;
+                            height: 140%;
+                            top: -20%;
+                            left: 42.5%;
+                            transform: rotate(90deg);
+                        }
+
+                        .sun .beam:nth-of-type(5):before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                        }
+
+                        .sun .beam:nth-of-type(5):after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 100%, 0 0, 100% 0);
+                        }
+
+                        .sun .beam:nth-of-type(6) {
+                            position: absolute;
+                            width: 15%;
+                            height: 140%;
+                            top: -20%;
+                            left: 42.5%;
+                            transform: rotate(112.5deg);
+                        }
+
+                        .sun .beam:nth-of-type(6):before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                        }
+
+                        .sun .beam:nth-of-type(6):after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 100%, 0 0, 100% 0);
+                        }
+
+                        .sun .beam:nth-of-type(7) {
+                            position: absolute;
+                            width: 15%;
+                            height: 140%;
+                            top: -20%;
+                            left: 42.5%;
+                            transform: rotate(135deg);
+                        }
+
+                        .sun .beam:nth-of-type(7):before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                        }
+
+                        .sun .beam:nth-of-type(7):after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 100%, 0 0, 100% 0);
+                        }
+
+                        .sun .beam:nth-of-type(8) {
+                            position: absolute;
+                            width: 15%;
+                            height: 140%;
+                            top: -20%;
+                            left: 42.5%;
+                            transform: rotate(157.5deg);
+                        }
+
+                        .sun .beam:nth-of-type(8):before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                        }
+
+                        .sun .beam:nth-of-type(8):after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            height: 13%;
+                            clip-path: polygon(50% 100%, 0 0, 100% 0);
+                        }
+
+                        @keyframes spinSun {
+                            0% {
+                                transform: rotate(0deg);
                             }
-
-                            @mixin sharedBeam {
-                                position: absolute;
-                                width: 15%;
-                                height: 140%;
-                                top: -20%;
-                                left: 42.5%;
-
-                                &:before {
-                                    content: "";
-                                    position: absolute;
-                                    width: 100%;
-                                    height: 13%;
-                                    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-                                }
-
-                                &:after {
-                                    content: "";
-                                    position: absolute;
-                                    bottom: 0;
-                                    width: 100%;
-                                    height: 13%;
-                                    clip-path: polygon(50% 100%, 0 0, 100% 0);
-                                }
-                            }
-
-                            .beam:nth-child(even) {
-                                &:before {
-                                    background: $orange;
-                                }
-
-                                &:after {
-                                    background: $orange;
-                                }
-                            }
-
-                            .beam:nth-child(odd) {
-                                &:before {
-                                    background: $yellow;
-                                }
-
-                                &:after {
-                                    background: $yellow;
-                                }
-                            }
-
-                            .beam:nth-of-type(1) {
-                                @include sharedBeam;
-                            }
-
-                            .beam:nth-of-type(2) {
-                                @include sharedBeam;
-                                transform: rotate(22.5deg);
-                            }
-
-                            .beam:nth-of-type(3) {
-                                @include sharedBeam;
-                                transform: rotate(45deg);
-                            }
-
-                            .beam:nth-of-type(4) {
-                                @include sharedBeam;
-                                transform: rotate(67.5deg);
-                            }
-
-                            .beam:nth-of-type(5) {
-                                @include sharedBeam;
-                                transform: rotate(90deg);
-                            }
-
-                            .beam:nth-of-type(6) {
-                                @include sharedBeam;
-                                transform: rotate(112.5deg);
-                            }
-
-                            .beam:nth-of-type(7) {
-                                @include sharedBeam;
-                                transform: rotate(135deg);
-                            }
-
-                            .beam:nth-of-type(8) {
-                                @include sharedBeam;
-                                transform: rotate(157.5deg);
-                            }
-
-                            @keyframes spinSun {
-                                0% {
-                                    transform: rotate(0deg);
-                                }
-                                100% {
-                                    transform: rotate(360deg);
-                                }
+                            100% {
+                                transform: rotate(360deg);
                             }
                         }
 
@@ -158,31 +291,34 @@ const partlyCloudyLayout: Record<WeatherPattern.partly_cloudy, WeatherTemplateLa
                             height: 40%;
                             top: 40%;
                             left: 25%;
-                            background: $white;
-                            border-radius: 44% 56% 49% 51% / 71% 63% 37% 29%;
+                            background: #fffafa;
+                            border-radius: 44% 56% 49% 51%/71% 63% 37% 29%;
+                        }
 
-                            @mixin sharedCloudSides {
-                                content: "";
-                                position: absolute;
-                                width: 85%;
-                                height: 85%;
-                                top: 10%;
-                                left: -50%;
-                                right: -50%;
-                                background: inherit;
-                            }
+                        .cloud:before {
+                            content: "";
+                            position: absolute;
+                            width: 85%;
+                            height: 85%;
+                            top: 10%;
+                            left: -50%;
+                            right: -50%;
+                            background: inherit;
+                            right: unset;
+                            border-radius: 52% 48% 58% 42%/43% 61% 39% 57%;
+                        }
 
-                            &:before {
-                                @include sharedCloudSides;
-                                right: unset;
-                                border-radius: 52% 48% 58% 42% / 43% 61% 39% 57%;
-                            }
-
-                            &:after {
-                                @include sharedCloudSides;
-                                left: unset;
-                                border-radius: 52% 48% 49% 51% / 43% 61% 39% 57%;
-                            }
+                        .cloud:after {
+                            content: "";
+                            position: absolute;
+                            width: 85%;
+                            height: 85%;
+                            top: 10%;
+                            left: -50%;
+                            right: -50%;
+                            background: inherit;
+                            left: unset;
+                            border-radius: 52% 48% 49% 51%/43% 61% 39% 57%;
                         }
                 `
         },
