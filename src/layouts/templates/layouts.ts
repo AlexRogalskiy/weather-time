@@ -8,6 +8,7 @@ import advancedLayout from './advanced.layout'
 import standardLayout from './standard.layout'
 import smallLayout from './small.layout'
 import mediumLayout from './medium.layout'
+import lightLayout from './light.layout'
 
 /**
  * TemplateLayoutRecord
@@ -26,6 +27,7 @@ const layouts: Readonly<TemplateLayoutRecord> = {
     ...standardLayout,
     ...smallLayout,
     ...mediumLayout,
+    ...lightLayout,
 }
 
 /**

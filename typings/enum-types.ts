@@ -205,6 +205,7 @@ export enum LayoutPattern {
     standard = 'standard',
     small = 'small',
     medium = 'medium',
+    light = 'light',
 }
 
 /**

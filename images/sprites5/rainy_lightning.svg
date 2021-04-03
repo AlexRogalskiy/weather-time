@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="styles.css" type="text/css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg id="patchyRainThunder" height="100" width="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" x="0px"
+     y="0px"
+     enable-background="new 0 0 100 100" xml:space="preserve">
+	<g id="cloud_rain_thunder">
+		<path fill="#FFFFFF" stroke="lightblue" stroke-width="4" stroke-miterlimit="10" d="M59.869,58.668
+			c5.628,0,10.458-4.335,10.458-9.963c0-3.413-1.71-6.238-4.286-8.088c-4.996-3.411-9.782,0.155-9.782,0.155
+			c0-3.782-3.713-9.781-12.552-9.805c-7.738-0.021-14.049,6.44-14.034,14.178c0.002,0.843,0.014,1.554,0.049,2.191
+			c0.214,3.91,2.116,7.6,5.302,9.878c1.192,0.853,2.507,1.43,3.812,1.431"/>
+	</g>
+  <g id="rain_thunder">
+			<line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="41.5"
+            y1="52.786" x2="41.5" y2="66.034"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="49.21"
+          y1="55.786" x2="49.21" y2="69.034"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="57.211"
+          y1="52.786" x2="57.211" y2="66.034"/>
+	</g>
+  <polygon id="lightning3"
+           points="47.001,48.99 56.999,48.982 51,58.982 57.999,58.982 45.001,74.98 48.601,62.982 42.001,62.982 "/>
+</svg>

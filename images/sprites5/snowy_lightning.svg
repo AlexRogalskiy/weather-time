@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="styles.css" type="text/css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg id="patchySnowThunder" height="100" width="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" x="0px"
+     y="0px"
+     enable-background="new 0 0 100 100" xml:space="preserve">
+  <g id="cloud_patchy_thunder">
+      <path fill="#FFFFFF" stroke="lightblue" stroke-width="4" stroke-miterlimit="10" d="M59.869,58.217
+                c5.628,0,10.458-4.335,10.458-9.963c0-3.413-1.71-6.238-4.286-8.088c-4.996-3.411-9.782,0.155-9.782,0.155
+                c0-3.782-3.713-9.781-12.552-9.805c-7.738-0.021-14.049,6.44-14.034,14.178c0.002,0.843,0.014,1.554,0.049,2.191
+                c0.214,3.91,2.116,7.6,5.302,9.878c1.192,0.853,2.507,1.43,3.812,1.431"/>
+  </g>
+  <polygon id="lightning2"
+           points="46.092,48.511 56.09,48.503 50.091,58.503 57.09,58.503 44.092,74.501 47.692,62.503 41.092,62.503"/>
+  <g id="snow_patchy_thunder">
+            <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="41.5"
+                  y1="52.484" x2="41.5" y2="52.155"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="41.5"
+          y1="59.485" x2="41.5" y2="59.155"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="41.5"
+          y1="66.485" x2="41.5" y2="66.156"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="49.501"
+          y1="55.485" x2="49.501" y2="55.155"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="49.501"
+          y1="62.485" x2="49.501" y2="62.155"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="49.501"
+          y1="69.485" x2="49.501" y2="69.156"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="57.291"
+          y1="52.643" x2="57.291" y2="52.314"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="57.291"
+          y1="59.644" x2="57.291" y2="59.314"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="57.291"
+          y1="66.644" x2="57.291" y2="66.315"/>
+        </g>
+</svg>

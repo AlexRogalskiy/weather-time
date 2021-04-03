@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="styles.css" type="text/css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg id="patchySnow" height="100" width="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+     enable-background="new 0 0 100 100" xml:space="preserve">
+    <g id="snow_patchy">
+		<line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="39.402"
+          y1="60.038" x2="39.402" y2="59.709"/>
+      <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="39.402"
+            y1="67.039" x2="39.402" y2="66.709"/>
+      <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="39.402"
+            y1="74.039" x2="39.402" y2="73.709"/>
+      <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="47.403"
+            y1="63.038" x2="47.403" y2="62.709"/>
+      <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="47.403"
+            y1="70.039" x2="47.403" y2="69.709"/>
+      <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="47.403"
+            y1="77.039" x2="47.403" y2="76.71"/>
+      <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="55.193"
+            y1="60.197" x2="55.193" y2="59.868"/>
+      <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="55.193"
+            y1="67.198" x2="55.193" y2="66.868"/>
+      <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="55.193"
+            y1="74.198" x2="55.193" y2="73.869"/>
+	</g>
+  <g id="sun_patchy">
+        <circle fill="none" stroke="lightblue" stroke-width="4" stroke-miterlimit="10" cx="52.69" cy="43.858" r="8.993"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="52.78"
+          y1="27.807" x2="52.78" y2="24.044"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="52.78"
+          y1="59.987" x2="52.78" y2="63.75"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="64.127"
+          y1="32.417" x2="66.788" y2="29.756"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="37.601"
+          y1="57.852" x2="40.262" y2="55.191"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="41.374"
+          y1="32.477" x2="38.713" y2="29.816"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="64.09"
+          y1="55.242" x2="66.751" y2="57.903"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="36.504"
+          y1="43.83" x2="32.964" y2="43.83"/>
+    <line fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="68.907"
+          y1="43.83" x2="72.447" y2="43.83"/>
+	</g>
+  <g id="cloud_patchy">
+		<path fill="#FFFFFF" stroke="lightblue" stroke-width="4" stroke-miterlimit="10" d="M57.748,65.771
+			c5.628,0,10.458-4.335,10.458-9.963c0-3.413-1.71-6.238-4.286-8.088c-4.996-3.411-9.782,0.155-9.782,0.155
+			c0-3.782-3.713-9.781-12.552-9.805c-7.738-0.021-14.049,6.44-14.034,14.178c0.002,0.843,0.014,1.554,0.049,2.191
+			c0.214,3.91,2.116,7.6,5.302,9.878c1.192,0.853,2.507,1.43,3.812,1.431"/>
+	</g>
+</svg>

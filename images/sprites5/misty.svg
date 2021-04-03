@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="styles.css" type="text/css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg id="mist" height="100" width="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" x="0px"
+     y="0px"
+     enable-background="new 0 0 100 100" xml:space="preserve">
+    <path fill="none" stroke="lightblue" stroke-width="4" stroke-miterlimit="10" d="M59.42,63.973c5.628,0,11.329-4.592,11.329-10.219
+        c0-3.413-1.71-6.238-4.286-8.088c-4.996-3.411-9.782,0.155-9.782,0.155c0-3.789-3.728-9.805-12.605-9.805
+        c-7.722,0-13.981,6.26-13.981,13.981s6.26,13.981,13.981,13.981s13.892-0.004,13.892-0.004L59.42,63.973z"/>
+  <line id="mistline" fill="none" stroke="lightblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10"
+        x1="31.88" y1="72.524" x2="69.958" y2="72.524"/>
+</svg>
