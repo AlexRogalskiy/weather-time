@@ -6,6 +6,7 @@ import {
     FontPattern,
     LayoutPattern,
     SpritePattern,
+    TemperatureUnit,
     ThemePattern,
     TimeOfDay,
     WeatherPattern,
@@ -326,6 +327,18 @@ export type WeatherOperator = (timeOfDay?: TimeOfDay) => SpritePattern
  * @desc Type representing weather pattern operators
  */
 export type WeatherPatternOperator = Record<WeatherPattern, WeatherOperator>
+
+/**
+ * TemperatureOperator
+ * @desc Type representing temperature operator
+ */
+export type TemperatureOperator = (value: number) => number
+
+/**
+ * TemperatureUnitOperator
+ * @desc Type representing temperature unit operators
+ */
+export type TemperatureUnitOperator = Record<TemperatureUnit, TemperatureOperator>
 //--------------------------------------------------------------------------------------------------
 /**
  * SpriteOptions

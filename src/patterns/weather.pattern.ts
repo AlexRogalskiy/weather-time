@@ -45,6 +45,6 @@ const weatherPatterns: Readonly<WeatherPatternOperator> = {
  * Returns {@link WeatherOperator} by input {@link WeatherPattern} value
  * @param value initial input {@link WeatherPattern} to fetch by
  */
-export const getWeatherPattern = (value: Optional<WeatherPattern>): WeatherOperator => {
+export const getWeather = (value: Optional<WeatherPattern>): WeatherOperator => {
     return value ? weatherPatterns[value] : weatherPatterns[WeatherPattern.default]
 }

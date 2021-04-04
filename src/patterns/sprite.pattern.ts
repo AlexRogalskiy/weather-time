@@ -74,6 +74,6 @@ const spritePatterns: Readonly<SpritePatternOperator> = {
  * Returns {@link SpriteOperator} by input {@link SpritePattern} value
  * @param value initial input {@link SpritePattern} to fetch by
  */
-export const getSpritePattern = (value: Optional<SpritePattern>): SpriteOperator => {
+export const getSprite = (value: Optional<SpritePattern>): SpriteOperator => {
     return value ? spritePatterns[value] : spritePatterns[SpritePattern.default]
 }

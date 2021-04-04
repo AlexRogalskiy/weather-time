@@ -126,3 +126,11 @@ export const getFormatDate = (
 ): string => {
     return new Date(value * 1000).toLocaleDateString(locale, options)
 }
+
+export const toFahrenheit = (value: number): number => {
+    return (value * 9) / 5 + 32
+}
+
+export const toCelsius = (value: number): number => {
+    return ((value - 32) * 5) / 9
+}
