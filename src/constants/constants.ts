@@ -62,3 +62,25 @@ export const DIRECTION_OPTIONS = [
     'east',
     'north-east',
 ]
+
+/**
+ * Wind direction configuration options
+ */
+export const WIND_DIRECTION_OPTIONS = [
+    'N',
+    'NNE',
+    'NE',
+    'ENE',
+    'E',
+    'ESE',
+    'SE',
+    'SSE',
+    'S',
+    'SSW',
+    'SW',
+    'WSW',
+    'W',
+    'WNW',
+    'NW',
+    'NNW',
+]

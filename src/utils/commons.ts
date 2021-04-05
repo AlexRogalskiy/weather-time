@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import { Optional } from '../../typings/standard-types'
 
 export const delimiterBy = (value = '>', num = 80): string => value.repeat(num)
 
@@ -133,4 +134,20 @@ export const toFahrenheit = (value: number): number => {
 
 export const toCelsius = (value: number): number => {
     return ((value - 32) * 5) / 9
+}
+
+export const direction = (deg: number, directions: string[]): Optional<string> => {
+    const range = 360 / directions.length
+    let low = 360 - range / 2
+    let high = (low + range) % 360
+
+    for (const direction of directions) {
+        if (deg >= low && deg < high) {
+            return direction
+        }
+        low = (low + range) % 360
+        high = (high + range) % 360
+    }
+
+    return null
 }

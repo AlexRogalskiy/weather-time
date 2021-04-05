@@ -15,7 +15,7 @@ import { profile } from '../utils/profiles'
 import { boxenLogs } from '../utils/loggers'
 
 import { getTheme } from '../themes/themes'
-import { getLayout } from '../layouts/templates/layouts'
+import { getLayout } from '../layouts/layouts'
 import { getFont } from '../fonts/fonts'
 import { getAnimation } from '../animations/animations'
 import { getSvgTemplate } from '../models/template'
