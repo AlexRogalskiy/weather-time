@@ -22,7 +22,7 @@
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 [![DOI](https://zenodo.org/badge/344897154.svg)](https://zenodo.org/badge/latestdoi/344897154)
 [![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/weather-time.svg)](https://david-dm.org/AlexRogalskiy/weather-time)
-[![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/weather-time.svg)](https://david-dm.org/AlexRogalskiy/weather-time?type=dev)
+[![devDependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/weather-time.svg)](https://david-dm.org/AlexRogalskiy/weather-time?type=dev)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/alexrogalskiy/weather-time/master/LICENSE?token=AH44ZFH7IF2KSEDK7LSIW3C7YOFYC)
 [![Issue](https://img.shields.io/github/issues/alexrogalskiy/weather-time)](https://img.shields.io/github/issues/alexrogalskiy/weather-time)

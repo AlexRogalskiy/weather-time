@@ -229,27 +229,27 @@ export type ProfileOptions = {
     /**
      * Image query options.
      */
-    readonly queryOptions: QueryOptions
+    readonly queryOptions: Partial<QueryOptions>
     /**
      * Image configuration options.
      */
-    readonly imageOptions: ImageOptions
+    readonly imageOptions: Partial<ImageOptions>
     /**
      * Style configuration options.
      */
-    readonly styleOptions?: StyleOptions
+    readonly styleOptions?: Partial<StyleOptions>
     /**
      * Layout configuration options.
      */
-    readonly layoutOptions?: TemplateLayoutOptions
+    readonly layoutOptions?: Partial<TemplateLayoutOptions>
     /**
      * Date format configuration options.
      */
-    readonly dateFormatOptions: DateFormatOptions
+    readonly dateFormatOptions: Partial<DateFormatOptions>
     /**
      * Output options
      */
-    readonly outputOptions?: boxen.Options
+    readonly outputOptions?: Partial<boxen.Options>
 }
 //--------------------------------------------------------------------------------------------------
 /**

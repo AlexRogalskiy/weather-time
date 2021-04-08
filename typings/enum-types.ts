@@ -178,6 +178,8 @@ export enum LayoutPattern {
     small = 'small',
     medium = 'medium',
     light = 'light',
+    bono = 'bono',
+    cantor = 'cantor',
 }
 
 //--------------------------------------------------------------------------------------------------
