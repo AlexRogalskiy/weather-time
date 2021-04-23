@@ -81,7 +81,7 @@
         "remark-preset-davidtheclark": "^0.12.0",
         "remark-lint-ordered-list-marker-value": "^2.0.1",
         "typedoc": "^0.20.28",
-        "markdown-link-check": "^3.8.6",
+        "markdown-link-check": "3.8.7",
         "license-checker": "^25.0.1",
         "coveralls": "^3.0.0",
         "jsonlint": "^1.6.3",
