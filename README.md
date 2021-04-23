@@ -33,6 +33,7 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/AlexRogalskiy/weather-time.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/weather-time/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/AlexRogalskiy/weather-time.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/weather-time/context:javascript)
 
+[![codebeat badge](https://codebeat.co/badges/54449d4d-e28c-45ed-9813-c62c36069ccb)](https://codebeat.co/projects/github-com-alexrogalskiy-weather-time-master)
 [![Renovatebot](https://badgen.net/badge/renovate/enabled/green?cache=300)](https://renovatebot.com/)
 [![Dependabot](https://img.shields.io/badge/dependabot-enabled-1f8ceb.svg?style=flat-square)](https://dependabot.com/)
 [![NewReleases](https://newreleases.io/badge.svg)](https://newreleases.io/github/AlexRogalskiy/weather-time)
