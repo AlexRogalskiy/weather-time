@@ -18,7 +18,7 @@ jobs:
           echo "MILESTONE_NUMBER=$(npm --no-git-tag-version version minor | cut -c 2-)" >> $GITHUB_ENV
 
       - id: set
-        uses: actions/github-script@v3
+        uses: actions/github-script@v4
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
