@@ -8,10 +8,12 @@ lerna-debug.log*
 
 # BlueJ files
 *.ctxt
+*.iml
 
 # Cache files
 .npm
 .eslintcache
+lunr-index.json
 
 # Package files
 *.jar
