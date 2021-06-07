@@ -32,6 +32,10 @@
         "project": "./tsconfig.json"
     },
     "rules": {
+        "complexity": [
+            "error",
+            10
+        ],
         "indent": [
             "error",
             4
