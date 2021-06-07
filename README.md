@@ -17,6 +17,7 @@
 
 [![DeepSource](https://deepsource.io/gh/AlexRogalskiy/weather-time.svg/?label=active+issues\&show_trend=true)](https://deepsource.io/gh/AlexRogalskiy/weather-time/?ref=repository-badge)
 [![DeepScan grade](https://deepscan.io/api/teams/11946/projects/16471/branches/354704/badge/grade.svg)](https://deepscan.io/dashboard#view=project\&tid=11946\&pid=16471\&bid=354704)
+[![Codeac.io](https://static.codeac.io/badges/2-344897154.svg "Codeac.io")](https://app.codeac.io/github/AlexRogalskiy/weather-time)
 [![Tokei](https://tokei.rs/b1/github/AlexRogalskiy/weather-time?category=lines)](https://github.com/XAMPPRocky/tokei)
 ![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/AlexRogalskiy/weather-time)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
