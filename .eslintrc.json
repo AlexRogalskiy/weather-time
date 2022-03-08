@@ -23,8 +23,7 @@
         "plugin:eslint-comments/recommended",
         "plugin:unicorn/recommended",
         "plugin:@typescript-eslint/recommended",
-        "prettier",
-        "prettier/@typescript-eslint"
+        "prettier"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -33,6 +32,10 @@
         "project": "./tsconfig.json"
     },
     "rules": {
+        "complexity": [
+            "error",
+            10
+        ],
         "indent": [
             "error",
             4
